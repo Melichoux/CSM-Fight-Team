@@ -18,3 +18,6 @@ Cela permettra d'avoir une meilleure maitrise du site par un professionnel et aj
     - photos "privée" 
     - PRIORITE ++++ => faire un blog: création du modele des articles (cad 1 page), gestion de la récup des données d'articles pour remplir la page article sur le modele predefini (Backend!!!!)
     - création des profils admin
+
+
+Ajouter des userStory pour connaitre les fonctionnalités accessibles en fonction du profil de l'utilisateur.
