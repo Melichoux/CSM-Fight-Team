@@ -1,2 +1,67 @@
 /* Code couleurs:
  */
+* {
+  box-sizing: border-box;
+  /* border: 1px dashed red; */
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+/* <!-- ==========  HEADER  ========== --> */
+
+
+/* ---- LOGO ---- */
+header {
+  background-image: url(../Images/navbar/png-fond-navprincipal.png);
+  background-size: cover;
+  /* Permet de choisir la couvrance de l'image sur la zone */
+  /* align-items: center; */
+  background-color: rgb(37, 54, 73);
+  margin-bottom: 16px;
+  padding: 16px;
+}
+
+
+.logoNav{
+  max-width: 150px;
+}
+
+
+
+/* ---- NavBar ---- */
+
+ul{
+  display: flex;
+  justify-content: end;
+  gap: 12px;
+}
+
+li{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+  color:rgb(240, 248, 255)
+}
+
+a:hover{
+  font-size: 15px;
+  color: rgb(61, 181, 236);
+  transition: 300ms;
+  /* border: 1px solid aliceblue; */
+  /* font-size: large; */
+  text-decoration: solid;    
+}
+
+
+
+
+/* <!-- ==========  MAIN  ========== --> */
+
+    main {
+        background-image: url(../Images/bg-body.png);
+      /* padding: 16px; */
+    }
