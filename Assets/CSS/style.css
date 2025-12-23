@@ -12,7 +12,6 @@ body {
 /* <!-- ==========  HEADER  ========== --> */
 
 
-/* ---- LOGO ---- */
 header {
   background-image: url(../Images/navbar/png-fond-navprincipal.png);
   background-size: cover;
@@ -23,6 +22,11 @@ header {
   padding: 16px;
 }
 
+/* ---- LOGO ---- */
+
+.cadreLogo{
+  height: ;
+}
 
 .logoNav{
   max-width: 150px;
@@ -65,3 +69,21 @@ a:hover{
         background-image: url(../Images/bg-body.png);
       /* padding: 16px; */
     }
+
+
+
+
+
+
+/* <!-- ==========  MAIN  ========== --> */
+
+
+footer {
+  background-image: url(../Images/navbar/png-fond-navprincipal.png);
+  background-size: cover;
+  /* Permet de choisir la couvrance de l'image sur la zone */
+  /* align-items: center; */
+  background-color: rgb(37, 54, 73);
+  margin-bottom: 16px;
+  padding: 16px;
+}
