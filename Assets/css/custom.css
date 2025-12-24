@@ -1,0 +1,64 @@
+/* ANCHOR  Customs*/
+
+/* ---- LOGO ---- */
+
+.cadreLogo{
+  height: ;
+}
+
+.logoNav{
+  max-width: 150px;
+}
+
+
+
+/* ---- NavBar ---- */
+
+ul{
+  display: flex;
+  justify-content: end;
+  gap: 12px;
+}
+
+li{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+  color:rgb(240, 248, 255)
+}
+
+a:hover{
+  font-size: 16px;
+  color: rgb(61, 181, 236);
+  text-decoration: solid;    
+  transition: color 300ms; 
+  /* transition uniquement sur la couleur */
+  /* border: 1px solid aliceblue; */
+  /* font-size: large; */
+}
+
+
+/* <!-- ==========  MAIN  ========== --> */
+
+    main {
+        background-image: url(../Images/bg-body.png);
+        /* Possibilité de déplacer l'image dans le cadre du header, aligner */
+      /* padding: 16px; */
+      min-height: 75vh;
+      /* taille du main par rapport a la taille de la fenetre (=viewport) */
+    }
+
+/* <!-- ==========  MAIN  ========== --> */
+
+
+footer {
+  background-image: url(../Images/navbar/png-fond-navprincipal.png);
+  background-size: cover;
+  /* Permet de choisir la couvrance de l'image sur la zone */
+  /* align-items: center; */
+  background-color: rgb(37, 54, 73);
+  margin-bottom: 16px;
+  padding: 16px;
+}
