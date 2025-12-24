@@ -1,0 +1,47 @@
+[33mcommit 7cac967921927b6249ce90fd0c1677c323cc05c9[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mDev[m[33m, [m[1;31morigin/Dev[m[33m, [m[1;32mmain[m[33m)[m
+Author: Melichoux <meli.tournerie@gmail.com>
+Date:   Tue Dec 23 16:52:31 2025 +0100
+
+    Creation du catalogue avec fetch + debut CSS
+
+[33mcommit 506206a69f20e4f599acc3512f5eb207796e65cf[m[33m ([m[1;31morigin/header[m[33m, [m[1;32mheader[m[33m)[m
+Author: Melichoux <meli.tournerie@gmail.com>
+Date:   Tue Dec 23 14:09:06 2025 +0100
+
+    header ok, footer commencé, merge avec main
+
+[33mcommit 4b420c63222f095252eebccd061c240da8029417[m
+Author: Melichoux <meli.tournerie@gmail.com>
+Date:   Mon Dec 22 16:52:58 2025 +0100
+
+    commencement du hearder
+
+[33mcommit 37a2499aa8dcb372611ade72e73ec04ec7a1f0ea[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Melichoux <meli.tournerie@gmail.com>
+Date:   Wed Dec 17 15:57:15 2025 +0100
+
+    Maj du json avec ajout de date de parution
+
+[33mcommit 24ea98b2f6808ac6c62529156cea603bc3670f05[m
+Author: Melichoux <meli.tournerie@gmail.com>
+Date:   Tue Dec 16 14:45:16 2025 +0100
+
+    ajout index
+
+[33mcommit 32df0af091207d45dc5fdf53928afbb19550c2af[m
+Author: Melichoux <meli.tournerie@gmail.com>
+Date:   Tue Dec 16 14:43:41 2025 +0100
+
+    2ieme tentative de push
+
+[33mcommit cae13ac6caa8856ed4e23d0b26149754145dfa46[m
+Author: Melichoux <meli.tournerie@gmail.com>
+Date:   Tue Dec 16 10:39:00 2025 +0100
+
+    Creation du article-json
+
+[33mcommit 10086af084d6de0836877bec1564411cce3262db[m
+Author: Melichoux <meli.tournerie@gmail.com>
+Date:   Mon Dec 15 13:54:14 2025 +0100
+
+    first commit
