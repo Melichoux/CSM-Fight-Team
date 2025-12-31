@@ -1,6 +1,6 @@
 # Recréation du site du CSM FIGHT TEAM
 
-### Objectifs
+## Objectifs
 
 Je souhaites faire une amélioration du site créé grace a un pack délivrée par la fédération de judo d'un club.
 Cela permettra d'avoir une meilleure maitrise du site par un professionnel et ajouter des fonctionnalités absentes du site.

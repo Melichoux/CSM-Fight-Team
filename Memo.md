@@ -18,5 +18,14 @@
 </html>
 ```
 
+
+Couleurs du site: 
+
 rgb(61, 181, 236)
-#007bff
+
+
+Cahier des charges:
+
+  *NAV BAR:
+    - menu deroulant (="dropdown") vie du club => actu, histoire du club (+acteurs), galeries photos
+    -ajouter btn accueil

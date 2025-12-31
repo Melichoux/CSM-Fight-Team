@@ -12,7 +12,7 @@
     <header>
         <div class="container">
             <div class="cadreLogo">
-                <a href="#" >
+                <a href="index.html" >
                 <!-- a voir si on place le logo dans une div ou pas besoin -->
                     <img class="logoNav" src="#" alt="Logo du club CSM Fight Team - retour a la page d'accueil">
                 </a>
@@ -21,12 +21,17 @@
             <nav aria-label="Navigation principale">
                 <!-- aria-label sert a l'accessibilité pour les malvoyants et permet un meilleur parsing par les moteurs comme google -->
                 <ul>
-                    <li class="navElmt"><a href="#">LA VIE DU CLUB</a></li>
-                    <li class="navElmt"><a href="#">LES COURS</a></li>
+                    <li class="navElmt"><a href="index.html">ACCUEIL</a></li>
                     <li class="navElmt"><a href="catalogue-article.html">ACTUALITES</a></li>
-                    <li class="navElmt"><a href="#">RESULTATS</a></li>
-                    <li class="navElmt"><a href="#">LES ACTEURS</a></li>
-                    <li class="navElmt"><a href="#">AGENDA</a></li>
+                    <li class="navElmt"><a href="#">LA VIE DU CLUB</a>
+                        <ul id="dropDown">
+                            <li class="dropDownElmt"><a href="#">Histoire du Club</a></li>
+                            <li class="dropDownElmt"><a href="#">Galeries Photos</a></li>
+                            <li class="dropDownElmt"><a href="#">Résultats</a></li>
+                            <li class="dropDownElmt"><a href="#">Agenda</a></li>                          
+                        </ul>
+                    </li>
+                    <li class="navElmt"><a href="#">LES COURS</a></li>
                     <li class="navElmt"><a href="#">CONTACTEZ-NOUS</a></li>
 
                     <!-- <a href> est utilisé pour de la navigation en interne et en externe à un site => bonne pratique + meilleur referencement au level du SEO + meilleur ancres pour les navigateurs et pour le parsing -->
@@ -37,7 +42,7 @@
     </header>
     <main>
         <h1>Toutes nos actualités</h1>
-        <div class="article-container">
+        <div class="container">
             
         </div>
     </main>
@@ -70,7 +75,6 @@
         </div>
         <p id="copyright">@ Copyright ALEO 2024</p>
     </footer>
-    <script src="assets/javascript/index.js"></script>
 </body>
 
 </html>

@@ -14,7 +14,7 @@ fetch("http://127.0.0.1:5500/assets/javascript/data/articles.json")
             <img src="${element.img}" alt = "Photo de l'événement">
             <h2> ${element.titre}
             <p> ${element.intro} </p>
-            <a href="article.html"
+            <a href="article.html">En savoir +</a>
             `
             articleContainer.appendChild(article)
 
