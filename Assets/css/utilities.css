@@ -78,6 +78,7 @@ header {
 /* ANCHOR  SIZING*/
 
         /* Max-Width: priorité ++ */
+.mw-100 { max-width: 100%;}
 
         /* Width */
 
@@ -87,7 +88,12 @@ header {
 
 /* ANCHOR  DISPLAY PARENT*/
 
+.dflex {display: flex;}
 
-/* ANCHOR  FLEX */
+
+/* ANCHOR  FLEX ENFANTS*/
+
+.positionr {position: relative;}
+.positionf {position: fixed;}
 
 
