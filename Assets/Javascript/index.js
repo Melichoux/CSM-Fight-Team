@@ -1,4 +1,19 @@
-// Récupération des données des articles pour la page catalogue
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Commande du menu deroulant sur l'onglet "Vie du club"
+        const dropDownBtn = document.querySelector("#dropDownBtn");
+        const dropDownList = document.querySelector("#dropDownList");
+        
+        dropDownBtn.addEventListener("click", (event) => {
+            event.stopPropagation(); // empêche le clic de "remonter" au document et de faire disparaitre le menu tout de suite apres le "click"
+            dropDownList.classList.toggle("open")});
+
+ // fermer le menu si on clique ailleurs
+  document.addEventListener("click", () => {
+    dropDownList.classList.remove("open");
+  });
+  
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+  // Récupération des données des articles pour la page catalogue
 
 fetch("http://127.0.0.1:5500/assets/javascript/data/articles.json")
 .then((response) => response.json())

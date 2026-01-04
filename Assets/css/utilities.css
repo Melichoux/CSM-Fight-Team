@@ -45,6 +45,15 @@
         /* Padding */
                   
 .p16{padding: 16px;}
+
+
+        /* Gap */
+
+.gap-8   {gap: 8px;}
+.gap-16  {gap: 16px;}
+.gap-24  {gap: 24px;}
+.gap-32  {gap: 32px;}
+
                   
 
 /* ANCHOR  TYPO*/
@@ -65,15 +74,9 @@
 .fs-40   {font-size: 40px;}
 
 
-header {
-  background-image: url(../Images/navbar/png-fond-navprincipal.png);
-  background-size: cover;
-  /* Permet de choisir la couvrance de l'image sur la zone */
-  /* align-items: center; */
-  background-color: rgb(37, 54, 73);
-  margin-bottom: 16px;
-  padding: 16px;
-}
+        /* texte */
+.ta-c {text-align: center;}
+.ta-e {text-align: end;}
 
 /* ANCHOR  SIZING*/
 
@@ -89,11 +92,26 @@ header {
 /* ANCHOR  DISPLAY PARENT*/
 
 .dflex {display: flex;}
+.jc-c  {justify-content: center;}
+.jc-l  {justify-content: left;}
+.jc-r  {justify-content: right;}
 
 
 /* ANCHOR  FLEX ENFANTS*/
 
+
+        /* texte */
+
+.positiona {position: absolute;}
 .positionr {position: relative;}
 .positionf {position: fixed;}
 
+        /* texte */
+
+.fd-c { flex-direction: column;}
+.fd-cr { flex-direction: column-reverse;}
+.fd-r { flex-direction: row;}
+.fd-rr { flex-direction: row-reverse;}
+
+.ai-c {align-items: center;}
 

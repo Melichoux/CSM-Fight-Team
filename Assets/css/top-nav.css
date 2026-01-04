@@ -1,0 +1,23 @@
+
+.navElmt {
+    position: relative;
+}
+
+#dropDownList {
+    display: none;
+  position: absolute;
+  top: 100%;          /* 1er element positionné juste sous l’onglet */
+
+  /* les lignes 12 et 13 permettent d'aligner les éléments au centre du bouton */
+  left: 50%;          /* place le bord gauche du menu au centre du bouton */
+  transform: translateX(-50%); /*ramène le menu de la moitié de sa largeur vers la gauche*/
+  
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#dropDownList.open {
+  display: block;
+}
