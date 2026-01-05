@@ -1,23 +1,30 @@
 
 .navElmt {
-    position: relative;
+    position: relative; /* Cette propriete permet de servir de position de reference a tous les elements enfants.
+    Sans ca, les enfants se placeraient en fonction de la page entiere (CaD du body) */
+    display:inline-block;
 }
 
 #dropDownList {
-    display: none;
-  position: absolute;
-  top: 100%;          /* 1er element positionné juste sous l’onglet */
+  display:none; /* Permet de cacher le dropdown quand l'ul est "fermé".
+  Contrairement a la prop visibility/hidden, le display none désactive completement le dropdown
+  (CaD qu'il n'existe pas avant d'etre ouvert et ne peut pas etre interactif et evite les bugs de clics invisibles)*/
 
-  /* les lignes 12 et 13 permettent d'aligner les éléments au centre du bouton */
-  left: 50%;          /* place le bord gauche du menu au centre du bouton */
-  transform: translateX(-50%); /*ramène le menu de la moitié de sa largeur vers la gauche*/
-  
-  display: none;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  position: absolute; /* Permet de sortir le menu du "flux" de la page et donc de le placer sous le bouton a condition que le parent soit en position:relative*/
+  top: 100%;          /* 1er element se positionne juste sous l’onglet */
+  left: 0;
+  margin: 0; /* Permet de supprimer l'espace interieur en sachant que par defaut dans un ul il y a du margin-top:1em, Peut eviter un decalage verticale dans certains cas*/
+  padding: 0; /* Permet de supprimer l'espace interieur en sachant que par defaut dans un ul il y a du padding-left:40px*/
+  width: 100%; /* Force le dropdown a avoir la meme largeur que son parent et aligne les elements au parent donc les lignes 21 et 22 sont inutiles dans ce cas*/ 
+  text-align: right; /*Positionne le texte a l'interieur du contenant*/
+  color: black;
+
+  /* les lignes 21 et 22 permettent d'aligner les éléments au centre du bouton  MAIS PAS NECESSAIRE DANS CE CAS CAR INCOMPATIBLE AVEC LE width:100%*/
+  /*left: 50%; place le bord gauche du menu au centre du bouton (cad par rapport au parent) */
+ /* transform: translateX(-50%); ramène le menu de la moitié de sa largeur vers la gauche (cette valeur se base sur la largeur du menu lui-meme)*/
 }
 
 #dropDownList.open {
-  display: block;
+  display: block; /* Maintien la position en block des elements du dropdown quand il est ouvert*/
+  background-color: aliceblue;
 }

@@ -43,12 +43,12 @@
                   
                   
         /* Padding */
-                  
-.p16{padding: 16px;}
+.p8   {padding: 8px;}                  
+.p16  {padding: 16px;}
+.p24  {padding: 24px;}
 
 
         /* Gap */
-
 .gap-8   {gap: 8px;}
 .gap-16  {gap: 16px;}
 .gap-24  {gap: 24px;}
@@ -78,12 +78,18 @@
 .ta-c {text-align: center;}
 .ta-e {text-align: end;}
 
+
+
 /* ANCHOR  SIZING*/
 
         /* Max-Width: priorité ++ */
-.mw-100 { max-width: 100%;}
+.mw-100   { max-width: 100%;}
+.mw-300px {max-width: 300px;}
+.mw-800px {max-width: 800px;}
 
         /* Width */
+.w-100 {width: 100%;}
+
 
         /* Min-heigth: tres rare*/
 
@@ -92,26 +98,39 @@
 /* ANCHOR  DISPLAY PARENT*/
 
 .dflex {display: flex;}
-.jc-c  {justify-content: center;}
-.jc-l  {justify-content: left;}
-.jc-r  {justify-content: right;}
+.dinl {display: inline}
+.dinflex {display: inline-flex}
+.dblock {display: block;}
 
 
-/* ANCHOR  FLEX ENFANTS*/
-
-
-        /* texte */
-
-.positiona {position: absolute;}
-.positionr {position: relative;}
-.positionf {position: fixed;}
-
-        /* texte */
-
+        /* Flex direction */
 .fd-c { flex-direction: column;}
 .fd-cr { flex-direction: column-reverse;}
 .fd-r { flex-direction: row;}
 .fd-rr { flex-direction: row-reverse;}
+.fw-w {flex-wrap: wrap;}
+.fw-now {flex-wrap: nowrap;}
 
+        /* justify content */
+.jc-c  {justify-content: center;}
+.jc-l  {justify-content: left;}
+.jc-r  {justify-content: right;}
+
+        /* alignement */
+.ai-s {align-items: start;}
 .ai-c {align-items: center;}
+.ai-e {align-items: end;}
+
+/* ANCHOR  FLEX ENFANTS*/
+
+
+        /* Position */
+.positiona {position: absolute;}
+.positionr {position: relative;}
+.positionf {position: fixed;}
+
+
+
+
+
 

@@ -28,20 +28,19 @@ a:hover{
 
 
 /* <!-- ==========  MAIN  ========== --> */
-
     main {
         background-image: url(../Images/bg-body.png);
         /* Possibilité de déplacer l'image dans le cadre du header, aligner */
       /* padding: 16px; */
       min-height: 75vh;
       /* taille du main par rapport a la taille de la fenetre (=viewport) */
+      border-bottom: 4px solid rgb(61, 181, 236);
+
     }
 
-/* <!-- ==========  MAIN  ========== --> */
-
-
-header {
-  background-image: url(../Images/navbar/png-fond-navprincipal.png);
+/* <!-- ==========  HEADER  ========== --> */
+    header {
+    background-image: url(../Images/navbar/png-fond-navprincipal.png);
   background-size: cover;
   /* Permet de choisir la couvrance de l'image sur la zone */
   /* align-items: center; */
@@ -50,11 +49,6 @@ header {
   padding: 16px;
 }
 
-main {
-  
-    border-bottom: 4px solid rgb(61, 181, 236);
-
-}
 
 footer {
   background-image: url(../Images/navbar/png-fond-navprincipal.png);
@@ -64,4 +58,18 @@ footer {
   background-color: rgb(37, 54, 73);
   margin-bottom: 16px;
   padding: 16px;
+}
+
+article {
+  max-width: 300px;
+  margin-top: 4px;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 8px;
+  box-shadow: 1px 1px 10px 1px rgb(61, 181, 236);
+  margin-bottom: 24px; 
+}
+
+article img {
+  width: 100%;
+  border-radius: 8px;
 }
