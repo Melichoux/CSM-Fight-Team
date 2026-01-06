@@ -6,7 +6,13 @@
 
 .color-bck  {color: rgb(37, 54, 73);}
 
-/* ANCHOR SPACING */               
+/* ANCHOR SPACING */  
+
+        /* Margin auto */
+.mil-auto {margin-inline: auto;}
+.m-auto {margin: auto;}
+.mb {margin-block: auto;}
+
         /* Margin all */
 .m-0  { margin: 0; }
 .m-8  { margin: 8px; }
@@ -83,9 +89,10 @@
 /* ANCHOR  SIZING*/
 
         /* Max-Width: priorité ++ */
-.mw-100   { max-width: 100%;}
+.mw-100   {max-width: 100%;}
 .mw-300px {max-width: 300px;}
 .mw-800px {max-width: 800px;}
+.mw-950px {max-width: 950px;}
 
         /* Width */
 .w-100 {width: 100%;}
@@ -97,18 +104,18 @@
 
 /* ANCHOR  DISPLAY PARENT*/
 
-.dflex {display: flex;}
-.dinl {display: inline}
+.dflex   {display: flex;}
+.dinl    {display: inline}
 .dinflex {display: inline-flex}
-.dblock {display: block;}
+.dblock  {display: block;}
 
 
         /* Flex direction */
-.fd-c { flex-direction: column;}
-.fd-cr { flex-direction: column-reverse;}
-.fd-r { flex-direction: row;}
-.fd-rr { flex-direction: row-reverse;}
-.fw-w {flex-wrap: wrap;}
+.fd-c   { flex-direction: column;}
+.fd-cr  { flex-direction: column-reverse;}
+.fd-r   { flex-direction: row;}
+.fd-rr  { flex-direction: row-reverse;}
+.fw-w   {flex-wrap: wrap;}
 .fw-now {flex-wrap: nowrap;}
 
         /* justify content */

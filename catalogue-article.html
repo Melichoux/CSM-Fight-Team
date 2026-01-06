@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toutes les actualités du Dojo</title>
+    <meta name="description" content="#">
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
@@ -41,7 +42,23 @@
     </header>
     <main>
         <h1>Toutes nos actualités</h1>
-        <div class="article-container mw-900px dflex fw-w gap-24 jc-c">
+
+        <form action="#" method="post" id="formFilter" class="dflex fd-r">
+            <label for="filter"> Filtrer les actualités 
+                <select name="filter" id="filter" placeholder="--Séléctionner un filtre--">
+                    <option value="default">--Séléctionner un filtre--</option>
+                    <option value="Judo">Judo</option>
+                    <option value="Jujitsu">Jujitsu</option>
+                    <option value="Compétition">Compétition</option>
+                    <option value="Arbitrage">Arbitrage</option>
+                    <option value="Stage">Stage</option>
+                </select>            
+            </label>                     
+            
+            <input type="submit" id="submit" name="submit" value="OK">
+                <!-- Pas besoin de label car j'ai uniquement besoin du bouton. Du coup, pas de probleme d'alignement entre la checkbox et le bouton -->   
+        </form>
+        <div class="article-container mw-950px dflex fw-w gap-24 jc-c mil-auto">
 
         </div>
     </main>

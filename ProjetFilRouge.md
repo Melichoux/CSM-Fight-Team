@@ -21,3 +21,10 @@ Cela permettra d'avoir une meilleure maitrise du site par un professionnel et aj
 
 
 Ajouter des userStory pour connaitre les fonctionnalités accessibles en fonction du profil de l'utilisateur.
+
+
+Cahier des charges:
+
+  *NAV BAR:
+    - menu deroulant (="dropdown") vie du club => actu, histoire du club (+acteurs), galeries photos
+    -ajouter btn accueil

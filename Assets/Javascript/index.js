@@ -27,11 +27,11 @@ fetch("http://127.0.0.1:5500/assets/javascript/data/articles.json")
             
             const article = document.createElement("article")
             article.innerHTML= `
-            <p> ${element.date} </p>
             <img src="${element.img}" alt = "Photo de l'événement">
-            <h2> ${element.titre}
-            <p> ${element.intro} </p>
-            <a href="article.html?id=${element.id}">En savoir +</a>
+            <p class="dateCard"> ${element.date} </p>
+            <h2 class="titreCard"> ${element.titre}
+            <p class="introCard"> ${element.intro} </p>
+            <a href="article.html?id=${element.id}" class="btnCard">En savoir +</a>
             `
             articleContainer.appendChild(article)
 
@@ -41,3 +41,14 @@ fetch("http://127.0.0.1:5500/assets/javascript/data/articles.json")
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
   // Récupération des données pour la page article
+
+
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  // Page catalogue: barre de filtre 
+  const formFilter = document.querySelector("#formFilter")
+  formFilter.addEventListener("submit", (event) => {
+    if (event.value = value) {
+      
+    }
+  })

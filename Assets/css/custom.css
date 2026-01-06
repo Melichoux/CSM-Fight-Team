@@ -29,7 +29,7 @@ a:hover{
 
 /* <!-- ==========  MAIN  ========== --> */
     main {
-        background-image: url(../Images/bg-body.png);
+      background: linear-gradient(to bottom ,transparent 0%, transparent 85%, rgb(61, 181, 236) 100%), url(../Images/bg-body.png) center/ cover no-repeat ;
         /* Possibilité de déplacer l'image dans le cadre du header, aligner */
       /* padding: 16px; */
       min-height: 75vh;
@@ -60,16 +60,42 @@ footer {
   padding: 16px;
 }
 
+
+/* ------------ Elements des cards ------------ */
 article {
   max-width: 300px;
   margin-top: 4px;
   border: 1px solid rgb(255, 255, 255);
   border-radius: 8px;
   box-shadow: 1px 1px 10px 1px rgb(61, 181, 236);
-  margin-bottom: 24px; 
+  margin-bottom: 24px;
+  max-height: 450px;
 }
 
 article img {
   width: 100%;
   border-radius: 8px;
+}
+
+.dateCard {
+  color:aliceblue;
+  max-width: 150px;
+  border-bottom: 1px solid aliceblue;
+}
+
+.titreCard{
+  color:aliceblue;
+  font-size: 16px;
+  
+}
+
+.introCard{
+  color:aliceblue;
+  font-size: 14px;
+  font-style: italic;
+
+}
+
+.btnCard{
+font-size: 14px;
 }
