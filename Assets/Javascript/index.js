@@ -20,7 +20,6 @@ fetch("http://127.0.0.1:5500/assets/javascript/data/articles.json")
 .then(
     (data)=>{
       const articleContainer = document.querySelector(".article-container");
-      if (articleContainer) {
         for (let index = 0; index < data.length; index++) {
             const element = data[index];
 
@@ -33,14 +32,11 @@ fetch("http://127.0.0.1:5500/assets/javascript/data/articles.json")
             <a href="article.html?id=${element.id}" id="btnCard" class="btnCard">En savoir +</a>
             `
             articleContainer.append(article) // preferer append à appendChild (cf.mdn)
-          }}})
+          }})
 
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------
   //SECTION -  Récupération des données pour la page article
-  //     const submitEvt = document.querySelector("#submit")
-  //     else if (articleContainer && submitEvt) {
-  //         const btnCard = document.querySelector("#btnCard")
-  // }
+
 
 
 

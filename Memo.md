@@ -33,6 +33,7 @@ Notes pour moi meme:
     creer un fichier "robots.txt" (cf guide seo sur teams) pour le SEO
     - Ajouter le fichier sitemap apres le deploiement pour le referencement
     - Ajouter un lien vers le site de la fede de judo
+    - Changer les fetch.then.then par async.await
 
 
 ## SEO  

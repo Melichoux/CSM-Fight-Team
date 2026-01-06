@@ -43,7 +43,9 @@
     </header>
     <main>
         <h1>Articles</h1>
-        <div class="container"></div>
+        <div class="pageArticle dflex  jc-c">
+
+        </div>
     </main>
     <footer>
         <div class="footer_block dflex jc-cr gap-24 p16">
@@ -74,6 +76,7 @@
         </div>
         <p id="copyright">@ Copyright ALEO 2024</p>
     </footer>
+    <!-- Ajout du script directement sur la page plutot que sur le fichier js car on ne peut pas faire 2 fetchs sans d'importante adaptation du code  -->
     <script>
         console.log(window.location) //pour verif qu'on recup les donnees de l'url
         const params = new URLSearchParams(window.location.search);
@@ -86,17 +89,13 @@
             .then((response) => response.json())
             .then(
                 (data) => {
-                    const articleContainer = document.querySelector(".container");
-
-                    // data.find()
+                    const pageArticle = document.querySelector(".pageArticle");
 
                     const single = data.filter(
                         (item) => {
                             return item.id == currentId
                         }
                     )
-
-                    if (articleContainer) {
 
                         for (let index = 0; index < single.length; index++) {
                             const element = single[index];
@@ -106,13 +105,10 @@
             <img src="${element.img}" alt = "Photo de l'événement">
             <p class="dateCard"> ${element.date} </p>
             <h2 class="titreCard"> ${element.titre}
-            <p class="introCard"> ${element.intro} </p>
-            <a href="article.html?id=${element.id}" id="btnCard" class="btnCard">En savoir +</a>
+            <p class="introCard"> ${element.description} </p>
             `
-                            articleContainer.append(article) // preferer append à appendChild (cf.mdn)
-                        }
-                    }
-                })
+                            pageArticle.append(article) // preferer append à appendChild (cf.mdn)
+                        }})
     </script>
 
 </body>
