@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>faire apparaitre le titre de l'article, MAIS COMMENT??!!!!!!</title>
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
+
 <body>
     <header>
         <div class="container">
             <div class="cadreLogo">
-                <a href="index.html" >
-                <!-- a voir si on place le logo dans une div ou pas besoin -->
+                <a href="index.html">
+                    <!-- a voir si on place le logo dans une div ou pas besoin -->
                     <img class="logoNav" src="#" alt="Logo du club CSM Fight Team - retour a la page d'accueil">
                 </a>
             </div>
@@ -27,7 +29,7 @@
                             <li class="dropDownElmt"><a href="#" class="color-bck">Histoire du Club</a></li>
                             <li class="dropDownElmt"><a href="#" class="color-bck">Galeries Photos</a></li>
                             <li class="dropDownElmt"><a href="#" class="color-bck">Résultats</a></li>
-                            <li class="dropDownElmt"><a href="#" class="color-bck">Agenda</a></li>                          
+                            <li class="dropDownElmt"><a href="#" class="color-bck">Agenda</a></li>
                         </ul>
                     </li>
                     <li class="navElmt"><a href="#">LES COURS</a></li>
@@ -44,7 +46,7 @@
         <div class="container"></div>
     </main>
     <footer>
- <div class="footer_block dflex jc-cr gap-24 p16">
+        <div class="footer_block dflex jc-cr gap-24 p16">
             <section class="section_footer dflex fd-c ai-c ta-c">
                 <h3><b>A NE PAS MANQUER</b></h3>
                 <ul>
@@ -72,8 +74,47 @@
         </div>
         <p id="copyright">@ Copyright ALEO 2024</p>
     </footer>
-    <script src="assets/javascript/index.js">
+    <script>
+        console.log(window.location) //pour verif qu'on recup les donnees de l'url
+        const params = new URLSearchParams(window.location.search);
+        console.log(params.get("id"));
+        const currentId = params.get("id");
+        console.log(currentId)
+
+
+        fetch("http://127.0.0.1:5500/assets/javascript/data/articles.json")
+            .then((response) => response.json())
+            .then(
+                (data) => {
+                    const articleContainer = document.querySelector(".container");
+
+                    // data.find()
+
+                    const single = data.filter(
+                        (item) => {
+                            return item.id == currentId
+                        }
+                    )
+
+                    if (articleContainer) {
+
+                        for (let index = 0; index < single.length; index++) {
+                            const element = single[index];
+
+                            const article = document.createElement("article")
+                            article.innerHTML = `
+            <img src="${element.img}" alt = "Photo de l'événement">
+            <p class="dateCard"> ${element.date} </p>
+            <h2 class="titreCard"> ${element.titre}
+            <p class="introCard"> ${element.intro} </p>
+            <a href="article.html?id=${element.id}" id="btnCard" class="btnCard">En savoir +</a>
+            `
+                            articleContainer.append(article) // preferer append à appendChild (cf.mdn)
+                        }
+                    }
+                })
     </script>
 
 </body>
+
 </html>
