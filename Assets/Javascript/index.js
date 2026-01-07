@@ -1,50 +1,82 @@
 // -----------------------------------------------------------------------------------------------------------------------------------------------------------------
-  //ANCHOR - Commande du menu deroulant sur l'onglet "Vie du club"
-        const dropDownBtn = document.querySelector("#dropDownBtn");
-        const dropDownList = document.querySelector("#dropDownList");
-        
-        dropDownBtn.addEventListener("click", (event) => {
-            event.stopPropagation(); // empêche le clic de "remonter" au document et de faire disparaitre le menu tout de suite apres le "click"
-            dropDownList.classList.toggle("open")});
+//ANCHOR - Commande du menu deroulant sur l'onglet "Vie du club"
+const dropDownBtn = document.querySelector("#dropDownBtn");
+const dropDownList = document.querySelector("#dropDownList");
 
-  //SECTION - fermer le menu si on clique ailleurs
-  document.addEventListener("click", () => {
-    dropDownList.classList.remove("open");
-  });
-  
+dropDownBtn.addEventListener("click", (event) => {
+  event.stopPropagation(); // empêche le clic de "remonter" au document et de faire disparaitre le menu tout de suite apres le "click"
+  dropDownList.classList.toggle("open");
+});
+
+//ANCHOR - fermer le menu si on clique ailleurs
+document.addEventListener("click", () => {
+  dropDownList.classList.remove("open");
+});
+
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-  //ANCHOR -   Récupération des données des articles pour la page catalogue
+//ANCHOR -   Récupération des données des articles pour la page catalogue
+const articleContainer = document.querySelector(".article-container");
 
 fetch("http://127.0.0.1:5500/assets/javascript/data/articles.json")
-.then((response) => response.json())
-.then(
-    (data)=>{
-      const articleContainer = document.querySelector(".article-container");
-        for (let index = 0; index < data.length; index++) {
-            const element = data[index];
+  .then((response) => response.json())
+  .then((data) => {
+    for (let index = 0; index < data.length; index++) {
+      const element = data[index];
 
-            const article = document.createElement("article")
-            article.innerHTML= `
-            <img src="${element.img}" alt = "Photo de l'événement">
-            <p class="dateCard"> ${element.date} </p>
-            <h2 class="titreCard"> ${element.titre}
-            <p class="introCard"> ${element.intro} </p>
-            <a href="article.html?id=${element.id}" id="btnCard" class="btnCard">En savoir +</a>
-            `
-            articleContainer.append(article) // preferer append à appendChild (cf.mdn)
-          }})
-
-// ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-  //SECTION -  Récupération des données pour la page article
-
-
-
-
-// ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-  //ANCHOR -  Page catalogue: barre de filtre 
-  const formFilter = document.querySelector("#formFilter")
-  formFilter.addEventListener("submit", (event) => {
-    if (event.value = value) {
-      
+      const article = document.createElement("article");
+      article.classList.add("articleCard");
+      article.innerHTML = `
+            <img src="${element.img}" alt = "Photo de l'événement">`;
+      const divText = document.createElement("div");
+      divText.innerHTML = `
+            <p class="dateCard catalogueCard"> ${element.date} </p>
+            <h2 class="titreCard catalogueCard"> ${element.titre}
+            <p class="introCard catalogueCard"> ${element.intro} </p>
+            <a href="article.html?id=${element.id}" id="btnCard" class="btnCard catalogueCard">En savoir +</a>
+            `;
+      articleContainer.append(article); // preferer append à appendChild (cf.mdn)
+      article.append(divText);
     }
-  })
+  });
+
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+//ANCHOR -  Récupération des données pour la page article
+//cf.page article car plus simple de mettre le script qui utlise l'url directement sur la page concernée
+
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+//ANCHOR -  Page catalogue: barre de filtre
+
+let choix = "";
+const filter = document.querySelector("#filter"); // on applique le filtre directement sur le "select" du form
+formFilter.addEventListener("change", (event) => {
+  console.log(event.target.value);
+
+ articleContainer.innerHTML=""
+
+  // fetch("http://127.0.0.1:5500/assets/javascript/data/articles.json")
+  //   .then((response) => response.json())
+  //   .then((data) => {
+    
+
+
+
+
+  //     for (let index = 0; index < data.length; index++) {
+  //       const element = data[index];
+
+  //       const article = document.createElement("article");
+  //       article.classList.add("articleCard");
+  //       article.innerHTML = `
+  //           <img src="${element.img}" alt = "Photo de l'événement">`;
+  //       const divText = document.createElement("div");
+  //       divText.innerHTML = `
+  //           <p class="dateCard catalogueCard"> ${element.date} </p>
+  //           <h2 class="titreCard catalogueCard"> ${element.titre}
+  //           <p class="introCard catalogueCard"> ${element.intro} </p>
+  //           <a href="article.html?id=${element.id}" id="btnCard" class="btnCard catalogueCard">En savoir +</a>
+  //           `;
+  //       articleContainer.append(article); // preferer append à appendChild (cf.mdn)
+  //       article.append(divText);
+  //     }
+  //   });
+});

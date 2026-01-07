@@ -62,7 +62,7 @@ footer {
 
 
 /* ------------ Elements des cards ------------ */
-article {
+.articleCard {
   max-width: 300px;
   margin-top: 4px;
   border: 1px solid rgb(255, 255, 255);
@@ -98,4 +98,27 @@ article img {
 
 .btnCard{
 font-size: 14px;
+}
+
+
+/* ------------ Mise en page de l'article ------------ */
+
+.articleSeul {
+  color: aliceblue;
+}
+.imgArticle{
+  object-fit: cover;
+}
+
+.dateArticle{
+  max-width: 300px;
+  border-bottom: 1px solid aliceblue;
+}
+
+.titreArticle {
+padding: 8px;
+}
+
+.descrArticle {
+  padding: 16px;
 }

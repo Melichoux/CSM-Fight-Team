@@ -5,6 +5,13 @@
     display:inline-block;
 }
 
+#dropDownBtn{
+    background: transparent; /* Permet de rendre le fond invisible*/
+    border: none; /* Supprime la bordure et donc le cadre qui pourrait persister sans background*/
+    color:  aliceblue; /*On peut aussi mettre color:inherit pour que le bouton herite de la couleur du parent*/
+    font: inherit; /* Permet l'heritage de toutes les prop de la police du menu (permet une cohesion visuelle)*/
+    cursor: pointer; /*Permet de faire apparaitre une main en pointeur pour mettre en evidence l'element cliquable dans le menu*/
+}
 #dropDownList {
   display:none; /* Permet de cacher le dropdown quand l'ul est "fermé".
   Contrairement a la prop visibility/hidden, le display none désactive completement le dropdown
@@ -16,7 +23,7 @@
   margin: 0; /* Permet de supprimer l'espace interieur en sachant que par defaut dans un ul il y a du margin-top:1em, Peut eviter un decalage verticale dans certains cas*/
   padding: 0; /* Permet de supprimer l'espace interieur en sachant que par defaut dans un ul il y a du padding-left:40px*/
   width: 100%; /* Force le dropdown a avoir la meme largeur que son parent et aligne les elements au parent donc les lignes 21 et 22 sont inutiles dans ce cas*/ 
-  text-align: right; /*Positionne le texte a l'interieur du contenant*/
+  text-align: center; /*Positionne le texte a l'interieur du contenant*/
   color: black;
 
   /* les lignes 21 et 22 permettent d'aligner les éléments au centre du bouton  MAIS PAS NECESSAIRE DANS CE CAS CAR INCOMPATIBLE AVEC LE width:100%*/

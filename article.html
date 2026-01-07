@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>faire apparaitre le titre de l'article, MAIS COMMENT??!!!!!!</title>
+    <title>Article: </title>
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
@@ -102,13 +102,18 @@
                             const element = single[index];
 
                             const article = document.createElement("article")
+                            article.classList.add("articleSeul")
                             article.innerHTML = `
-            <img src="${element.img}" alt = "Photo de l'événement">
-            <p class=""> ${element.date} </p>
-            <h2 class=""> ${element.titre}
-            <p class=""> ${element.description} </p>
+            <img src="${element.img}" alt = "Photo de l'événement" class="imgArticle">`
+             const divText = document.createElement("div")
+            divText.innerHTML=`
+            <p class="dateArticle"> ${element.date} </p>
+            <h2 class="titreArticle"> ${element.titre} </h2>
+            <p class="descrArticle"> ${element.description} </p>
             `
                             pageArticle.append(article) // preferer append à appendChild (cf.mdn)
+                            article.append(divText)
+                            document.title = `Article ${element.titre}` // Fais apparaitre le nom de l'article dans la balise title de la page
                         }})
     </script>
 
