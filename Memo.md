@@ -22,7 +22,7 @@ Notes pour moi meme:
 
     OK mais pas utile dans mon cas - pour le fetch du catalogue: trouver un moyen de mettre tout le texte dans un seule div en utilisant la method append et non pas appendChild
     - mise en forme du texte de chaque card du catalogue
-    - Faire une method pour recup dans l'intro d'un article la premiere phrase de chaque description 
+    Bonus - Faire une method pour recup dans l'intro d'un article la premiere phrase de chaque description 
     OK - creer un fichier "robots.txt" (cf guide seo sur teams) pour le SEO
     OK - Ajouter le fichier sitemap apres le deploiement pour le referencement
     - Ajouter un lien vers le site de la fede de judo

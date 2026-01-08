@@ -45,38 +45,36 @@ fetch("http://127.0.0.1:5500/assets/javascript/data/articles.json")
 
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 //ANCHOR -  Page catalogue: barre de filtre
-
-let choix = "";
 const filter = document.querySelector("#filter"); // on applique le filtre directement sur le "select" du form
-formFilter.addEventListener("change", (event) => {
+filter.addEventListener("change", (event) => { //
+  const userChoice = event.target.value;
   console.log(event.target.value);
-
- articleContainer.innerHTML=""
-
-  // fetch("http://127.0.0.1:5500/assets/javascript/data/articles.json")
-  //   .then((response) => response.json())
-  //   .then((data) => {
+  articleContainer.innerHTML="" // permet de vider la page avant de faire le nouvel affichage
+  
+  fetch("http://127.0.0.1:5500/assets/javascript/data/articles.json")
+  .then((response) => response.json())
+  .then((data) => {
     
+     const dataFiltre = data.filter(article =>
+        userChoice === "" || article.tags.includes(userChoice)
+      ); 
 
+      for (let index = 0; index < dataFiltre.length; index++) {
+        const element = dataFiltre[index];
 
-
-
-  //     for (let index = 0; index < data.length; index++) {
-  //       const element = data[index];
-
-  //       const article = document.createElement("article");
-  //       article.classList.add("articleCard");
-  //       article.innerHTML = `
-  //           <img src="${element.img}" alt = "Photo de l'événement">`;
-  //       const divText = document.createElement("div");
-  //       divText.innerHTML = `
-  //           <p class="dateCard catalogueCard"> ${element.date} </p>
-  //           <h2 class="titreCard catalogueCard"> ${element.titre}
-  //           <p class="introCard catalogueCard"> ${element.intro} </p>
-  //           <a href="article.html?id=${element.id}" id="btnCard" class="btnCard catalogueCard">En savoir +</a>
-  //           `;
-  //       articleContainer.append(article); // preferer append à appendChild (cf.mdn)
-  //       article.append(divText);
-  //     }
-  //   });
+        const article = document.createElement("article");
+        article.classList.add("articleCard");
+        article.innerHTML = `
+            <img src="${element.img}" alt = "Photo de l'événement">`;
+        const divText = document.createElement("div");
+        divText.innerHTML = `
+            <p class="dateCard catalogueCard"> ${element.date} </p>
+            <h2 class="titreCard catalogueCard"> ${element.titre}
+            <p class="introCard catalogueCard"> ${element.intro} </p>
+            <a href="article.html?id=${element.id}" id="btnCard" class="btnCard catalogueCard">En savoir +</a>
+            `;
+        articleContainer.append(article); // preferer append à appendChild (cf.mdn)
+        article.append(divText);
+      }
+    });
 });

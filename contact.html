@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="fr">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
+    <title>Toutes les actualités du Dojo</title>
+    <meta name="description" content="#">
     <link rel="stylesheet" href="assets/css/main.css">
-    <meta name="description" content="Bienvenue sur le site du CSM FIGHT TEAM, club de judo-jujitsu marseillais." /> 
 </head>
 <body>
     <header>
@@ -41,10 +40,31 @@
         </div>
 
     </header>
-    <main>
-        <h1 class="ai-c">Home</h1>
+    <main> <form method="post" action="#">
+            <div>
+                <label for="firstName"></label>
+                <input id="firstName" type="text" placeholder="firstname" name="firstName">
+            </div>
 
-    </main>
+            <div>
+                <label for="lastName"></label>
+                <input id="lastName" type="text" placeholder="lastname" name="lastName" >
+            </div>
+
+            <div>
+                <label for="email"></label>
+                <input id="email" type="email" placeholder="username@gmail.com" required>
+            </div>
+
+            <div>
+                <label for="sport">#</label>
+                <input type="checkbox" >
+            </div>
+
+            <div>
+                <button type="submit">Register now</button>
+            </div>
+        </form></main>
     <footer>
  <div class="footer_block dflex jc-cr gap-24 p16">
             <section class="section_footer dflex fd-c ai-c ta-c">
@@ -77,5 +97,4 @@
     <script src="assets/javascript/index.js">
     </script>
 </body>
-
 </html>
