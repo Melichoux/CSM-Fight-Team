@@ -1,100 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Toutes les actualités du Dojo</title>
-    <meta name="description" content="#">
-    <link rel="stylesheet" href="assets/css/main.css">
-</head>
-<body>
+    <meta name="description" content="#" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body>
     <header>
-        <div class="container">
-            <div class="cadreLogo">
-                <a href="index.html" >
-                <!-- a voir si on place le logo dans une div ou pas besoin -->
-                    <img class="logoNav" src="#" alt="Logo du club CSM Fight Team - retour a la page d'accueil">
-                </a>
-            </div>
-            <!-- 0.5rem 4rem 2rem 0.5rem; a appliquer sur l'image pour recreer le design chelou du site -->
-            <nav aria-label="Navigation principale">
-                <!-- aria-label sert a l'accessibilité pour les malvoyants et permet un meilleur parsing par les moteurs comme google -->
-                <ul>
-                    <li class="navElmt"><a href="index.html">ACCUEIL</a></li>
-                    <li class="navElmt"><a href="catalogue-article.html">ACTUALITES</a></li>
-                    <li id="dropDown" class="navElmt">
-                        <button id="dropDownBtn"> LA VIE DU CLUB ▾</button>
-                        <ul id="dropDownList" class="dflex">
-                            <li class="dropDownElmt"><a href="#" class="color-bck">Histoire du Club</a></li>
-                            <li class="dropDownElmt"><a href="#" class="color-bck">Galeries Photos</a></li>
-                            <li class="dropDownElmt"><a href="#" class="color-bck">Résultats</a></li>
-                            <li class="dropDownElmt"><a href="#" class="color-bck">Agenda</a></li>                          
-                        </ul>
-                    </li>
-                    <li class="navElmt"><a href="#">LES COURS</a></li>
-                    <li class="navElmt"><a href="contact.html">CONTACTEZ-NOUS</a></li>
-
-                    <!-- <a href> est utilisé pour de la navigation en interne et en externe à un site => bonne pratique + meilleur referencement au level du SEO + meilleur ancres pour les navigateurs et pour le parsing -->
-                </ul>
-            </nav>
+      <div class="container">
+        <div class="cadreLogo">
+          <a href="index.html">
+            <!-- a voir si on place le logo dans une div ou pas besoin -->
+            <img
+              class="logoNav"
+              src="assets/images/Logo CSM Fight Club.png"
+              alt="Logo du club CSM Fight Team - retour a la page d'accueil"
+            />
+          </a>
         </div>
+        <!-- 0.5rem 4rem 2rem 0.5rem; a appliquer sur l'image pour recreer le design chelou du site -->
+        <nav aria-label="Navigation principale">
+          <!-- aria-label sert a l'accessibilité pour les malvoyants et permet un meilleur parsing par les moteurs comme google -->
+          <ul>
+            <li class="navElmt"><a href="index.html">ACCUEIL</a></li>
+            <li class="navElmt">
+              <a href="catalogue-article.html">ACTUALITES</a>
+            </li>
+            <li id="dropDown" class="navElmt">
+              <button id="dropDownBtn">LA VIE DU CLUB ▾</button>
+              <ul id="dropDownList" class="dflex">
+                <li class="dropDownElmt">
+                  <a href="#" class="color-bck">Histoire du Club</a>
+                </li>
+                <li class="dropDownElmt">
+                  <a href="#" class="color-bck">Galeries Photos</a>
+                </li>
+                <li class="dropDownElmt">
+                  <a href="#" class="color-bck">Résultats</a>
+                </li>
+                <li class="dropDownElmt">
+                  <a href="#" class="color-bck">Agenda</a>
+                </li>
+              </ul>
+            </li>
+            <li class="navElmt"><a href="#">LES COURS</a></li>
+            <li class="navElmt"><a href="contact.html">CONTACTEZ-NOUS</a></li>
 
+            <!-- <a href> est utilisé pour de la navigation en interne et en externe à un site => bonne pratique + meilleur referencement au level du SEO + meilleur ancres pour les navigateurs et pour le parsing -->
+          </ul>
+        </nav>
+      </div>
     </header>
-    <main> <form method="post" action="#">
-            <div>
-                <label for="firstName"></label>
-                <input id="firstName" type="text" placeholder="firstname" name="firstName">
-            </div>
-
-            <div>
-                <label for="lastName"></label>
-                <input id="lastName" type="text" placeholder="lastname" name="lastName" >
-            </div>
-
-            <div>
-                <label for="email"></label>
-                <input id="email" type="email" placeholder="username@gmail.com" required>
-            </div>
-
-            <div>
-                <label for="sport">#</label>
-                <input type="checkbox" >
-            </div>
-
-            <div>
-                <button type="submit">Register now</button>
-            </div>
-        </form></main>
-    <footer>
- <div class="footer_block dflex jc-cr gap-24 p16">
-            <section class="section_footer dflex fd-c ai-c ta-c">
-                <h3><b>A NE PAS MANQUER</b></h3>
-                <ul>
-                    <li><a href="#">Actualités</a></li>
-                    <li><a href="#"> c</a></li>
-                    <li><a href="#">c </a></li>
-                </ul>
-            </section>
-            <section class="section_footer dflex fd-c ai-c ta-c">
-                <h3><b>Contact</b></h3>
-                <ul>
-                    <li><a href="#">c </a></li>
-                    <li><a href="#">c </a></li>
-                    <li><a href="#"> c</a></li>
-                </ul>
-            </section>
-            <section class="section_footer dflex fd-c ai-c ta-c">
-                <h3><b>Classement</b></h3>
-                <ul>
-                    <li><a href="#">d </a></li>
-                    <li><a href="#">d </a></li>
-                    <li><a href="#"> d</a></li>
-                </ul>
-            </section>
+    <main>
+      <form method="post" action="#" class="dblock fd-c ai-c ta-c mw-800px">
+        <div>
+          <label for="nom">Nom</label>
+          <input id="nom" type="text" placeholder="Votre nom" name="nom" required />
         </div>
-        <p id="copyright">@ Copyright ALEO 2024</p>
+
+        <div>
+          <label for="prenom">Prénom</label>
+          <input id="prenom" type="text" placeholder="Votre prénom" name="prenom" required/>
+        </div>
+
+        <div>
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="username@gmail.com" required />
+        </div>
+
+        <fieldset>
+          <legend>A propos de quoi nous contactez-vous::</legend>
+
+          <div>
+            <label for="judo">Judo</label>
+            <input type="checkbox" id="judo" name="option[]" value="judo" checked />
+          </div>
+
+          <div>
+            <label for="jujitsu">Jujitsu</label>
+            <input type="checkbox" id="jujitsu" name="option[]" value="jujitsu" />
+          </div>
+          <div>
+            <label for="jujitsu-bresilien">Jujitsu Brésilien</label>
+            <input type="checkbox" id="jujitsu-bresilien" name="option[]" value="jujitsu-bresilien"/>
+          </div>
+          <div>
+            <label for="autre">Autre</label>
+            <input type="checkbox" id="autre" name="option[]" value="autre" />
+          </div>
+        </fieldset>
+        <div>
+          <label for="message">Votre message :</label><br />
+          <textarea id="message" name="message" placeholder="Écrivez votre message ici..." maxlength="500" required> </textarea><br />
+        </div>
+
+        <div>
+          <button type="submit">Envoyer</button>
+        </div>
+      </form>
+    </main>
+    <footer>
+      <div class="footer_block dflex jc-cr gap-24 p16">
+        <section class="section_footer dflex fd-c ai-c ta-c">
+          <h3><b>A NE PAS MANQUER</b></h3>
+          <ul>
+            <li><a href="#">Actualités</a></li>
+            <li><a href="#"> c</a></li>
+            <li><a href="#">c </a></li>
+          </ul>
+        </section>
+        <section class="section_footer dflex fd-c ai-c ta-c">
+          <h3><b>Contact</b></h3>
+          <ul>
+            <li><a href="#">c </a></li>
+            <li><a href="#">c </a></li>
+            <li><a href="#"> c</a></li>
+          </ul>
+        </section>
+        <section class="section_footer dflex fd-c ai-c ta-c">
+          <h3><b>Classement</b></h3>
+          <ul>
+            <li><a href="#">d </a></li>
+            <li><a href="#">d </a></li>
+            <li><a href="#"> d</a></li>
+          </ul>
+        </section>
+      </div>
+      <p id="copyright">@ Copyright ALEO 2024</p>
     </footer>
-    <script src="assets/javascript/index.js">
-    </script>
-</body>
+<!-- Inclure la librairie EmailJS -->
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+  // Initialisation avec ta clé publique EmailJS
+  emailjs.init("28Nlfyq7zS4Hhf6hm"); // remplace par ta clé publique
+</script>
+
+<script>
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault(); // Empêche le rechargement de la page
+
+    // Récupérer toutes les options cochées
+    const options = Array.from(document.querySelectorAll("input[name='option[]']:checked"))
+                         .map(el => el.value)
+                         .join(", ");
+
+    // Préparer les données à envoyer
+    const templateParams = {
+      nom: document.getElementById("nom").value,
+      prenom: document.getElementById("prenom").value,
+      email: document.getElementById("email").value,
+      opter: options,
+      message: document.getElementById("message").value
+    };
+
+    // Envoyer le formulaire via EmailJS
+    emailjs.send("service_ul91nnp", "template_0ecflha", templateParams)
+      .then(function(response) {
+        console.log("Message envoyé!", response.status, response.text);
+        alert("Merci, votre message a été envoyé !");
+        form.reset(); // vide le formulaire après envoi
+      }, function(error) {
+        console.log("Erreur...", error);
+        alert("Oups, le message n'a pas pu être envoyé. Réessayez.");
+      });
+  });
+</script>
+  </body>
 </html>

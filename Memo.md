@@ -31,6 +31,7 @@ Notes pour moi meme:
     - Ajouter un fond sur les cards pour la lecture
     - filtrer le tableau avant la creation des cards dans le fetch de la barre de filtre
     - créer une fonction pour la création des cards dans l'index pour
+    - back=> recup securisé des données des checkbox et de l'envoi du mail
 
 
 ## SEO  

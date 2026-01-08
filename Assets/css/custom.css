@@ -8,6 +8,7 @@
 
 .logoNav{
   max-width: 150px;
+  background-color: aliceblue;
 }
 
 
@@ -29,7 +30,7 @@ a:hover{
 
 /* <!-- ==========  MAIN  ========== --> */
     main {
-      background: linear-gradient(to bottom ,transparent 0%, transparent 85%, rgb(61, 181, 236) 100%), url(../Images/bg-body.png) center/ cover no-repeat ;
+      background: linear-gradient( rgb(240, 248, 255,0.3),rgb(240, 248, 255,0.3)) , url(../Images/bg-body.png) center/ cover no-repeat ;
         /* Possibilité de déplacer l'image dans le cadre du header, aligner */
       /* padding: 16px; */
       min-height: 75vh;
@@ -40,7 +41,7 @@ a:hover{
 
 /* <!-- ==========  HEADER  ========== --> */
     header {
-    background-image: url(../Images/navbar/png-fond-navprincipal.png);
+    /* background-image: url(../Images/navbar/png-fond-navprincipal.png); */
   background-size: cover;
   /* Permet de choisir la couvrance de l'image sur la zone */
   /* align-items: center; */
@@ -51,8 +52,8 @@ a:hover{
 
 
 footer {
-  background-image: url(../Images/navbar/png-fond-navprincipal.png);
-  background-size: cover;
+  /* background-image: url(../Images/navbar/png-fond-navprincipal.png);
+  background-size: cover; */
   /* Permet de choisir la couvrance de l'image sur la zone */
   /* align-items: center; */
   background-color: rgb(37, 54, 73);
@@ -70,6 +71,7 @@ footer {
   box-shadow: 1px 1px 10px 1px rgb(61, 181, 236);
   margin-bottom: 24px;
   max-height: 450px;
+  background-color: rgb(37, 54, 73);
 }
 
 article img {
