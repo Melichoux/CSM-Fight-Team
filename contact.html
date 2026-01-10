@@ -67,7 +67,7 @@
 
         <div>
           <label for="email">Email</label>
-          <input id="email" type="email" placeholder="username@gmail.com" required />
+          <input id="email" type="email" name="email" placeholder="username@gmail.com" required />
         </div>
 
         <fieldset>
@@ -131,12 +131,22 @@
       <p id="copyright">@ Copyright ALEO 2024</p>
     </footer>
 <!-- Inclure la librairie EmailJS -->
-<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<!-- ATTENTION VERSION OBSOLETE=> <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script type="text/javascript">
   // Initialisation avec ta clé publique EmailJS
   emailjs.init("28Nlfyq7zS4Hhf6hm"); // remplace par ta clé publique
+</script> -->
+<script
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
 </script>
 
+<script>
+  (function () {
+    emailjs.init({
+      publicKey: "28Nlfyq7zS4Hhf6hm", // 🔴 NOUVELLE SYNTAXE
+    });
+  })();
+</script>
 <script>
   const form = document.querySelector("form");
 
@@ -153,7 +163,7 @@
       nom: document.getElementById("nom").value,
       prenom: document.getElementById("prenom").value,
       email: document.getElementById("email").value,
-      opter: options,
+      option: options,
       message: document.getElementById("message").value
     };
 
@@ -163,11 +173,16 @@
         console.log("Message envoyé!", response.status, response.text);
         alert("Merci, votre message a été envoyé !");
         form.reset(); // vide le formulaire après envoi
-      }, function(error) {
-        console.log("Erreur...", error);
-        alert("Oups, le message n'a pas pu être envoyé. Réessayez.");
-      });
+      }) 
+      .catch((error) => {
+    console.error("EmailJS error:", error);
+    alert("Erreur");
   });
+});
+        // function(error) {
+      //   console.log("Erreur...", error);
+      //   alert("Oups, le message n'a pas pu être envoyé. Réessayez.");
+      // });
 </script>
   </body>
 </html>
