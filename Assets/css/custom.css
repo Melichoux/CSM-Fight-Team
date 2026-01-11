@@ -1,11 +1,6 @@
 /* ANCHOR  Customs*/
 
 /* ---- LOGO ---- */
-
-/* .cadreLogo{
-  height: ;
-} */
-
 .logoNav{
   max-width: 150px;
   background-color: aliceblue;
@@ -14,9 +9,6 @@
 
 
 /* ---- NavBar ---- */
-
-
-
 a:hover{
   font-size: 16px;
   color: rgb(61, 181, 236);
@@ -28,40 +20,47 @@ a:hover{
 }
 
 
-/* <!-- ==========  MAIN  ========== --> */
-    main {
-      background: linear-gradient( rgb(240, 248, 255,0.3),rgb(240, 248, 255,0.3)) , url(../Images/bg-body.png) center/ cover no-repeat ;
-        /* Possibilité de déplacer l'image dans le cadre du header, aligner */
-      /* padding: 16px; */
-      min-height: 75vh;
-      /* taille du main par rapport a la taille de la fenetre (=viewport) */
-      border-bottom: 4px solid rgb(61, 181, 236);
-
-    }
-
 /* <!-- ==========  HEADER  ========== --> */
     header {
-    /* background-image: url(../Images/navbar/png-fond-navprincipal.png); */
   background-size: cover;
-  /* Permet de choisir la couvrance de l'image sur la zone */
-  /* align-items: center; */
   background-color: rgb(37, 54, 73);
   border-bottom: 4px solid rgb(61, 181, 236);
   padding: 16px;
 }
 
+/* <!-- ==========  MAIN  ========== --> */
+    main {
+      background: linear-gradient( rgb(240, 248, 255,0.3),rgb(240, 248, 255,0.3)) , url(../Images/bg-body.png) center/ cover no-repeat ;
+        /* Possibilité de déplacer l'image dans le cadre du header, aligner */
+      /* padding: 16px; */  
+      min-height: 75vh;
+      /* taille du main par rapport a la taille de la fenetre (=viewport) */
+      border-bottom: 4px solid rgb(61, 181, 236);
 
+    }  
+    
+/* <!-- ==========  FOOTER  ========== --> */
 footer {
-  /* background-image: url(../Images/navbar/png-fond-navprincipal.png);
-  background-size: cover; */
-  /* Permet de choisir la couvrance de l'image sur la zone */
-  /* align-items: center; */
   background-color: rgb(37, 54, 73);
   margin-bottom: 16px;
-  padding: 16px;
+  padding: 16px; 
 }
 
+.section_footer{
+  border-left: 1px solid aliceblue;
+  border-top: 1px solid aliceblue;
+  flex: 1 1 250px;
+}
+.section_footer ul{
+  justify-content: left;
+  align-self: flex-start;
+  text-align: left;
+}
 
+#copyright{
+  color: aliceblue;
+  text-align: center;
+}
 /* ------------ Elements des cards ------------ */
 .articleCard {
   max-width: 300px;
@@ -72,6 +71,18 @@ footer {
   margin-bottom: 24px;
   max-height: 450px;
   background-color: rgb(37, 54, 73);
+  display: flex;
+  flex-direction: column;
+}
+
+article div{
+margin: 8px;
+text-align: left;
+display: flex;
+flex-direction: column;
+flex:1;
+
+;
 }
 
 article img {
@@ -99,7 +110,10 @@ article img {
 }
 
 .btnCard{
+margin-top: auto;
 font-size: 14px;
+align-self: flex-start; /* s'aligne sur la gauche*/
+text-decoration: underline;
 }
 
 
@@ -123,4 +137,64 @@ padding: 8px;
 
 .descrArticle {
   padding: 16px;
+}
+
+
+
+/* ---------- Burger Menu ---------- */
+.burger{
+  display: none;
+}
+.burger img {
+  width: 40px;
+  height: 40px;
+}
+
+.mainNav{
+  display: flex;
+}
+
+@media (max-width: 768px) {
+
+  .burger {
+    display: block;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  
+  .mainNav.active { /* cache le menu en dehors de l'ecran grace a "right:-100%" */
+    position: fixed;
+    inset: 0;                 /* top/right/bottom/left = 0 */
+    background-color: #000;
+
+    transform: translateX(100%);  /* CACHÉ */
+    transition: transform 0.3s ease;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  
+  .mainNav.active { /* rend le menu visible */
+     transform: translateX(0);
+  }
+
+  .mainNav ul {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 4rem;
+  }
+
+  .dropDownList {
+    display: none;
+    flex-direction: column;
+  }
+
+  .dropDown.open .dropdownList {
+    display: flex;
+  }
 }

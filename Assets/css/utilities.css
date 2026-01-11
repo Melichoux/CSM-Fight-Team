@@ -104,7 +104,7 @@
         /* height => INTERDIT sauf cas tres particulier*/
 
 /* ANCHOR  DISPLAY PARENT*/
-
+.dnone   {display: none;}
 .dflex   {display: flex;}
 .dinl    {display: inline}
 .dinflex {display: inline-flex}
