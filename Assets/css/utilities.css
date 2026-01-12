@@ -1,10 +1,13 @@
 /* ANCHOR COLORS */
 
-.color-b  {color: rgb(61, 181, 236);}
+.color-b    {color: rgb(61, 181, 236);}
 
-.color-w  {color: aliceblue;}
+.color-w    {color: aliceblue;}
 
 .color-bck  {color: rgb(37, 54, 73);}
+
+.color-r    {color:red}
+
 
 /* ANCHOR SPACING */  
 
@@ -83,6 +86,7 @@
         /* texte */
 .ta-c {text-align: center;}
 .ta-e {text-align: end;}
+.ta-s {text-align: start;}
 
 
 
@@ -95,11 +99,12 @@
 .mw-950px {max-width: 950px;}
 
         /* Width */
-.w-100 {width: 100%;}
+.w-100   {width: 100%;}
 .w-900px {width:900px;}
 
 
-        /* Min-heigth: tres rare*/
+        /* Min-width */
+.minw-100   {min-width: 100vh;}
 
         /* height => INTERDIT sauf cas tres particulier*/
 
@@ -125,9 +130,10 @@
 .jc-r  {justify-content: right;}
 
         /* alignement */
-.ai-s {align-items: start;}
-.ai-c {align-items: center;}
-.ai-e {align-items: end;}
+.ai-s  {align-items: start;}
+.ai-fs {align-items: flex-start;}
+.ai-c  {align-items: center;}
+.ai-e  {align-items: end;}
 
 /* ANCHOR  FLEX ENFANTS*/
 
