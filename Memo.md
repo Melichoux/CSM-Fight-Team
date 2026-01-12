@@ -21,7 +21,7 @@
 Notes pour moi meme:
 
     OK mais pas utile dans mon cas - pour le fetch du catalogue: trouver un moyen de mettre tout le texte dans un seule div en utilisant la method append et non pas appendChild
-    - mise en forme du texte de chaque card du catalogue
+    OK - mise en forme du texte de chaque card du catalogue
     - mise en forme de la barre de filtre
     - mise en forme du formulaire de contact
     Bonus - Faire une method pour recup dans l'intro d'un article la premiere phrase de chaque description 

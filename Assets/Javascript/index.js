@@ -78,16 +78,3 @@ filter.addEventListener("change", (event) => { //
       }
     });
 });
-
-//ANCHOR -  Menu burger
-const burger = document.querySelector(".burger");
-const nav = document.querySelector(".mainNav");
-
-burger.addEventListener("click", () => {
-  nav.classList.toggle("active");
-
-  const img = burger.querySelector("img");
-  img.src = nav.classList.contains("active")
-    ? "assets/images/close.svg"
-    : "assets/images/burger.svg";
-});
