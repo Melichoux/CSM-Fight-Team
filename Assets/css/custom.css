@@ -19,6 +19,25 @@ a:hover{
   /* font-size: large; */
 }
 
+@media (max-width: 500px) {
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navElmt {
+    width: 100%;
+  }
+
+  #dropDownList {
+    padding-left: 1rem; /* léger décalage pour la hiérarchie */
+    background-color: white;
+    position: relative;  /* reste dans le flux pour pousser les éléments, mais permet z-index */
+    z-index: 100; 
+  }
+}
+
+
 
 /* <!-- ==========  HEADER  ========== --> */
     header {
@@ -146,5 +165,21 @@ padding: 8px;
 }
 
 /* ------------ Barre de filtre de la page catalogue ------------ */
+#formFilter{
+    background-color: rgb(37, 54, 73);
+    border-radius: 8px;
+    margin: 16px;
+    padding: 16px;
+}
 
-
+/* ------------ Mise en page du formulaire de la page contact ------------ */
+.form-contact{
+    color: aliceblue;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 8px;
+    box-shadow: 1px 1px 10px 1px rgb(61, 181, 236);  
+    background-color: rgb(37, 54, 73);
+    margin-bottom: 24px;
+    max-width: 900px;
+    /* min-height: 50vh; */
+}

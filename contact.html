@@ -55,25 +55,27 @@
         </nav>
       </div>
     </header>
-    <main>
+    <main class="dflex jc-c ai-c ">
+      <div class="form-contact dflex fw-w jc-c ai-c minw-100 mt-32">
       <form method="post" action="#" class="dblock fd-c ai-c ta-c mw-800px">
-        <div>
-          <label for="nom">Nom</label>
+        <h1 class="p24">Contatez-nous</h1>
+        <div class="mb-16">
+          <label for="nom">Nom<span class="color-r ">*</span></label><br>
           <input id="nom" type="text" placeholder="Votre nom" name="nom" required />
         </div>
 
-        <div>
-          <label for="prenom">Prénom</label>
+        <div class="mb-16">
+          <label for="prenom">Prénom<span class="color-r ">*</span></label><br>
           <input id="prenom" type="text" placeholder="Votre prénom" name="prenom" required/>
         </div>
 
-        <div>
-          <label for="email">Email</label>
+        <div class="mb-16">
+          <label for="email">Email<span class="color-r">*</span></label><br>
           <input id="email" type="email" name="email" placeholder="username@gmail.com" required />
         </div>
 
-        <fieldset>
-          <legend>A propos de quoi nous contactez-vous::</legend>
+        <fieldset class="mb-16">
+          <legend>A propos de quoi nous contactez-vous:</legend>
 
           <div>
             <label for="judo">Judo</label>
@@ -93,15 +95,16 @@
             <input type="checkbox" id="autre" name="option[]" value="autre" />
           </div>
         </fieldset>
-        <div>
-          <label for="message">Votre message :</label><br />
+        <div class="mb-16">
+          <label for="message">Votre message :<span class="color-r">*</span></label><br />
           <textarea id="message" name="message" placeholder="Écrivez votre message ici..." maxlength="500" required> </textarea><br />
         </div>
 
-        <div>
+        <div class="mb-32">
           <button type="submit">Envoyer</button>
         </div>
       </form>
+      </div>
     </main>
     <footer>
  <div class="footer_block dflex fw-w jc-c gap-24 p16">
@@ -132,12 +135,9 @@
         </div>
         <p id="copyright">@ Copyright ALEO 2024</p>
     </footer>
-<!-- Inclure la librairie EmailJS -->
-<!-- ATTENTION VERSION OBSOLETE=> <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script type="text/javascript">
-  // Initialisation avec ta clé publique EmailJS
-  emailjs.init("28Nlfyq7zS4Hhf6hm"); // remplace par ta clé publique
-</script> -->
+
+  <!-- // Initialisation avec ta clé publique EmailJS
+  emailjs.init("28Nlfyq7zS4Hhf6hm"); // remplace par ta clé publique -->
 <script
   src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
 </script>
@@ -145,7 +145,7 @@
 <script>
   (function () {
     emailjs.init({
-      publicKey: "28Nlfyq7zS4Hhf6hm", // 🔴 NOUVELLE SYNTAXE
+      publicKey: "28Nlfyq7zS4Hhf6hm", // NOUVELLE SYNTAXE
     });
   })();
 </script>
