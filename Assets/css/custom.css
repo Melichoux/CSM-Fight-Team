@@ -19,25 +19,6 @@ a:hover{
   /* font-size: large; */
 }
 
-@media (max-width: 500px) {
-  nav ul {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .navElmt {
-    width: 100%;
-  }
-
-  #dropDownList {
-    padding-left: 1rem; /* léger décalage pour la hiérarchie */
-    background-color: white;
-    position: relative;  /* reste dans le flux pour pousser les éléments, mais permet z-index */
-    z-index: 100; 
-  }
-}
-
-
 
 /* <!-- ==========  HEADER  ========== --> */
     header {
@@ -181,5 +162,4 @@ padding: 8px;
     background-color: rgb(37, 54, 73);
     margin-bottom: 24px;
     max-width: 900px;
-    /* min-height: 50vh; */
 }

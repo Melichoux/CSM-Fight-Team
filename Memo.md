@@ -41,7 +41,7 @@ Notes pour moi meme:
     OK  - faire attention a ce que la balise title soit rempli et pertinente (50 a 60 caracteres)
     - mettre le <meta name="description" content=""> sur toutes les pages (150 a 160 caracteres)
     OK - presence de balises sémantiques et organisées pour optimisation lecture pour SEO
-    - utiliser des balises de titres pour la structure
+    OK - utiliser des balises de titres pour la structure
     - les images:
         *mettre l'attribut alt avec le texte alternatif
         *compression des images pour le tps de chargement rapide
@@ -52,3 +52,35 @@ Notes pour moi meme:
         *utiliser "aria" et "label"
     OK - fichier robots.txt
     OK - fichier sitemap.xml
+
+
+## Creer un timer
+
+<!-- les triples backsticks permettent d'integrer du code dans le .md (en y mettant de la couleur et dans une fenetre), on precisera quand meme le language juste apres les 3 premiers backsticks -->
+```js
+    <h1></h1>
+    <p id="message">Salut !</p>
+    <!-- <p id="message" onclick="sayHello()"> Salut! </p> -->
+
+        <!-- <button id="btn" onclick="sayHello()">Ouvrir la boite de dialogue</button> -->
+        <button id="btn">
+            Ouvrir la <strong>boite de <em>dialogue</em></strong>
+        </button>
+     </main>
+    <script>
+        const message = document.querySelector("#message");
+                console.dir(message);
+        message.innerHTML += " la classe";
+        const btn = document.querySelector("#btn")
+        console.dir(btn);
+        </script>
+```
+
+<!-- on peut ajouter des tableaux, des liens, des images ...  -->
+ - exemple de tableau
+| Syntax | Description |
+| ----------- | ----------- |
+| Header | Title |
+| Paragraph | Text |
+ - [le lien](https://www.markdownguide.org/cheat-sheet/)
+ - ![pour une image](https://th.bing.com/th/id/R.fa21749d39d8ff8622c2c237ceb5f748?rik=f3h%2b%2fFY2Mm6WVg&riu=http%3a%2f%2fwww.themarysue.com%2fwp-content%2fuploads%2f2015%2f04%2fspider-man.jpg&ehk=rp3sX0qoTecfB0bn3ODwXhKXeCl6JKb%2brMxg59H6n4E%3d&risl=&pid=ImgRaw&r=0)
