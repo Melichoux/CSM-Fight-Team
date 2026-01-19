@@ -88,7 +88,7 @@
         console.log(currentId)
 
 
-        fetch("http://127.0.0.1:5500/assets/javascript/data/articles.json")
+        fetch(window.location.origin + "/assets/javascript/data/articles.json")
         // Pour le deploiement, on ecrira dans le fetch(window.location.origin + `/assets/javascript/data/articles.json`) pour que l'adresse se mette a jour
             .then((response) => response.json())
             .then(

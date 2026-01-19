@@ -49,7 +49,7 @@ a:hover{
 
 /* <!-- ==========  MAIN  ========== --> */
     main {
-      background: linear-gradient( rgb(240, 248, 255,0.3),rgb(240, 248, 255,0.3)) , url(../Images/bg-body.png) center/ cover no-repeat ;
+      background: linear-gradient( rgb(240, 248, 255,0.3),rgb(240, 248, 255,0.3)) , url(../images/bg-body.png) center/ cover no-repeat ;
         /* Possibilité de déplacer l'image dans le cadre du header, aligner */
       /* padding: 16px; */  
       min-height: 75vh;
