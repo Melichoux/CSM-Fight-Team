@@ -40,7 +40,8 @@ Site d'informations du club avec accès aux informations suivantes:
 - HTML5 (balises sémantiques)
 - CSS3 (Flexbox, Grid, Media Queries)
 - JavaScript ES6 (Fetch API, Modules)
-
+- EmailJS
+- Vercel: https://csm-fight-team.vercel.app/
 ## Installation
 
 1. Cloner le repository
