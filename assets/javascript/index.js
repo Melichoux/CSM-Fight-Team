@@ -17,7 +17,7 @@ document.addEventListener("click", () => {
 //ANCHOR -   Récupération des données des articles pour la page catalogue
 const articleContainer = document.querySelector(".article-container");
 
-fetch("http://127.0.0.1:5500/assets/javascript/data/articles.json")
+fetch(window.location.origin +"/assets/javascript/data/articles.json")
   .then((response) => response.json())
   .then((data) => {
     for (let index = 0; index < data.length; index++) {
@@ -51,7 +51,7 @@ filter.addEventListener("change", (event) => { //
   console.log(event.target.value);
   articleContainer.innerHTML="" // permet de vider la page avant de faire le nouvel affichage
   
-  fetch("http://127.0.0.1:5500/assets/javascript/data/articles.json")
+  fetch(window.location.origin +"/assets/javascript/data/articles.json")
   .then((response) => response.json())
   .then((data) => {
     
