@@ -20,18 +20,29 @@
 
 Notes pour moi meme:
 
+## Partie front
+    - faire la maquette sur figma et le faire apparaitre sur le README
+
     OK mais pas utile dans mon cas - pour le fetch du catalogue: trouver un moyen de mettre tout le texte dans un seule div en utilisant la method append et non pas appendChild
     OK - mise en forme du texte de chaque card du catalogue
+
     - mise en forme de la barre de filtre
+
     - mise en forme du formulaire de contact
+
     Bonus - Faire une method pour recup dans l'intro d'un article la premiere phrase de chaque description 
+
     OK - creer un fichier "robots.txt" (cf guide seo sur teams) pour le SEO
     OK - Ajouter le fichier sitemap apres le deploiement pour le referencement
+
     - Ajouter un lien vers le site de la fede de judo
+
     - Changer les fetch.then.then par async.await
+
     OK - fichier catalogue: attention aux dernieres cards => pas dans le fond bleu pour la visibilité
     OK - Ajouter un fond sur les cards pour la lecture
-    OK - filtrer le tableau avant la creation des cards dans le fetch de la barre de filtre
+    OK - filtrer le tableau avant la creation des cards dans le fetch de la barre de 
+    
     - A faire en back=> recup securisé des données des checkbox et de l'envoi du mail
 
 
@@ -39,7 +50,9 @@ Notes pour moi meme:
 
     OK - page index.html indisdpensable pour le deploiement
     OK  - faire attention a ce que la balise title soit rempli et pertinente (50 a 60 caracteres)
+
     - mettre le <meta name="description" content=""> sur toutes les pages (150 a 160 caracteres)
+
     OK - presence de balises sémantiques et organisées pour optimisation lecture pour SEO
     - utiliser des balises de titres pour la structure
     - les images:
@@ -53,7 +66,12 @@ Notes pour moi meme:
     OK - fichier robots.txt
     OK - fichier sitemap.xml
 
+## Partie back
 
+    - Faire un dictionnaire de données et le faire apparaitre dans le README
+
+
+    
     # PixelBay
 
 Il faut ecrire README en maj car il est lu comme ca sur github.
