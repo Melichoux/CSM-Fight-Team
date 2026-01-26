@@ -43,7 +43,7 @@ Notes pour moi meme:
     OK - Ajouter un fond sur les cards pour la lecture
     OK - filtrer le tableau avant la creation des cards dans le fetch de la barre de 
     
-    - A faire en back=> recup securisé des données des checkbox et de l'envoi du mail
+    - A faire en back=> recup securisé des données des checkbox et de l'envoi du mail => pas obligatoire
 
 
 ## SEO  
@@ -69,6 +69,8 @@ Notes pour moi meme:
 ## Partie back
 
     - Faire un dictionnaire de données et le faire apparaitre dans le README
+    - creation profil user apres inscription?
+    -form preinscription: checkbox mineur, si oui recup des données parents ? si oui, création de compte avant donc pas de gestion des profil par admin?
 
 
     
