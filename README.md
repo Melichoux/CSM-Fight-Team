@@ -47,4 +47,8 @@ Site d'informations du club avec accès aux informations suivantes:
 1. Cloner le repository
 ```bash
 git clone https://github.com/Melichoux/CSM-Fight-Team.git
+```
 
+## BDD
+1. SQL
+ ATTENTION préciser les relations entre les tables, identifier les FK pour le delete on cascade et ne pas faire d'erreur (preciser les fk delete on cascade)
