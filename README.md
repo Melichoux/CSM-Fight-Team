@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Projet CSM Fight Team
 
 Ce projet est le dossier permettant de travailler sur la refonte du site internet d'un club sportif.
@@ -54,11 +53,17 @@ Site d'informations du club avec accès aux informations suivantes:
 - HTML5 (balises sémantiques)
 - CSS3 (Flexbox, Grid, Media Queries)
 - JavaScript ES6 (Fetch API, Modules)
+- EmailJS
+- Vercel: https://csm-fight-team.vercel.app/
+
 
 ## Installation
 
 1. Cloner le repository
 ```bash
 git clone https://github.com/Melichoux/CSM-Fight-Team.git
+```
 
->>>>>>> Dev
+## BDD
+
+1. SQL ATTENTION préciser les relations entre les tables, identifier les FK pour le delete on cascade et ne pas faire d'erreur (preciser les fk delete on cascade)

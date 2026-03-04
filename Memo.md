@@ -20,6 +20,7 @@
 
 Notes pour moi meme:
 
+    - faire la maquette sur figma et le faire apparaitre sur le README
     OK mais pas utile dans mon cas - pour le fetch du catalogue: trouver un moyen de mettre tout le texte dans un seule div en utilisant la method append et non pas appendChild
     OK - mise en forme du texte de chaque card du catalogue
     - mise en forme de la barre de filtre
@@ -54,9 +55,13 @@ Notes pour moi meme:
     OK - fichier sitemap.xml
 
 
-<<<<<<< HEAD
-=======
-    # PixelBay
+# Partie Backend
+
+- Faire un dictionnaire de données et le faire apparaitre dans le README
+- creation profil user apres inscription?
+-form preinscription: checkbox mineur, si oui recup des données parents ? si oui, création de compte avant donc pas de gestion des profil par admin?
+
+  ## PixelBay
 
 Il faut ecrire README en maj car il est lu comme ca sur github.
 les autres fichiers MarkDown(=.md) n'ont pas besoin d'etre ecrit en maj.
@@ -75,7 +80,6 @@ Ce projet a pour objectif l'entrainement à Javascript.
 
 Pour installer le projet vous pouvez executer la commande `npm init -y` et `npm install readline-sync`.
 
->>>>>>> Dev
 ## Creer un timer
 
 <!-- les triples backsticks permettent d'integrer du code dans le .md (en y mettant de la couleur et dans une fenetre), on precisera quand meme le language juste apres les 3 premiers backsticks -->
@@ -105,7 +109,6 @@ Pour installer le projet vous pouvez executer la commande `npm init -y` et `npm 
 | Header | Title |
 | Paragraph | Text |
  - [le lien](https://www.markdownguide.org/cheat-sheet/)
-<<<<<<< HEAD
  - ![pour une image](https://th.bing.com/th/id/R.fa21749d39d8ff8622c2c237ceb5f748?rik=f3h%2b%2fFY2Mm6WVg&riu=http%3a%2f%2fwww.themarysue.com%2fwp-content%2fuploads%2f2015%2f04%2fspider-man.jpg&ehk=rp3sX0qoTecfB0bn3ODwXhKXeCl6JKb%2brMxg59H6n4E%3d&risl=&pid=ImgRaw&r=0)
 =======
  - ![pour une image](https://th.bing.com/th/id/R.fa21749d39d8ff8622c2c237ceb5f748?rik=f3h%2b%2fFY2Mm6WVg&riu=http%3a%2f%2fwww.themarysue.com%2fwp-content%2fuploads%2f2015%2f04%2fspider-man.jpg&ehk=rp3sX0qoTecfB0bn3ODwXhKXeCl6JKb%2brMxg59H6n4E%3d&risl=&pid=ImgRaw&r=0)
