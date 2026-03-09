@@ -1,6 +1,7 @@
 # Création du html avec liens css et js
 
-<!-- ```html
+<!--
+ ```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,50 +17,51 @@
     <script src="Assets/Javascript/index.js"></script>
 </body>
 </html>
-``` -->
+```
+ -->
 
 Notes pour moi meme:
 
-    - faire la maquette sur figma et le faire apparaitre sur le README
-    OK mais pas utile dans mon cas - pour le fetch du catalogue: trouver un moyen de mettre tout le texte dans un seule div en utilisant la method append et non pas appendChild
-    OK - mise en forme du texte de chaque card du catalogue
-    - mise en forme de la barre de filtre
-    - mise en forme du formulaire de contact
-    Bonus - Faire une method pour recup dans l'intro d'un article la premiere phrase de chaque description 
-    OK - creer un fichier "robots.txt" (cf guide seo sur teams) pour le SEO
-    OK - Ajouter le fichier sitemap apres le deploiement pour le referencement
-    - Ajouter un lien vers le site de la fede de judo
-    - Changer les fetch.then.then par async.await
-    OK - fichier catalogue: attention aux dernieres cards => pas dans le fond bleu pour la visibilité
-    OK - Ajouter un fond sur les cards pour la lecture
-    OK - filtrer le tableau avant la creation des cards dans le fetch de la barre de filtre
-    - A faire en back=> recup securisé des données des checkbox et de l'envoi du mail
+- [X] faire la maquette sur figma et le faire apparaitre sur le README
+- [X] mais pas utile dans mon cas - pour le fetch du catalogue: trouver un moyen de mettre tout le texte dans un seule div en utilisant la method append et non pas appendChild
+- [X] mise en forme du texte de chaque card du catalogue
+- mise en forme de la barre de filtre
+- mise en forme du formulaire de contact
+Bonus Faire une method pour recup dans l'intro d'un article la premiere phrase de chaque description 
+- [X] creer un fichier "robots.txt" (cf guide seo sur teams) pour le SEO
+- [X] Ajouter le fichier sitemap apres le deploiement pour le referencement
+- Ajouter un lien vers le site de la fede de judo
+- Changer les fetch.then.then par async.await
+- [X] fichier catalogue: attention aux dernieres cards => pas dans le fond bleu pour la visibilité
+- [X] Ajouter un fond sur les cards pour la lecture
+- [X] filtrer le tableau avant la creation des cards dans le fetch de la barre de filtre
+- A faire en back=> recup securisé des données des checkbox et de l'envoi du mail
 
 
 ## SEO  
 
-    OK - page index.html indisdpensable pour le deploiement
-    OK  - faire attention a ce que la balise title soit rempli et pertinente (50 a 60 caracteres)
-    - mettre le <meta name="description" content=""> sur toutes les pages (150 a 160 caracteres)
-    OK - presence de balises sémantiques et organisées pour optimisation lecture pour SEO
-    OK - utiliser des balises de titres pour la structure
-    - les images:
+- [X] page index.html indisdpensable pour le deploiement
+- [X] faire attention a ce que la balise title soit rempli et pertinente (50 a 60 caracteres)
+- mettre le <meta name="description" content=""> sur toutes les pages (150 a 160 caracteres)
+- [X] presence de balises sémantiques et organisées pour optimisation lecture pour SEO
+- [X] utiliser des balises de titres pour la structure
+- les images:
         *mettre l'attribut alt avec le texte alternatif
         *compression des images pour le tps de chargement rapide
-    - liens internes et externes vers des sites de hautes autorités (=netlinking)
-    OK - accessibilités:
+- liens internes et externes vers des sites de hautes autorités (=netlinking)
+- [X] accessibilités:
         *contraste
         *navigation au clavier (avec les balises "a")
         *utiliser "aria" et "label"
-    OK - fichier robots.txt
-    OK - fichier sitemap.xml
+- [X] fichier robots.txt
+- [X] fichier sitemap.xml
 
-
+[ ]
 # Partie Backend
 
-- Faire un dictionnaire de données et le faire apparaitre dans le README
-- creation profil user apres inscription?
--form preinscription: checkbox mineur, si oui recup des données parents ? si oui, création de compte avant donc pas de gestion des profil par admin?
+- [ ] Faire un dictionnaire de données et le faire apparaitre dans le README
+- [ ] creation profil user apres inscription?
+- [ ] form preinscription: checkbox mineur, si oui recup des données parents ? si oui, création de compte avant donc pas de gestion des profil par admin?
 
   ## PixelBay
 
