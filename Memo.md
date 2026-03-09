@@ -115,3 +115,13 @@ Pour installer le projet vous pouvez executer la commande `npm init -y` et `npm 
 =======
  - ![pour une image](https://th.bing.com/th/id/R.fa21749d39d8ff8622c2c237ceb5f748?rik=f3h%2b%2fFY2Mm6WVg&riu=http%3a%2f%2fwww.themarysue.com%2fwp-content%2fuploads%2f2015%2f04%2fspider-man.jpg&ehk=rp3sX0qoTecfB0bn3ODwXhKXeCl6JKb%2brMxg59H6n4E%3d&risl=&pid=ImgRaw&r=0)
 >>>>>>> Dev
+
+## Memo code
+
+### sql
+
+ - "unsigned" avec un int => delpace les négatifs vers les positifs, utilie pour un id car un id négatif = error,
+ - 
+
+
+

@@ -1,7 +1,7 @@
     <header>
         <div class="container">
             <div class="cadreLogo">
-                <a href="index.html">
+                <a href="index.php">
                     <!-- a voir si on place le logo dans une div ou pas besoin -->
                     <img class="logoNav" src="assets/images/Logo CSM Fight Club.png" alt="Logo du club CSM Fight Team - retour a la page d'accueil">
                 </a>
@@ -12,8 +12,8 @@
             <nav aria-label="Navigation principale dflex fw-w" class="mainNav">
                 <!-- aria-label sert a l'accessibilité pour les malvoyants et permet un meilleur parsing par les moteurs comme google -->
                 <ul class="dflex fw-w">
-                    <li class="navElmt"><a href="index.html">ACCUEIL</a></li>
-                    <li class="navElmt"><a href="catalogue-article.html">ACTUALITES</a></li>
+                    <li class="navElmt"><a href="index.php">ACCUEIL</a></li>
+                    <li class="navElmt"><a href="catalogue-article.php">ACTUALITES</a></li>
                     <li id="dropDown" class="navElmt">
                         <button id="dropDownBtn"> LA VIE DU CLUB ▾</button>
                         <ul id="dropDownList" class="dflex">
@@ -24,7 +24,7 @@
                         </ul>
                     </li>
                     <li class="navElmt"><a href="#">LES COURS</a></li>
-                    <li class="navElmt"><a href="contact.html">CONTACTEZ-NOUS</a></li>
+                    <li class="navElmt"><a href="contact.php">CONTACTEZ-NOUS</a></li>
 
                     <!-- <a href> est utilisé pour de la navigation en interne et en externe à un site => bonne pratique + meilleur referencement au level du SEO + meilleur ancres pour les navigateurs et pour le parsing -->
                 </ul>

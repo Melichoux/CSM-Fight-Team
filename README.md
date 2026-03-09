@@ -67,7 +67,7 @@ git clone https://github.com/Melichoux/CSM-Fight-Team.git
 ## BDD
 
 1. Merise
-
+----------
 
 [Cliquer pour acceder au dictionnaire de données](<assets/images/merise/Dictionnaire de données.pdf>)
 
@@ -79,132 +79,169 @@ Schema MPD(php my admin):
 ![schema MPD](assets/images/merise/mpd-csm.png)
 
 2. Creation de la base de données
-
+-----------
 Voici le code pour recréer la base de données:
 
 ```sql
-CREATE DATABASE IF NOT EXIST csm_fight_team;
+CREATE DATABASE csm_fight_team;
 USE csm_fight_team;
+
 CREATE TABLE Form_contact(
-   id_form_contact VARCHAR(50),
+   id_form INT UNSIGNED AUTO_INCREMENT,
    last_name VARCHAR(100) NOT NULL,
    first_name VARCHAR(100) NOT NULL,
-   mail VARCHAR(200) NOT NULL,
+   mail VARCHAR(254) NOT NULL,
    content TEXT NOT NULL,
-   created_at DATETIME NOT NULL,
-   check_email LOGICAL,
-   PRIMARY KEY(id_form_contact)
+   created_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
+   check_email BOOLEAN DEFAULT false,
+   PRIMARY KEY(id_form)
 );
 
 CREATE TABLE user_(
-   id_user VARCHAR(50),
+   id_user INT UNSIGNED AUTO_INCREMENT,
    last_name VARCHAR(100) NOT NULL,
    first_name VARCHAR(100) NOT NULL,
-   mail VARCHAR(200) NOT NULL,
-   password VARCHAR(100) NOT NULL,
-   created_at DATETIME NOT NULL,
+   mail VARCHAR(254) NOT NULL,
+   password VARCHAR(255) NOT NULL,
+   created_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
    reset_token VARCHAR(100),
    expiry_reset DATETIME,
-   role VARCHAR(50),
+   role ENUM('admin','user') DEFAULT 'user',
    PRIMARY KEY(id_user),
    UNIQUE(mail)
 );
 
 CREATE TABLE article(
-   id_article VARCHAR(100),
+   id_article INT UNSIGNED AUTO_INCREMENT,
    date_event DATE,
    img_event VARCHAR(255),
    title VARCHAR(200),
    intro VARCHAR(255),
    description TEXT,
-   created_at DATETIME NOT NULL,
-   author VARCHAR(250) NOT NULL,
-   id_user VARCHAR(50) NOT NULL,
+   created_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
+   id_user INT UNSIGNED NOT NULL,
    PRIMARY KEY(id_article),
    FOREIGN KEY(id_user) REFERENCES user_(id_user)
 );
 
 CREATE TABLE tag(
-   id_tag VARCHAR(100),
+   id_tag INT UNSIGNED AUTO_INCREMENT,
    tag VARCHAR(50) NOT NULL,
    PRIMARY KEY(id_tag),
    UNIQUE(tag)
 );
 
-CREATE TABLE schedule(
-   id_schedule VARCHAR(50),
-   training_hour TIME NOT NULL,
-   location VARCHAR(100) NOT NULL,
-   age INT NOT NULL,
-   training_day VARCHAR(50) NOT NULL,
-   created_at DATETIME NOT NULL,
+CREATE TABLE time_slot(
+   id_time_slot INT UNSIGNED AUTO_INCREMENT,
+   start_time TIME NOT NULL,
+   end_time TIME NOT NULL,
    label_cours VARCHAR(100),
-   id_user VARCHAR(50) NOT NULL,
-   PRIMARY KEY(id_schedule),
+   age_min TINYINT UNSIGNED NOT NULL CHECK (age_min >= 3),
+   age_max TINYINT UNSIGNED NULL,
+   created_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
+   id_user INT UNSIGNED NOT NULL,
+   PRIMARY KEY(id_time_slot),
    FOREIGN KEY(id_user) REFERENCES user_(id_user)
 );
 
+CREATE TABLE slot_day(
+   id_slot_day INT UNSIGNED NOT NULL AUTO_INCREMENT,
+   training_day ENUM('Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche') NOT NULL,
+   PRIMARY KEY(id_slot_day),
+   UNIQUE(training_day)
+);
+
 CREATE TABLE comment(
-   id_comment VARCHAR(50),
+   id_comment INT UNSIGNED NOT NULL AUTO_INCREMENT,
    description TEXT NOT NULL,
    last_name VARCHAR(50) NOT NULL,
    first_name VARCHAR(50) NOT NULL,
-   created_at DATETIME NOT NULL,
-   id_user VARCHAR(50) NOT NULL,
+   created_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
+   id_user INT UNSIGNED NOT NULL,
    PRIMARY KEY(id_comment),
    FOREIGN KEY(id_user) REFERENCES user_(id_user)
 );
 
 CREATE TABLE album(
-   id_album VARCHAR(50),
+   id_album INT UNSIGNED AUTO_INCREMENT,
    title VARCHAR(200) NOT NULL,
    cover_img VARCHAR(250),
-   created_at DATETIME NOT NULL,
+   created_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
    PRIMARY KEY(id_album),
    UNIQUE(title)
 );
 
 CREATE TABLE photo(
-   id_photo VARCHAR(250),
+   id_photo INT UNSIGNED AUTO_INCREMENT,
    alt_text VARCHAR(250) NOT NULL,
    img_path VARCHAR(250) NOT NULL,
-   created_at DATETIME NOT NULL,
+   created_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
    PRIMARY KEY(id_photo)
 );
 
+-- Tables associatives
+
 CREATE TABLE article_tag(
-   id_article VARCHAR(100),
-   id_tag VARCHAR(100),
+   id_article INT UNSIGNED NOT NULL,
+   id_tag INT UNSIGNED NOT NULL,
    PRIMARY KEY(id_article, id_tag),
    FOREIGN KEY(id_article) REFERENCES article(id_article),
    FOREIGN KEY(id_tag) REFERENCES tag(id_tag)
 );
 
-CREATE TABLE lier(
-   id_article VARCHAR(100),
-   id_comment VARCHAR(50),
+CREATE TABLE article_comment(
+   id_article INT UNSIGNED NOT NULL,
+   id_comment INT UNSIGNED NOT NULL,
    PRIMARY KEY(id_article, id_comment),
    FOREIGN KEY(id_article) REFERENCES article(id_article),
    FOREIGN KEY(id_comment) REFERENCES comment(id_comment)
 );
 
-CREATE TABLE liker(
-   id_user VARCHAR(50),
-   id_comment VARCHAR(50),
-   like_dislike LOGICAL,
+CREATE TABLE user_comment(
+   id_user INT UNSIGNED NOT NULL,
+   id_comment INT UNSIGNED NOT NULL,
+   like_dislike BOOLEAN,
    PRIMARY KEY(id_user, id_comment),
    FOREIGN KEY(id_user) REFERENCES user_(id_user),
    FOREIGN KEY(id_comment) REFERENCES comment(id_comment)
 );
 
-CREATE TABLE contenir(
-   id_album VARCHAR(50),
-   id_photo VARCHAR(250),
+CREATE TABLE photo_album(
+   id_album INT UNSIGNED NOT NULL,
+   id_photo INT UNSIGNED NOT NULL,
    PRIMARY KEY(id_album, id_photo),
    FOREIGN KEY(id_album) REFERENCES album(id_album),
    FOREIGN KEY(id_photo) REFERENCES photo(id_photo)
 );
 
+CREATE TABLE time_slot_day(
+   id_time_slot INT UNSIGNED NOT NULL,
+   id_slot_day INT UNSIGNED NOT NULL,
+   PRIMARY KEY(id_time_slot, id_slot_day),
+   FOREIGN KEY(id_time_slot) REFERENCES time_slot(id_time_slot),
+   FOREIGN KEY(id_slot_day) REFERENCES slot_day(id_slot_day)
+);
 ```
+Récapitulatif des tables:
+
+- Form_contact
+- user_
+- article
+- tag
+- time_slot
+- slot_day
+- comment
+- album
+- photo
+
+--- tables associatives ---
+
+- article_tag
+- article_comment
+- user_comment
+- photo_album
+- time_slot_day
+----------------------
 
 3. SQL ATTENTION préciser les relations entre les tables, identifier les FK pour le delete on cascade et ne pas faire d'erreur (preciser les fk delete on cascade)
+---------------

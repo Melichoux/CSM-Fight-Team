@@ -11,73 +11,18 @@
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <div class="cadreLogo">
-                <a href="index.html" >
-                <!-- a voir si on place le logo dans une div ou pas besoin -->
-                    <img class="logoNav" src="assets/images/Logo CSM Fight Club.png" alt="Logo du club CSM Fight Team - retour a la page d'accueil">
-                </a>
-            </div>
-            <!-- 0.5rem 4rem 2rem 0.5rem; a appliquer sur l'image pour recreer le design chelou du site -->
-            <nav aria-label="Navigation principale">
-                <!-- aria-label sert a l'accessibilité pour les malvoyants et permet un meilleur parsing par les moteurs comme google -->
-                <ul>
-                    <li class="navElmt"><a href="index.html">ACCUEIL</a></li>
-                    <li class="navElmt"><a href="catalogue-article.html">ACTUALITES</a></li>
-                    <li id="dropDown" class="navElmt">
-                        <button id="dropDownBtn"> LA VIE DU CLUB ▾</button>
-                        <ul id="dropDownList" class="dflex">
-                            <li class="dropDownElmt"><a href="#" class="color-bck">Histoire du Club</a></li>
-                            <li class="dropDownElmt"><a href="#" class="color-bck">Galeries Photos</a></li>
-                            <li class="dropDownElmt"><a href="#" class="color-bck">Résultats</a></li>
-                            <li class="dropDownElmt"><a href="#" class="color-bck">Agenda</a></li>                          
-                        </ul>
-                    </li>
-                    <li class="navElmt"><a href="#">LES COURS</a></li>
-                    <li class="navElmt"><a href="contact.html">CONTACTEZ-NOUS</a></li>
-
-                    <!-- <a href> est utilisé pour de la navigation en interne et en externe à un site => bonne pratique + meilleur referencement au level du SEO + meilleur ancres pour les navigateurs et pour le parsing -->
-                </ul>
-            </nav>
-        </div>
-
-    </header>
+    <?php
+    include_once 'includes/header.php';
+    ?>
     <main>
         <h1>Articles</h1>
         <div class="pageArticle dflex  jc-c ">
 
         </div>
     </main>
-    <footer>
- <div class="footer_block dflex fw-w jc-c gap-24 p16">
-            <section class="section_footer ta-c">
-                <h3><b>lorem</b></h3>
-                <ul>
-                    <li><a href="#">Actualités</a></li>
-                    <!-- <li><a href="#"> c</a></li>
-                    <li><a href="#">c </a></li> -->
-                </ul>
-            </section>
-            <section class="section_footer ta-c">
-                <h3><b>IPSUM</b></h3>
-                <ul>
-                    <li><a href="#">c</a></li>
-                    <!-- <li><a href="#"></a></li>
-                    <li><a href="#"></a></li> -->
-                </ul>
-            </section>
-            <section class="section_footer ta-c">
-                <h3><b>Contact</b></h3>
-                <ul>
-                    <li><a href="#">d </a></li>
-                    <!-- <li><a href="#">d </a></li>
-                    <li><a href="#"> d</a></li> -->
-                </ul>
-            </section>
-        </div>
-        <p id="copyright">@ Copyright ALEO 2024</p>
-    </footer>
+    <?php
+    include_once 'includes/footer.php';
+    ?>
     <!-- Ajout du script directement sur la page plutot que sur le fichier js car on ne peut pas faire 2 fetchs sans d'importante adaptation du code  -->
      <script src="assets/javascript/index.js"></script>
     <script>
@@ -88,7 +33,7 @@
         console.log(currentId)
 
 
-        fetch(window.location.origin + "/assets/javascript/data/articles.json")
+        fetch(window.location.origin + "/CSM-FIGHT-TEAM/assets/javascript/data/articles.json")
         // Pour le deploiement, on ecrira dans le fetch(window.location.origin + `/assets/javascript/data/articles.json`) pour que l'adresse se mette a jour
             .then((response) => response.json())
             .then(

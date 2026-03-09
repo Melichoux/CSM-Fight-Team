@@ -1,3 +1,7 @@
+<?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,51 +14,9 @@
 
   </head>
   <body>
-    <header>
-      <div class="container">
-        <div class="cadreLogo">
-          <a href="index.html">
-            <!-- a voir si on place le logo dans une div ou pas besoin -->
-            <img
-              class="logoNav"
-              src="assets/images/Logo CSM Fight Club.png"
-              alt="Logo du club CSM Fight Team - retour a la page d'accueil"
-            />
-          </a>
-        </div>
-        <!-- 0.5rem 4rem 2rem 0.5rem; a appliquer sur l'image pour recreer le design chelou du site -->
-        <nav aria-label="Navigation principale">
-          <!-- aria-label sert a l'accessibilité pour les malvoyants et permet un meilleur parsing par les moteurs comme google -->
-          <ul>
-            <li class="navElmt"><a href="index.html">ACCUEIL</a></li>
-            <li class="navElmt">
-              <a href="catalogue-article.html">ACTUALITES</a>
-            </li>
-            <li id="dropDown" class="navElmt">
-              <button id="dropDownBtn">LA VIE DU CLUB ▾</button>
-              <ul id="dropDownList" class="dflex">
-                <li class="dropDownElmt">
-                  <a href="#" class="color-bck">Histoire du Club</a>
-                </li>
-                <li class="dropDownElmt">
-                  <a href="#" class="color-bck">Galeries Photos</a>
-                </li>
-                <li class="dropDownElmt">
-                  <a href="#" class="color-bck">Résultats</a>
-                </li>
-                <li class="dropDownElmt">
-                  <a href="#" class="color-bck">Agenda</a>
-                </li>
-              </ul>
-            </li>
-            <li class="navElmt"><a href="#">LES COURS</a></li>
-            <li class="navElmt"><a href="contact.html">CONTACTEZ-NOUS</a></li>
-
-            <!-- <a href> est utilisé pour de la navigation en interne et en externe à un site => bonne pratique + meilleur referencement au level du SEO + meilleur ancres pour les navigateurs et pour le parsing -->
-          </ul>
-        </nav>
-      </div>
-    </header>
+    <?php
+    include_once 'includes/header.php';
+    ?>
     <main class="dflex jc-c ai-c ">
       <div class="form-contact dflex fw-w jc-c ai-c minw-100 mt-32">
       <form method="post" action="#" class="dblock fd-c ai-c ta-c mw-800px">
@@ -79,7 +41,7 @@
 
           <div>
             <label for="judo">Judo</label>
-            <input type="checkbox" id="judo" name="option[]" value="judo" checked/>
+            <input type="checkbox" id="judo" name="option[]" value="judo"/>
           </div>
 
           <div>
@@ -106,35 +68,9 @@
       </form>
       </div>
     </main>
-    <footer>
- <div class="footer_block dflex fw-w jc-c gap-24 p16">
-            <section class="section_footer ta-c">
-                <h3><b>lorem</b></h3>
-                <ul>
-                    <li><a href="#">Actualités</a></li>
-                    <!-- <li><a href="#"> c</a></li>
-                    <li><a href="#">c </a></li> -->
-                </ul>
-            </section>
-            <section class="section_footer ta-c">
-                <h3><b>IPSUM</b></h3>
-                <ul>
-                    <li><a href="#">c</a></li>
-                    <!-- <li><a href="#"></a></li>
-                    <li><a href="#"></a></li> -->
-                </ul>
-            </section>
-            <section class="section_footer ta-c">
-                <h3><b>Contact</b></h3>
-                <ul>
-                    <li><a href="#">d </a></li>
-                    <!-- <li><a href="#">d </a></li>
-                    <li><a href="#"> d</a></li> -->
-                </ul>
-            </section>
-        </div>
-        <p id="copyright">@ Copyright ALEO 2024</p>
-    </footer>
+    <?php
+    include_once 'includes/footer.php';
+    ?>
 
   <!-- // Initialisation avec ta clé publique EmailJS
   emailjs.init("28Nlfyq7zS4Hhf6hm"); // remplace par ta clé publique -->

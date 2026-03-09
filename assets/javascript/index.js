@@ -17,7 +17,7 @@ document.addEventListener("click", () => {
 //ANCHOR -   Récupération des données des articles pour la page catalogue
 const articleContainer = document.querySelector(".article-container");
 
-fetch(window.location.origin +"/assets/javascript/data/articles.json")
+fetch(window.location.origin +"/CSM-FIGHT-TEAM/assets/javascript/data/articles.json") //
   .then((response) => response.json())
   .then((data) => {
     for (let index = 0; index < data.length; index++) {
@@ -32,7 +32,7 @@ fetch(window.location.origin +"/assets/javascript/data/articles.json")
             <p class="dateCard catalogueCard"> ${element.date} </p>
             <h2 class="titreCard catalogueCard"> ${element.titre} </h2>
             <p class="introCard catalogueCard"> ${element.intro} </p>
-            <a href="article.html?id=${element.id}" class="btnCard catalogueCard">En savoir +</a>
+            <a href="article.php?id=${element.id}" class="btnCard catalogueCard">En savoir +</a>
             `;
       articleContainer.append(article); // preferer append à appendChild (cf.mdn)
       article.append(divText);
@@ -51,7 +51,7 @@ filter.addEventListener("change", (event) => { //
   console.log(event.target.value);
   articleContainer.innerHTML="" // permet de vider la page avant de faire le nouvel affichage
   
-  fetch(window.location.origin +"/assets/javascript/data/articles.json")
+  fetch(window.location.origin +"/CSM-FIGHT-TEAM/assets/javascript/data/articles.json")
   .then((response) => response.json())
   .then((data) => {
     
@@ -71,7 +71,7 @@ filter.addEventListener("change", (event) => { //
             <p class="dateCard catalogueCard"> ${element.date} </p>
             <h2 class="titreCard catalogueCard"> ${element.titre}
             <p class="introCard catalogueCard"> ${element.intro} </p>
-            <a href="article.html?id=${element.id}" class="btnCard catalogueCard">En savoir +</a>
+            <a href="article.php?id=${element.id}" class="btnCard catalogueCard">En savoir +</a>
             `;
         articleContainer.append(article); // preferer append à appendChild (cf.mdn)
         article.append(divText);
