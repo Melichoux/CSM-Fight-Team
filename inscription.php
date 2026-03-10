@@ -52,34 +52,34 @@
         $errors['confirm_password'] = "La saisie est différente du mot de passe.";
       }
 
+      //Verifier que l'email n'existe pas déja dans la base de données pour eviter les doublons et bloquer l'inscription avant le stockage dans la BDD
+  
+      if (empty($errors)) {
+        $stmt = Database::getInstance()->prepare("SELECT id_user FROM csm_user WHERE email = :email"); // on "annonce" la commande qui va etre utilisée dans la table de la BDD
+        $stmt->execute(['email' => $email]); // On demande l'execution de la commande annoncée et on precise la variable a utiliser
+        if ($stmt->fetch()) // on pose la condition pour savoir si grace au fetch une valeur est bien récupérée
+        {
+          $errors[] = "Cet email est déjà utilisé.";
+        } // si oui, alors il y aura un message d'erreur et on ne permettra pas l'enregistrement des données dans la BDD
+      }
+  
+      // Enregistrement des données dans la BDD si tout est okay
+      if (empty($errors)) { // dans l'ideal, faire un try catch
+        $passwordHash = password_hash($password, PASSWORD_DEFAULT); /*meme si password_argonid2 est plus robuste, le password_default laisse php choisir le meilleur algorithme au moment de lancer la requete. De plus pour fonctionner argonid2 a besoin d'une libraire qui n'est pas forcement disponible partout */
+        $stmt = Database::getInstance()->prepare("INSERT INTO csm_user (last_name, first_name, email, password) VALUES (:nom, :prenom, :email, :password)");
+        $stmt->execute([
+          'nom' => $last_name,
+          'prenom' => $first_name,
+          'email' => $email,
+          'password' => $passwordHash,
+        ]);
+        $success = true;
+        $success_message= "Votre formulaire a été envoyé avec succes!<br>" . "Vous etes $last_name $first_name.<br> Votre email -- $email -- <br> Mot de passe : **** <br>";
+            // on ne définit le succès que lors du véritable enregistrement plus bas
+        // Pas besoin de else car les messages d'erreur s'affichent directement à coté des inputs concernés.
+  }
     }
 
-    //Verifier que l'email n'existe pas déja dans la base de données pour eviter les doublons et bloquer l'inscription avant le stockage dans la BDD
-
-    if (empty($errors)) {
-      $stmt = Database::getInstance()->prepare("SELECT id_user FROM csm_user WHERE email = :email"); // on "annonce" la commande qui va etre utilisée dans la table de la BDD
-      $stmt->execute(['email' => $email]); // On demande l'execution de la commande annoncée et on precise la variable a utiliser
-      if ($stmt->fetch()) // on pose la condition pour savoir si grace au fetch une valeur est bien récupérée
-      {
-        $errors[] = "Cet email est déjà utilisé.";
-      } // si oui, alors il y aura un message d'erreur et on ne permettra pas l'enregistrement des données dans la BDD
-    }
-
-    // Enregistrement des données dans la BDD si tout est okay
-    if (empty($errors)) { // dans l'ideal, faire un try catch
-      $passwordHash = password_hash($password, PASSWORD_DEFAULT); /*meme si password_argonid2 est plus robuste, le password_default laisse php choisir le meilleur algorithme au moment de lancer la requete. De plus pour fonctionner argonid2 a besoin d'une libraire qui n'est pas forcement disponible partout */
-      $stmt = Database::getInstance()->prepare("INSERT INTO csm_user (last_name, first_name, email, password) VALUES (:nom, :prenom, :email, :password)");
-      $stmt->execute([
-        'nom' => $last_name,
-        'prenom' => $first_name,
-        'email' => $email,
-        'password' => $passwordHash,
-      ]);
-      $success = true;
-      $success_message= "Votre formulaire a été envoyé avec succes!<br>" . "Vous etes $last_name $first_name.<br> Votre email -- $email -- <br> Mot de passe : **** <br>";
-          // on ne définit le succès que lors du véritable enregistrement plus bas
-      // Pas besoin de else car les messages d'erreur s'affichent directement à coté des inputs concernés.
-}
     ?>
 
     <main class="dflex jc-c ai-c ">
