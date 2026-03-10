@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Article: </title>
-    <link rel="stylesheet" href="assets/css/main.css">
-    <meta name="description" content="Vous etes sur la page article. Lisez l'article complet choisi." /> 
-
-</head>
-
-<body>
+   <?php 
+    session_start();
+    require_once 'Database.php';
+?>
+ <?php
+    include_once 'includes/head.php';
+    ?>
     <?php
-    include_once 'includes/header.php';
+      include_once 'includes/header.php';
     ?>
     <main>
         <h1>Articles</h1>
@@ -21,7 +15,7 @@
         </div>
     </main>
     <?php
-    include_once 'includes/footer.php';
+      include_once 'includes/footer.php';
     ?>
     <!-- Ajout du script directement sur la page plutot que sur le fichier js car on ne peut pas faire 2 fetchs sans d'importante adaptation du code  -->
      <script src="assets/javascript/index.js"></script>

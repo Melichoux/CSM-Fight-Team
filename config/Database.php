@@ -1,4 +1,9 @@
 <?php
+// trouver le moyen de l'integrer a la class plus TARD!!!!
+// $host = 'mysql-server';
+// $dbname = 'csm_fight_team';
+// $username = 'root';
+// $password = 'root';
 
 class Database
 {
@@ -14,7 +19,7 @@ class Database
                 'root',
                 'root',
                 [
-                    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+                    PDO::ATTR_ERRMODE  => PDO::ERRMODE_EXCEPTION,
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
                 ]
             );

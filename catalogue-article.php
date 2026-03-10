@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toutes les actualités du Dojo</title>
-    <meta name="description" content="#">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <meta name="description" content="Vous etes sur la page catalogue des articles. Evenements, stages, Competitions, toutes les infos sont ici." /> 
-
-</head>
-<body>
     <?php
-    include_once 'includes/header.php';
+    include_once 'includes/head.php';
+    ?>
+    <?php
+      include_once 'includes/header.php';
     ?>
     <main>
         <h1>Toutes nos actualités</h1>
@@ -36,7 +27,7 @@
         </div>
     </main>
     <?php
-    include_once 'includes/footer.php';
+      include_once 'includes/footer.php';
     ?>
     <script src="assets/javascript/index.js">  
     </script>

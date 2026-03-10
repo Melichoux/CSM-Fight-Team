@@ -121,7 +121,8 @@ Pour installer le projet vous pouvez executer la commande `npm init -y` et `npm 
 ### sql
 
  - "unsigned" avec un int => delpace les négatifs vers les positifs, utilie pour un id car un id négatif = error,
- - 
+ - optimiser les chemins dans les fichiers __Dir__
 
 
-
+### page d'acceuil
+ iframe, 3 actus, prochain event

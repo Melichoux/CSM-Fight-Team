@@ -1,26 +1,13 @@
-<?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-?>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Toutes les actualités du Dojo</title>
-    <meta name="description" content="#" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <meta name="description" content="Vous etes sur la page de contact. Envoyer nous un mail en remplissant le formulaire et que l'on puisse répondre au mieux a vos demandes." /> 
-
-  </head>
-  <body>
     <?php
-    include_once 'includes/header.php';
+    include_once 'includes/head.php';
+    ?>
+    <?php
+      include_once 'includes/header.php';
     ?>
     <main class="dflex jc-c ai-c ">
       <div class="form-contact dflex fw-w jc-c ai-c minw-100 mt-32">
       <form method="post" action="#" class="dblock fd-c ai-c ta-c mw-800px">
-        <h1 class="p24">Contatez-nous</h1>
+        <h1 class="p24">Contactez-nous</h1>
         <div class="mb-16">
           <label for="nom">Nom<span class="color-r ">*</span></label><br>
           <input id="nom" type="text" placeholder="Votre nom" name="nom" required/>
@@ -69,7 +56,7 @@ error_reporting(E_ALL);
       </div>
     </main>
     <?php
-    include_once 'includes/footer.php';
+      include_once 'includes/footer.php';
     ?>
 
   <!-- // Initialisation avec ta clé publique EmailJS

@@ -25,6 +25,7 @@
                     </li>
                     <li class="navElmt"><a href="#">LES COURS</a></li>
                     <li class="navElmt"><a href="contact.php">CONTACTEZ-NOUS</a></li>
+                    <li class="navElmt"><a href="login.php">SE CONNECTER</a></li>
 
                     <!-- <a href> est utilisé pour de la navigation en interne et en externe à un site => bonne pratique + meilleur referencement au level du SEO + meilleur ancres pour les navigateurs et pour le parsing -->
                 </ul>
