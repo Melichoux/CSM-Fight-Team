@@ -52,7 +52,7 @@ CREATE TABLE `article` (
   `intro` varchar(255) DEFAULT NULL,
   `description` text,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `id_user` int UNSIGNED NOT NULL
+  `id_user` int UNSIGNED NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------

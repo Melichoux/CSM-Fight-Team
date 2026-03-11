@@ -7,6 +7,11 @@
 
 class Database
 {
+    // trouver le moyen de l'integrer a la class plus TARD!!!!
+    private static $host = 'mysql-server';
+    private static $dbname = 'csm_fight_team';
+    private static $username = 'root';
+    private static $password = 'root';
     private static ?PDO $instance = null;
 
     private function __construct() {}
@@ -15,7 +20,7 @@ class Database
     {
         if (self::$instance === null) {
             self::$instance = new PDO(
-                'mysql:host=mysql-server;dbname=csm_fight_team;charset=utf8mb4',
+                'mysql:host='.self::$host.';dbname='.self::$dbname.';charset=utf8mb4',
                 'root',
                 'root',
                 [

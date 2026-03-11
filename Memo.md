@@ -59,7 +59,7 @@ Bonus Faire une method pour recup dans l'intro d'un article la premiere phrase d
 [ ]
 # Partie Backend
 
-- [ ] Faire un dictionnaire de données et le faire apparaitre dans le README
+- [x] Faire un dictionnaire de données et le faire apparaitre dans le README
 - [ ] creation profil user apres inscription?
 - [ ] form preinscription: checkbox mineur, si oui recup des données parents ? si oui, création de compte avant donc pas de gestion des profil par admin?
 - [ ] empecher la copie des photos sauf pour les users enregistrés + donner un acces a toutes la galerie aux users enregistrés
