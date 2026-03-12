@@ -23,13 +23,27 @@ include_once 'includes/head.php';
                 <!-- Pas besoin de label car j'ai uniquement besoin du bouton. Du coup, pas de probleme d'alignement entre la checkbox et le bouton -->   
         </form>
         <div class="article-container mw-950px dflex fw-w gap-24 jc-c mil-auto">
+            <?php 
+                $stmt = Database::getInstance()->query("SELECT * FROM csm_article ORDER BY date_event DESC");
+                $articles = $stmt->fetchAll();
+                foreach($articles as $element) : ?>
 
+                    <article class="articleCard">
+                        <img src="<?= htmlspecialchars($element['img_event']) ?>" alt="Photo de l'événement">
+                        <div>
+                            <p class="dateCard catalogueCard"><?= htmlspecialchars($element['date_event']) ?></p>
+                            <h2 class="titreCard catalogueCard"><?= htmlspecialchars($element['title']) ?></h2>
+                            <p class="introCard catalogueCard"><?= htmlspecialchars($element['intro']) ?></p>
+                            <a href="article.php?id=<?= $element['id_article'] ?>" class="btnCard catalogueCard">En savoir +</a>
+                        </div>
+                    </article>
+            <?php endforeach; ?>
         </div>
     </main>
     <?php
       include_once 'includes/footer.php';
     ?>
-    <script src="assets/javascript/index.js">  
-    </script>
+    <!-- <script src="assets/javascript/index.js">  
+    </script> -->
 </body>
 </html>

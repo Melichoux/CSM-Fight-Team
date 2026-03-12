@@ -12,3 +12,12 @@ INSERT INTO csm_article (date_event, img_event, title, intro, description) VALUE
 ('2024-09-16', 'assets/images/articles/art-16-09-24.jpeg', 'Le CSM présent en nombre au stage régional d\'arbitrage jujitsu', 'Le CSM présent en nombre avec pas moins de 8 adhérents au stage régional d\'arbitrage jujitsu.', 'Description de l\'article Eum nam excepturi exercitationem eos sapiente illum fuga amet.');
 
 $_SESSION['user_id'] = $users['id'];
+
+-------------------------
+-- Insertion des tags
+
+INSERT INTO csm_tag (tag) VALUES ("arbitrage"), ("competition"), ("judo"), ("jujitsu"), ("stage");
+
+------------------------
+-- insertion des tags associés aux articles deja inserés
+INSERT INTO csm_article_tag (id_article, id_tag) VALUES (1, 4), (1,5),(2,2),(2,3),(2,4),(3,2),(3,4),(4,3),(4,4),(4,5),(5,4),(5,5),(6,1),(6,2),(6,3),(7,1),(7,4),(8,1),(8,3),(9,3),(9,4),(9,5),(10,1),(10,3),(10,5),(11,1),(11,4),(11,5);

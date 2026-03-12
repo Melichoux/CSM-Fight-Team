@@ -38,6 +38,25 @@ a:hover{
       border-bottom: 4px solid rgb(61, 181, 236);
 
     }  
+
+/* <!-- ==========  BUTTON LOGOUT (admin profil)  ========== --> */
+.btn-logout-container {
+    background-color: rgb(37, 54, 73);
+    border-radius: 8px;
+    border: 1px solid aliceblue;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+.btn-logout {
+    color: aliceblue;
+    font-weight: bold;
+}
+
+.btn-logout:hover {
+    color: rgb(61, 181, 236);
+    transition: color 300ms;
+}
     
 /* <!-- ==========  FOOTER  ========== --> */
 footer {
@@ -162,4 +181,19 @@ padding: 8px;
     background-color: rgb(37, 54, 73);
     margin-bottom: 24px;
     max-width: 900px;
+}
+
+/* ------------ Mise en page du dashboard admin ------------ */
+
+.dashboardCard {
+  max-width: 100%;
+  margin-top: 4px;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 8px;
+  box-shadow: 1px 1px 10px 1px rgb(61, 181, 236);
+  margin-bottom: 24px;
+  max-height: none;
+  background-color: rgb(37, 54, 73);
+  display: flex;
+  flex-direction: column;
 }

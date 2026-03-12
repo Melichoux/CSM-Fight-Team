@@ -9,10 +9,10 @@
     $success = false;
 
     $last_name ="";
-   $first_name = "";
+    $first_name = "";
     $email = "";
-     $password = "";
-     $confirm_password = "";
+    $password = "";
+    $confirm_password = "";
 
     //verifier que le formulaire est bien envoyé en POST
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
