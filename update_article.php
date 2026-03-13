@@ -1,74 +1,25 @@
 <?php
 include_once 'includes/head.php';
+$tags_update = [];
+$stmt = Database::getInstance()->prepare("SELECT * FROM csm_article WHERE id_article=:id ");// : apres le egal correspond a un "prepare"
+$stmt->execute([':id'=>$_GET['aid']]);
+$result= $stmt->fetch();
+$title = $result['title'];
+$date_event=$result['date_event'];
+$img_event=$result['img_event'];
+$intro=$result['intro'];
+$description=$result['description'];
 
-$errors = [];
-$success = false;
+$tags = Database::getInstance()->prepare("SELECT * FROM `csm_article_tag` WHERE id_article =:id");
+$tags->execute([':id'=>$_GET['aid']]);
+$result_tags= $tags->fetchAll();
+// var_dump($result_tags);
+// var_dump($tags_update);
 
-$title = "";
-$date_event = "";
-$img_event = "";
-$intro = "";
-$description = "";
-$tags = [];
-
-if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $title = htmlspecialchars(trim($_POST['title'] ?? ''));
-    $date_event = $_POST['date_event'] ?? '';
-    $img_event = htmlspecialchars(trim($_POST['img_event'] ?? ''));
-    $intro = htmlspecialchars(trim($_POST['intro'] ?? ''));
-    $description = htmlspecialchars(trim($_POST['description'] ?? ''));
-    $tags = $_POST['tags'] ?? [];
-
-    // Validation du formulaire
-    if (empty($title)) {
-        $errors['title'] = "ATTENTION! Il manque le titre.";
-    }
-    if (empty($date_event)) {
-        $errors['date_event'] = "ATTENTION! Il manque la date.";
-    }
-    if (empty($img_event)) {
-        $errors['img_event'] = "ATTENTION! Il manque une image.";
-    }
-    if (empty($intro)) {
-        $errors['intro'] = "ATTENTION! Il manque une introduction.";
-    }
-    if (empty($description)) {
-        $errors['description'] = "ATTENTION! Il n'y a pas de description.";
-    }
-
-    // Insertion dans la BDD apres que la verif soit ok
-    /* Logique insertion bdd dans 2 tables many-to-many: on insert dans la table principale PUIS on appelle l'id du dernier element créé dans la table principale que l'on va utiliser pour le lier a la 2ieme table en enregistrant les id es deux tables dans la table associative*/
-    if(empty($errors)) {
-        $pdo = Database::getInstance();
-        
-        $stmt = $pdo->prepare("INSERT INTO csm_article (title, date_event, img_event, intro, description) 
-                               VALUES (:title, :date_event, :img_event, :intro, :description)");
-        $stmt->execute([
-            'title' => $title,
-            'date_event' => $date_event,
-            'img_event' => $img_event,
-            'intro' => $intro,
-            'description' => $description,
-        ]);
-
-        $id_article = $pdo->lastInsertId();
-
-        // Insertion des tags et du dernier article dans la table associative
-        if(!empty($tags)) {
-            $stmtTag = $pdo->prepare("INSERT INTO csm_article_tag (id_article, id_tag) VALUES (:id_article, :id_tag)");
-            foreach($tags as $id_tag) {
-                $stmtTag->execute([
-                    'id_article' => $id_article,
-                    'id_tag' => $id_tag
-                ]);
-            }
-        }
-
-        header("Location: dashboard.php"); // retour au dashboard si enregistrement ok
-        exit;
-    }
+foreach ($result_tags as $value) {// recuperation des valeurs de la table tag associé a l'article
+    $tags_update[]= $value['id_tag']; // ne pas oublier les crochets apres $tags_update sinon retourne un int
 }
-
+// var_dump($tags_update);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -89,7 +40,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </a>
             </div>
                 <div class="dflex jc-c ai-c mb-32 mt-32">
-                <h1 class="fs-32">Ajouter un article</h1>
+                <h1 class="fs-32">Modifier un article</h1>
                 </div>
             </div>
             <div class="ta-e mt-16">
@@ -98,6 +49,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
             </div>
     </header>
+
 <main class="p16">
   <div class="container mw-950px mil-auto">
 
@@ -106,7 +58,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         <span class="btn-logout">Retour au dashboard</span>
       </a>
     </div>
-
     <div class="form-contact p24 mb-32">
       <form method="post" action="" class="dflex fd-c gap-16">
 
@@ -128,7 +79,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="dflex fd-c gap-8">
           <label for="img_event" class="color-w">Image </label>
-          <input id="img_event" type="text" name="img_event" placeholder="mon-image.jpg" value="<?= $img_event ?>" required />
+          <input id="img_event" type="text" name="img_event" placeholder="assets/images/articles/mon-image.jpg" value="<?= $img_event ?>" required />
           <?php if(isset($errors['img_event'])): ?>
             <p class="color-r"><?= $errors['img_event'] ?></p>
           <?php endif; ?>
@@ -153,18 +104,19 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         <fieldset class="mb-16">
           <legend class="color-w">Tags</legend>
           <?php
-          $tags_list = Database::getInstance()->query("SELECT * FROM csm_tag ORDER BY tag");
+          $stmt = Database::getInstance()->query("SELECT * FROM csm_tag ORDER BY tag");
+          $tags_list = $stmt->fetchAll();
           foreach($tags_list as $tag): /* creation d'une checkbox avec toutes les valeurs de la table tag ce qui permet de recuperer l'id et la valeur associée sans se tromper pour lier id et valeur coté user*/?>
             <div class="dflex ai-c gap-8">
               <input type="checkbox" id="tag_<?= $tag['id_tag'] ?>" name="tags[]" value="<?= $tag['id_tag'] ?>" 
-                <?= in_array($tag['id_tag'], $tags) ? 'checked' : ''  // pour conserver la valeur si form invalide?>
+                <?= in_array($tag['id_tag'], $tags_update) ? 'checked' : '' ?>
               <label for="tag_<?= $tag['id_tag'] ?>" class="color-w"><?= htmlspecialchars($tag['tag']) ?></label>
             </div>
           <?php endforeach; ?>
         </fieldset>
 
         <div class="mb-32">
-          <button type="submit">Publier</button>
+          <button type="submit">Modifier</button>
         </div>
 
       </form>

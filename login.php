@@ -1,9 +1,5 @@
 <?php
 include_once 'includes/head.php';
-if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'admin') { // permet de savoir si l'utilisateur est déjà connecté
-  header("Location: dashboard.php"); // si oui, redirection vers la page d'apres connexion
-  exit; // permet de stopper le script de cette page apres la redirection (sinon le script continue de s'executer en arriere plan donc faille de sécurité et bugs possibles)
-}
 // var_dump($_SESSION);
 // include_once 'config/Database.php';
 
@@ -24,9 +20,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['id_user'] = $users['id_user']; // la key de session est inventée et la valeur du param $user correspond au nom de la colonne
     $_SESSION['user_name'] = $users['first_name'] . '' . $users['last_name'];
     $_SESSION['user_role'] = $users['role'];
-    header("Location: inscription.php");
+    if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'admin') { // permet de savoir si l'utilisateur est déjà connecté
+  header("Location: dashboard.php"); // si oui, redirection vers la page d'apres connexion
+  exit; // permet de stopper le script de cette page apres la redirection (sinon le script continue de s'executer en arriere plan donc faille de sécurité et bugs possibles)
+}
+    header("Location: index.php"); // si role different de admin alors redirection vers index.php
   } else {
-    $error = "Email ou mot de passe incorrect.";
+    $error = "Email ou mot de passe incorrect. Si vous n'avez pas de compte: cliquez <a href=inscription.php>ici</a>.";
   }
 }
 include_once 'includes/header.php';

@@ -1,10 +1,6 @@
-    <?php
+<?php
     include_once 'includes/head.php';
-    include_once 'includes/header.php';
     // require_once 'config/Database.php';
-    ?>
-
-    <?php
     $errors = [];
     $success = false;
 
@@ -79,7 +75,7 @@
         // Pas besoin de else car les messages d'erreur s'affichent directement à coté des inputs concernés.
   }
     }
-
+    include_once 'includes/header.php';
     ?>
 
     <main class="dflex jc-c ai-c ">
