@@ -1,110 +1,108 @@
-# Projet CSM Fight Team
+# CSM Fight Team Project
 
-Ce projet porte sur la refonte du site internet d'un club sportif.
+This project is about redesigning the website of a sports club.
 
-## Pré requis
+## Prerequisites
 
- L'installation de nodejs et github sont necéssaire pour travailler sur ce projet.
+The installation of a LAMP environment as well as nodejs, github, docker, phpmyadmin, vscode and gitbash are necessary to work on this project.
+## Objectives
 
- ## Objectifs
-
- Créer un site qui permettra une bonne expérience à l'utilisateur et faciliter sa navigation sur ce nouveau site
+Create a website that will provide a good user experience and facilitate navigation on this new site
 
 
-# CSM Fight Team - Site du club
+# CSM Fight Team - Club Website
 
-Création: 15 Décembre 2025
-Ce projet découle de l'envie d'améliorer le site internet d'un club sportif.
+Creation: December 15, 2025
+This project stems from the desire to improve the website of a sports club.
 ![Screenshot](./images/screenshot.png)
 
 ## Description
 
-Site d'informations du club avec accès aux informations suivantes:
-- les coordonnées du club, 
-- les informations sur les cours,
-- page infos de la vie du club
-- un catalogue d'articles, 
-- une galerie photo, 
-- un lien vers des sites externes (notamment le site de la fédération de judo),
-- une page contact
-- un espace d'inscription,
-- un espace connexion,
-- compte admin pour modifier le conteu du site
+Club information website with access to the following information:
+- club contact details,
+- information about classes,
+- club life info page
+- an article catalogue,
+- a photo gallery,
+- a link to external websites (including the judo federation website),
+- a contact page
+- a registration area,
+- a login area,
+- admin account to modify the site content
 
-## Compétences visées frontend (Partie 1)
+## Frontend Skills (Part 1)
 
-### Réaliser des interfaces utilisateur statiques web ou web mobile
+### Creating static web or mobile web user interfaces
 
-- **Compétences** : Développement de pages web en utilisant HTML5 et CSS3, compréhension de la mise en page responsive.
-- **Exemple** : Codage en HTML5 et CSS3 pour structurer des pages web et appliquer des styles.
+- **Skills**: Web page development using HTML5 and CSS3, understanding of responsive layout.
+- **Example**: Coding in HTML5 and CSS3 to structure web pages and apply styles.
 
-### Développer la partie dynamique des interfaces utilisateur web ou web mobile
+### Developing the dynamic part of web or mobile web user interfaces
 
-- **Compétences** : Programmation en JavaScript, utilisation de bibliothèques et frameworks pour enrichir l'interaction utilisateur.
-- **Exemple** : Utilisation de JavaScript pour rendre les interfaces interactives.
+- **Skills**: JavaScript programming, use of libraries and frameworks to enhance user interaction.
+- **Example**: Using JavaScript to make interfaces interactive.
 
-### Fonctionnalités
+### Features
 
-- Affichage d'un catalogue d'articles grace a la methode fetch
-- Recherche d'article par mots clés
-- Page de détails d'un article
-- Design moderne et accessible
-- Page de contact avec envoi de mail via EmailJS
+- Display of an article catalogue using the fetch method
+- Article search by keywords
+- Article details page
+- Modern and accessible design
+- Contact page with email sending via EmailJS
 
-### Technologies utilisées
+### Technologies used
 
-- HTML5 (balises sémantiques)
+- HTML5 (semantic tags)
 - CSS3 (Flexbox, Grid, Media Queries)
 - JavaScript ES6 (Fetch API, Modules)
 - EmailJS
 - Vercel: https://csm-fight-team.vercel.app/
 
-## Compétences visées backend (Partie)
+## Backend Skills (Part 2)
 
-### Compétences
- - Mettre en place une base de données relationnelle,
- - Développer des composants d'accès aux données SQL et NoSQL,
- - Développer des composants métier côté serveur,
- - Documenter le déploiement d'une application dynamique web ou web mobile.
+### Skills
+ - Setting up a relational database,
+ - Developing SQL and NoSQL data access components,
+ - Developing server-side business components,
+ - Documenting the deployment of a dynamic web or mobile web application.
 
-### Fonctionnalités
+### Features
 
-- Affichage d'un catalogue d'articles grace a la methode fetch
-- Recherche d'article par mots clés
-- Page de détails d'un article
+- Display of an article catalogue using the fetch method
+- Article search by keywords
+- Article details page
 
-### Technologies utilisées
+### Technologies used
  - LAMP
  - Mysql
  - PHP 8.4.18
  - Phpmyadmin 5.2.2
- -  Docker
- 
+ - Docker
+
 ## Installation
 
-1. Cloner le repository
+1. Clone the repository
 ```bash
 git clone https://github.com/Melichoux/CSM-Fight-Team.git
 ```
 
-## BDD
+## Database
 
 1. Merise
 ----------
 
-[Cliquer pour acceder au dictionnaire de données](<assets/images/merise/Dictionnaire de données.pdf>)
+[Click to access the data dictionary](<assets/images/merise/Dictionnaire de données.pdf>)
 
-Schema MCD (looping):
-![schema MCD](assets/images/merise/mcd-csm.png)
-Schema MLD (looping):
-![schema MLD](assets/images/merise/mld-csm.png)
-Schema MPD(php my admin):
-![schema MPD](assets/images/merise/mpd-csm.png)
+MCD schema (looping):
+![MCD schema](assets/images/merise/mcd-csm.png)
+MLD schema (looping):
+![MLD schema](assets/images/merise/mld-csm.png)
+MPD schema (phpmyadmin):
+![MPD schema](assets/images/merise/mpd-csm.png)
 
-2. Creation de la base de données
+2. Database creation
 -----------
-Voici le code pour recréer la base de données:
-
+Here is the code to recreate the database:
 ```sql
 DROP DATABASE IF EXISTS csm_fight_team;
 CREATE DATABASE csm_fight_team;
@@ -143,9 +141,11 @@ CREATE TABLE csm_article(
    intro VARCHAR(255),
    description TEXT,
    created_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
-   id_user INT UNSIGNED NOT NULL,
+   id_user INT UNSIGNED NOT NULL DEFAULT 1,
    PRIMARY KEY(id_article),
    FOREIGN KEY(id_user) REFERENCES csm_user(id_user)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE
 );
 
 CREATE TABLE csm_tag(
@@ -166,6 +166,8 @@ CREATE TABLE csm_time_slot(
    id_user INT UNSIGNED NOT NULL,
    PRIMARY KEY(id_time_slot),
    FOREIGN KEY(id_user) REFERENCES csm_user(id_user)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE
 );
 
 CREATE TABLE csm_slot_day(
@@ -184,6 +186,8 @@ CREATE TABLE csm_comment(
    id_user INT UNSIGNED NOT NULL,
    PRIMARY KEY(id_comment),
    FOREIGN KEY(id_user) REFERENCES csm_user(id_user)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE
 );
 
 CREATE TABLE csm_album(
@@ -203,21 +207,30 @@ CREATE TABLE csm_photo(
    PRIMARY KEY(id_photo)
 );
 
+-- Tables associatives
 
 CREATE TABLE csm_article_tag(
    id_article INT UNSIGNED NOT NULL,
    id_tag INT UNSIGNED NOT NULL,
    PRIMARY KEY(id_article, id_tag),
-   FOREIGN KEY(id_article) REFERENCES csm_article(id_article),
+   FOREIGN KEY(id_article) REFERENCES csm_article(id_article)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE,
    FOREIGN KEY(id_tag) REFERENCES csm_tag(id_tag)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE
 );
 
 CREATE TABLE csm_article_comment(
    id_article INT UNSIGNED NOT NULL,
    id_comment INT UNSIGNED NOT NULL,
    PRIMARY KEY(id_article, id_comment),
-   FOREIGN KEY(id_article) REFERENCES csm_article(id_article),
+   FOREIGN KEY(id_article) REFERENCES csm_article(id_article)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE,
    FOREIGN KEY(id_comment) REFERENCES csm_comment(id_comment)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE
 );
 
 CREATE TABLE csm_user_comment(
@@ -225,27 +238,40 @@ CREATE TABLE csm_user_comment(
    id_comment INT UNSIGNED NOT NULL,
    like_dislike BOOLEAN,
    PRIMARY KEY(id_user, id_comment),
-   FOREIGN KEY(id_user) REFERENCES csm_user(id_user),
+   FOREIGN KEY(id_user) REFERENCES csm_user(id_user)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE,
    FOREIGN KEY(id_comment) REFERENCES csm_comment(id_comment)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE
 );
 
 CREATE TABLE csm_photo_album(
    id_album INT UNSIGNED NOT NULL,
    id_photo INT UNSIGNED NOT NULL,
    PRIMARY KEY(id_album, id_photo),
-   FOREIGN KEY(id_album) REFERENCES csm_album(id_album),
+   FOREIGN KEY(id_album) REFERENCES csm_album(id_album)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE,
    FOREIGN KEY(id_photo) REFERENCES csm_photo(id_photo)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE
 );
 
 CREATE TABLE csm_time_slot_day(
    id_time_slot INT UNSIGNED NOT NULL,
    id_slot_day INT UNSIGNED NOT NULL,
    PRIMARY KEY(id_time_slot, id_slot_day),
-   FOREIGN KEY(id_time_slot) REFERENCES csm_time_slot(id_time_slot),
+   FOREIGN KEY(id_time_slot) REFERENCES csm_time_slot(id_time_slot)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE,
    FOREIGN KEY(id_slot_day) REFERENCES csm_slot_day(id_slot_day)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE
 );
+...
 ```
-Récapitulatif des tables:
+Table summary:
 
 - csm_Form_contact
 - csm_user_
@@ -257,7 +283,7 @@ Récapitulatif des tables:
 - csm_album
 - csm_photo
 
---- tables associatives ---
+--- associative tables ---
 
 - csm_article_tag
 - csm_article_comment
@@ -265,6 +291,3 @@ Récapitulatif des tables:
 - csm_photo_album
 - csm_time_slot_day
 ----------------------
-
-3. SQL ATTENTION préciser les relations entre les tables, identifier les FK pour le delete on cascade et ne pas faire d'erreur (preciser les fk delete on cascade)
----------------
