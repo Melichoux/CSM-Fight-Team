@@ -1,5 +1,6 @@
 <?php
 include_once 'includes/head.php';
+// Récupération de l'article grace a son id dans l'url via la superglobale $_get
 $tags_update = [];
 $stmt = Database::getInstance()->prepare("SELECT * FROM csm_article WHERE id_article=:id ");// : apres le egal correspond a un "prepare"
 $stmt->execute([':id'=>$_GET['aid']]);
@@ -20,6 +21,62 @@ foreach ($result_tags as $value) {// recuperation des valeurs de la table tag as
     $tags_update[]= $value['id_tag']; // ne pas oublier les crochets apres $tags_update sinon retourne un int
 }
 // var_dump($tags_update);
+
+// UPDATE DE L'ARTICLE
+
+//Comme tjs, verification des champs
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $title = htmlspecialchars(trim($_POST['title'] ?? ''));
+    $date_event = $_POST['date_event'] ?? '';
+    $img_event = htmlspecialchars(trim($_POST['img_event'] ?? ''));
+    $intro = htmlspecialchars(trim($_POST['intro'] ?? ''));
+    $description = htmlspecialchars(trim($_POST['description'] ?? ''));
+    $tags = $_POST['tags'] ?? [];
+    $id_article = $_GET['aid'];
+
+    if(empty($title)) $errors['title'] = "ATTENTION! Il manque le titre.";
+    if(empty($date_event)) $errors['date_event'] = "ATTENTION! Il manque la date.";
+    if(empty($img_event)) $errors['img_event'] = "ATTENTION! Il manque une image.";
+    if(empty($intro)) $errors['intro'] = "ATTENTION! Il manque une introduction.";
+    if(empty($description)) $errors['description'] = "ATTENTION! Il n'y a pas de description.";
+
+    // Si okay, MAJ dans la BDD pour la table csm_article
+    if(empty($errors)) {
+        $pdo = Database::getInstance();
+
+        $stmt = $pdo->prepare("UPDATE csm_article SET 
+            title = :title,
+            date_event = :date_event,
+            img_event = :img_event,
+            intro = :intro,
+            description = :description
+            WHERE id_article = :id_article");
+        $stmt->execute([
+            'title' => $title,
+            'date_event' => $date_event,
+            'img_event' => $img_event,
+            'intro' => $intro,
+            'description' => $description,
+            'id_article' => $id_article
+        ]);
+      // Maj de la table des tags en commencant par effecer les valeurs de la table associative et donc en cascade dans la table csm_tag aussi
+        $pdo->prepare("DELETE FROM csm_article_tag WHERE id_article = ?")->execute([$id_article]);
+
+      // insertion des nouveaux tags via la table associative
+        if(!empty($tags)) {
+            $stmtTag = $pdo->prepare("INSERT INTO csm_article_tag (id_article, id_tag) VALUES (:id_article, :id_tag)");
+            foreach($tags as $id_tag) {
+                $stmtTag->execute([
+                    'id_article' => $id_article,
+                    'id_tag' => $id_tag
+                ]);
+            }
+        }
+
+        header("Location: dashboard.php");
+        exit;
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">

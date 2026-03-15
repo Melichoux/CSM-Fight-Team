@@ -1,3 +1,9 @@
+---------------------------
+-- Déclaration de l'admin
+UPDATE csm_user set role ='admin' where id_user =1;
+
+---------------------------
+-- Insertion du json
 INSERT INTO csm_article (date_event, img_event, title, intro, description) VALUES
 ('2025-03-03', 'assets/images/articles/art-03-03-25bis.jpeg', 'Stage de Jujitsu Fighting organisé par le CSM Fight Team.', 'Eum nam excepturi exercitationem eos sapiente illum fuga amet.', 'Description de l\'article Eum nam excepturi exercitationem eos sapiente illum fuga amet.'),
 ('2025-03-03', 'assets/images/articles/art-03-03-25.jpeg', 'Le CSM Fight Team présent à l\'animation de Cabannes', 'Le samedi 1 er Mars avait lieu l\'animation de judo et jujitsu à Cabannes organisé par un club ami, le GOKAN. Nous avions 5 présents :', 'Description de l\'article Eum nam excepturi exercitationem eos sapiente illum fuga amet.'),
@@ -11,7 +17,6 @@ INSERT INTO csm_article (date_event, img_event, title, intro, description) VALUE
 ('2024-10-07', 'assets/images/articles/art-07-10-24.jpeg', 'Le CSM en nombre au stage d\'arbitrage du département', 'Ce samedi s\'est tenu le stage départemental d\'arbitrage organisé par le comité 13 au CREPS d\'Aix. Il s\'est tenu de 9h à 12h.', 'Description de l\'article Eum nam excepturi exercitationem eos sapiente illum fuga amet.'),
 ('2024-09-16', 'assets/images/articles/art-16-09-24.jpeg', 'Le CSM présent en nombre au stage régional d\'arbitrage jujitsu', 'Le CSM présent en nombre avec pas moins de 8 adhérents au stage régional d\'arbitrage jujitsu.', 'Description de l\'article Eum nam excepturi exercitationem eos sapiente illum fuga amet.');
 
-$_SESSION['user_id'] = $users['id'];
 
 -------------------------
 -- Insertion des tags

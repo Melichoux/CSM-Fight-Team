@@ -1,6 +1,6 @@
 # Projet CSM Fight Team
 
-Ce projet est le dossier permettant de travailler sur la refonte du site internet d'un club sportif.
+Ce projet porte sur la refonte du site internet d'un club sportif.
 
 ## Pré requis
 
@@ -26,9 +26,12 @@ Site d'informations du club avec accès aux informations suivantes:
 - un catalogue d'articles, 
 - une galerie photo, 
 - un lien vers des sites externes (notamment le site de la fédération de judo),
-- une page contact.
+- une page contact
+- un espace d'inscription,
+- un espace connexion,
+- compte admin pour modifier le conteu du site
 
-## Compétences visées
+## Compétences visées frontend (Partie 1)
 
 ### Réaliser des interfaces utilisateur statiques web ou web mobile
 
@@ -40,7 +43,7 @@ Site d'informations du club avec accès aux informations suivantes:
 - **Compétences** : Programmation en JavaScript, utilisation de bibliothèques et frameworks pour enrichir l'interaction utilisateur.
 - **Exemple** : Utilisation de JavaScript pour rendre les interfaces interactives.
 
-## Fonctionnalités
+### Fonctionnalités
 
 - Affichage d'un catalogue d'articles grace a la methode fetch
 - Recherche d'article par mots clés
@@ -48,7 +51,7 @@ Site d'informations du club avec accès aux informations suivantes:
 - Design moderne et accessible
 - Page de contact avec envoi de mail via EmailJS
 
-## Technologies utilisées
+### Technologies utilisées
 
 - HTML5 (balises sémantiques)
 - CSS3 (Flexbox, Grid, Media Queries)
@@ -56,7 +59,27 @@ Site d'informations du club avec accès aux informations suivantes:
 - EmailJS
 - Vercel: https://csm-fight-team.vercel.app/
 
+## Compétences visées backend (Partie)
 
+### Compétences
+ - Mettre en place une base de données relationnelle,
+ - Développer des composants d'accès aux données SQL et NoSQL,
+ - Développer des composants métier côté serveur,
+ - Documenter le déploiement d'une application dynamique web ou web mobile.
+
+### Fonctionnalités
+
+- Affichage d'un catalogue d'articles grace a la methode fetch
+- Recherche d'article par mots clés
+- Page de détails d'un article
+
+### Technologies utilisées
+ - LAMP
+ - Mysql
+ - PHP 8.4.18
+ - Phpmyadmin 5.2.2
+ -  Docker
+ 
 ## Installation
 
 1. Cloner le repository
