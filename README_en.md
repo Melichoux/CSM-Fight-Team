@@ -14,7 +14,7 @@ Create a website that will provide a good user experience and facilitate navigat
 
 Creation: December 15, 2025
 This project stems from the desire to improve the website of a sports club.
-![Screenshot](./images/screenshot.png)
+![Screenshot](assets/images/homecsm.png)
 
 ## Description
 

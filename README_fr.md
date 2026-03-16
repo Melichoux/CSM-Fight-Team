@@ -15,7 +15,7 @@ Ce projet porte sur la refonte du site internet d'un club sportif.
 
 Création: 15 Décembre 2025
 Ce projet découle de l'envie d'améliorer le site internet d'un club sportif.
-![Screenshot](./images/screenshot.png)
+![Screenshot](assets/images/homecsm.png)
 
 ## Description
 
@@ -78,7 +78,7 @@ Site d'informations du club avec accès aux informations suivantes:
  - Mysql
  - PHP 8.4.18
  - Phpmyadmin 5.2.2
- -  Docker
+ - Docker
 
 ## Installation
 
