@@ -167,7 +167,8 @@ CREATE TABLE csm_time_slot_day(
 );
 
 ---------------------------
--- Déclaration de l'admin
+-- Déclaration de l'admin (pensez a créer un user avant de changer le role de l'admin)
+
 UPDATE csm_user set role ='admin' where id_user =1;
 
 ---------------------------
@@ -193,4 +194,4 @@ INSERT INTO csm_tag (tag) VALUES ("arbitrage"), ("competition"), ("judo"), ("juj
 
 ------------------------
 -- insertion des tags associés aux articles deja inserés
-INSERT INTO csm_article_tag (id_article, id_tag) VALUES (1, 4), (1,5),(2,2),(2,3),(2,4),(3,2),(3,4),(4,3),(4,4),(4,5),(5,4),(5,5),(6,1),(6,2),(6,3),(7,1),(7,4),(8,1),(8,3),(9,3),(9,4),(9,5),(10,1),(10,3),(10,5),(11,1),(11,4),(11,5);
+INSERT INTO csm_article_tag (id_article, id_tag) VALUES (1,4), (1,5),(2,2),(2,3),(2,4),(3,2),(3,4),(4,3),(4,4),(4,5),(5,4),(5,5),(6,1),(6,2),(6,3),(7,1),(7,4),(8,1),(8,3),(9,3),(9,4),(9,5),(10,1),(10,3),(10,5),(11,1),(11,4),(11,5);

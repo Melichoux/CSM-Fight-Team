@@ -7,7 +7,7 @@
 
 class Database
 {
-    // trouver le moyen de l'integrer a la class plus TARD!!!!
+    // trouver le moyen de l'integrer a la class plus TARD!!!! => injection de dépendances
     private static $host = 'mysql-server';
     private static $dbname = 'csm_fight_team';
     private static $username = 'root';

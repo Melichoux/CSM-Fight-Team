@@ -1,7 +1,7 @@
 <?php
 include_once 'includes/head.php';
 // var_dump($_SESSION);
-// include_once 'config/Database.php';
+include_once 'config/Database.php';
 
 $error = ''; // le "$success" n'est pas necessaire car en cas de reussite, il y a une redirection donc pas besoin de définir un message de reussite sur la page si on ne reste pas dessus
 
@@ -26,15 +26,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
     header("Location: index.php"); // si role different de admin alors redirection vers index.php
   } else {
-    $error = "Email ou mot de passe incorrect. Si vous n'avez pas de compte: cliquez <a href=inscription.php>ici</a>.";
+    $error = "ATTENTION! Email ou mot de passe incorrect.";
   }
 }
 include_once 'includes/header.php';
 ?>
 <main class="dflex jc-c ai-c ">
+
+  
   <div class="form-contact dflex fw-w jc-c ai-c minw-100 mt-32">
     <form method="post" class="dblock fd-c ai-c ta-c mw-800px">
       <h1 class="p24">Se connecter</h1>
+      
+      <?php if ($error): ?>
+        <p class="p24 color-r"><?= $error ?></p>
+      <?php endif; ?>
 
       <div class="mb-16">
         <label for="email">Email</label><br>
@@ -51,7 +57,7 @@ include_once 'includes/header.php';
       </div>
 
       <div>
-        <a href="inscription.php" class="color-w">Pas encore de compte? Inscrivez-vous</a>
+        <a href="inscription.php" class="color-w">Pas encore de compte? Inscrivez-vous ici!</a>
       </div>
 
     </form>
