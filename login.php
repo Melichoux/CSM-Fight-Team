@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $email = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);
   $password = $_POST['password'] ?? ''; // htmlspecialchars s'utilise dans le html et pas en php, on evite de modifier un mdp avant de le hasher
 
-  $stmt = Database::getInstance()->prepare("SELECT * FROM csm_user WHERE email = :email");
+  $stmt = Database::getInstance()->prepare("SELECT * FROM csm_user WHERE email = :email"); // on evite * et on fait plutot un select des colonnes qui nous interesse
   $stmt->execute(['email' => $email]);
   $users = $stmt->fetch(); // verif et recup d'une adresse mail dans la table
 

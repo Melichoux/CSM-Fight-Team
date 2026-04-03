@@ -1,0 +1,62 @@
+.carrousel { /* conteneur global, gestion position en interne */
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+}
+
+.carrousel__slides { /* conteneur des slides  sur lequel on applique la propriete hidden sur les elements en dehors du "cadre" */
+  overflow: hidden;
+}
+
+.carrousel__slide { /* un slide caché par défaut */
+  display: none;
+}
+
+.carrousel__slide.active { /* slide visible */
+  display: block;
+}
+
+.carrousel__slide img { /* dimensionnement de l'image du slide */
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.carrousel__content { /* description slide */
+  padding: 1rem;
+  background: rgba(0,0,0,0.6);
+  color: white;
+}
+
+.carrousel__btn { /* boutons suivant/precedent sur l'image slide */
+  position: absolute;
+  top: 200px;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  z-index: 10;
+}
+
+.prev { left: 10px; } /* bouton gauche */
+.next { right: 10px; } /* bouton droit */
+
+.carrousel__dots { /* conteneur des points indicateurs */
+  text-align: center;
+  padding: 8px;
+}
+
+.dot { /* point indicateur individuel */
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: #ccc;
+  border-radius: 50%;
+  margin: 0 4px;
+  cursor: pointer;
+}
+
+.dot.active { background: rgb(61, 181, 236); } /* point du slide actuellement actif */

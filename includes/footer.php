@@ -1,9 +1,9 @@
     <footer>
         <div class="footer_block dflex fw-w jc-c gap-24 p16">
             <section class="section_footer ta-c">
-                <h3><b>lorem</b></h3>
+                <h3><b>Partenaires</b></h3>
                 <ul>
-                    <li><a href="#">Actualités</a></li>
+                    <li><a href="#">Liens utiles</a></li>
                     <!-- <li><a href="#"> c</a></li>
                     <li><a href="#">c </a></li> -->
                 </ul>
@@ -25,5 +25,7 @@
                 </ul>
             </section>
         </div>
-        <p id="copyright">@ Copyright ALEO 2024</p>
+        <p id="copyright">Copyright © CSM Fight Team 2026</p>
     </footer>
+    <script src="assets/javascript/index.js"></script>
+<script src="assets/javascript/carousel.js"></script>

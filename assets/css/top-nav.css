@@ -2,7 +2,13 @@
 .navElmt {
     position: relative; /* Cette propriete permet de servir de position de reference a tous les elements enfants.
     Sans ca, les enfants se placeraient en fonction de la page entiere (CaD du body) */
-    display:inline-block;
+    display: flex; 
+    align-items: center; /*centre verticalement le contenu */
+}
+}
+
+.mainNav ul {
+  align-items: center;
 }
 
 #dropDownBtn{
@@ -11,6 +17,8 @@
     color:  aliceblue; /*On peut aussi mettre color:inherit pour que le bouton herite de la couleur du parent*/
     font: inherit; /* Permet l'heritage de toutes les prop de la police du menu (permet une cohesion visuelle)*/
     cursor: pointer; /*Permet de faire apparaitre une main en pointeur pour mettre en evidence l'element cliquable dans le menu*/
+    padding: 0;
+    margin: 0;
 }
 #dropDownList {
   display:none; /* Permet de cacher le dropdown quand l'ul est "fermé".

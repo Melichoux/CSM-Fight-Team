@@ -2,7 +2,7 @@
 //ANCHOR - Commande du menu deroulant sur l'onglet "Vie du club"
 const dropDownBtn = document.querySelector("#dropDownBtn");
 const dropDownList = document.querySelector("#dropDownList");
-
+if (dropDownBtn){
 dropDownBtn.addEventListener("click", (event) => {
   event.stopPropagation(); // empêche le clic de "remonter" au document et de faire disparaitre le menu tout de suite apres le "click"
   dropDownList.classList.toggle("open");
@@ -12,11 +12,11 @@ dropDownBtn.addEventListener("click", (event) => {
 document.addEventListener("click", () => {
   dropDownList.classList.remove("open");
 });
-
+}
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 //ANCHOR -   Récupération des données des articles pour la page catalogue
 const articleContainer = document.querySelector(".article-container");
-
+if(articleContainer){
 fetch(window.location.origin +"/CSM-FIGHT-TEAM/assets/javascript/data/articles.json") //
   .then((response) => response.json())
   .then((data) => {
@@ -38,7 +38,7 @@ fetch(window.location.origin +"/CSM-FIGHT-TEAM/assets/javascript/data/articles.j
       article.append(divText);
     }
   });
-
+}
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 //ANCHOR -  Récupération des données pour la page article
 //cf.page article car plus simple de mettre le script qui utlise l'url directement sur la page concernée
@@ -46,6 +46,7 @@ fetch(window.location.origin +"/CSM-FIGHT-TEAM/assets/javascript/data/articles.j
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 //ANCHOR -  Page catalogue: barre de filtre
 const filter = document.querySelector("#filter"); // on applique le filtre directement sur le "select" du form
+if (filter){
 filter.addEventListener("change", (event) => { //
   const userChoice = event.target.value;
   console.log(event.target.value);
@@ -78,3 +79,5 @@ filter.addEventListener("change", (event) => { //
       }
     });
 });
+}
+

@@ -35,6 +35,7 @@ ul{
   display: flex;
   justify-content: end;
   gap: 12px;
+  align-items: center; 
 }
 
 li{
