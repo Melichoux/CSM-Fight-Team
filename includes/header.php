@@ -6,6 +6,8 @@
     <title>Accueil</title>
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/carousel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css"> <!--permet l'affichage du cadre de dimensionnement des photos dans le CRUD, les poignets et l'assombrissement de l'overlay --> 
+    
     <meta name="description" content="Bienvenue sur le site du CSM FIGHT TEAM, club de judo-jujitsu marseillais." />
 </head>
 

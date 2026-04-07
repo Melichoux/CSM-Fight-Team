@@ -18,13 +18,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if ($users && password_verify($password, $users['password'])) {
     // session_regenerate_id(true);
     $_SESSION['id_user'] = $users['id_user']; // la key de session est inventée et la valeur du param $user correspond au nom de la colonne
-    $_SESSION['user_name'] = $users['first_name'] . '' . $users['last_name'];
+    $_SESSION['user_name'] = $users['first_name'] . ' ' . $users['last_name'];
     $_SESSION['user_role'] = $users['role'];
     if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'admin') { // permet de savoir si l'utilisateur est déjà connecté
   header("Location: dashboard.php"); // si oui, redirection vers la page d'apres connexion
   exit; // permet de stopper le script de cette page apres la redirection (sinon le script continue de s'executer en arriere plan donc faille de sécurité et bugs possibles)
 }
     header("Location: index.php"); // si role different de admin alors redirection vers index.php
+    exit;
   } else {
     $error = "ATTENTION! Email ou mot de passe incorrect.";
   }

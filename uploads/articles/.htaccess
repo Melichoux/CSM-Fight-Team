@@ -1,0 +1,7 @@
+Options -Indexes
+
+<FilesMatch "\.(php|php5|phtml)$">
+    Deny from all
+</FilesMatch>
+
+<!-- .HyperTextaccess est un fichier de config local utilisé par Apache HTTP Server uniquement donc attention si autre stack -->

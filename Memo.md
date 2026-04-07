@@ -56,6 +56,7 @@ Bonus Faire une method pour recup dans l'intro d'un article la premiere phrase d
 - [X] fichier robots.txt
 - [X] fichier sitemap.xml
 - [ ] Bonus: mettre une colonne "slug" dans la BDD permettant un d'avoir un url propre et lisible en recuprerant le titre de l'article et en remplacant les espacs par des "-" et tout en minuscule en + MEILLEUR REFERENCEMENT SEO!!!!
+- [ ] Ajout de cropper.js pour gerer l'ajout d'image a un nouvel article. Permet le crop et d'aleger l'image avant de la stocker => uniformiser les taille et qualité des photos pour les articles.
 
 # Partie Backend
 
@@ -137,7 +138,7 @@ Pour installer le projet vous pouvez executer la commande `npm init -y` et `npm 
 
 ### sql
 
- - "unsigned" avec un int => delpace les négatifs vers les positifs, utilie pour un id car un id négatif = error,
+ - "unsigned" avec un int => deplace les négatifs vers les positifs, utile pour un id car un id négatif = error,
  - optimiser les chemins dans les fichiers __Dir__
 
 

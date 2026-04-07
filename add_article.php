@@ -14,7 +14,46 @@ $tags = [];
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = htmlspecialchars(trim($_POST['title'] ?? ''));
     $date_event = $_POST['date_event'] ?? '';
-    $img_event = htmlspecialchars(trim($_POST['img_event'] ?? ''));
+    $img_event = '';
+      if (!empty($_FILES['img_event']['name'])) {
+
+          $allowed_types = ['image/jpeg', 'image/png', 'image/webp'];
+
+          if (!in_array($_FILES['img_event']['type'], $allowed_types)) {
+              $errors['img_event'] = "Format non accepté. JPG, PNG ou WEBP uniquement.";
+          } else {
+              // Chargement de l'image source selon son type
+              $type = $_FILES['img_event']['type'];
+              if ($type === 'image/jpeg') $source = imagecreatefromjpeg($_FILES['img_event']['tmp_name']);
+              elseif ($type === 'image/png') $source = imagecreatefrompng($_FILES['img_event']['tmp_name']);
+              elseif ($type === 'image/webp') $source = imagecreatefromwebp($_FILES['img_event']['tmp_name']);
+
+              // Coordonnées du crop
+              $crop_x = (int)($_POST['crop_x'] ?? 0);
+              $crop_y = (int)($_POST['crop_y'] ?? 0);
+              $crop_w = (int)($_POST['crop_w'] ?? imagesx($source));
+              $crop_h = (int)($_POST['crop_h'] ?? imagesy($source));
+
+              // Canvas de destination aux dimensions finales
+              $target_w = 800;
+              $target_h = 450;
+              $resized = imagecreatetruecolor($target_w, $target_h);
+
+              // Crop + redimensionnement en une seule opération
+              imagecopyresampled($resized, $source, 0, 0, $crop_x, $crop_y, $target_w, $target_h, $crop_w, $crop_h);
+
+              // Sauvegarde en JPEG avec 80% de qualité
+              $filename = uniqid() . '.jpg';
+              $destination = 'uploads/articles/' . $filename;
+              imagejpeg($resized, $destination, 80);
+
+              // Libération mémoire
+              imagedestroy($source);
+              imagedestroy($resized);
+
+              $img_event = $destination;
+          }
+      }    
     $intro = htmlspecialchars(trim($_POST['intro'] ?? ''));
     $description = htmlspecialchars(trim($_POST['description'] ?? ''));
     $tags = $_POST['tags'] ?? [];
@@ -108,7 +147,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <div class="form-contact p24 mb-32">
-      <form method="post" action="" class="dflex fd-c gap-16">
+      <form method="post" action="" enctype="multipart/form-data" class="dflex fd-c gap-16">
 
         <div class="dflex fd-c gap-8">
           <label for="title" class="color-w">Titre </label>
@@ -126,12 +165,24 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
           <?php endif; ?>
         </div>
 
+        
         <div class="dflex fd-c gap-8">
-          <label for="img_event" class="color-w">Image </label>
-          <input id="img_event" type="text" name="img_event" placeholder="mon-image.jpg" value="<?= $img_event ?>" required />
+          <label for="img_event" class="color-w">Image</label>
+          <input id="img_event" type="file" name="img_event" accept="image/jpeg, image/png, image/webp" onchange="previewImage(this)" />
           <?php if(isset($errors['img_event'])): ?>
             <p class="color-r"><?= $errors['img_event'] ?></p>
           <?php endif; ?>
+
+          <!-- Zone de crop invisible tant qu'il n'y a pas d'img-->
+          <div id="crop-container" style="display:none; max-width:800px; margin-top:16px;">
+            <img id="preview" src="" alt="preview" style="max-width:300px;">
+          </div>
+
+          <!-- Coordonnées transmises au php apres le crop, n'a pas besoin d'etre visible d'ou le hidden -->
+          <input type="hidden" name="crop_x" id="crop_x">
+          <input type="hidden" name="crop_y" id="crop_y">
+          <input type="hidden" name="crop_w" id="crop_w">
+          <input type="hidden" name="crop_h" id="crop_h">
         </div>
 
         <div class="dflex fd-c gap-8">
@@ -172,7 +223,42 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   </div>
 </main>
+<script>
+let cropper = null;
 
+function previewImage(input) {
+    const file = input.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+        const preview = document.getElementById('preview');
+        const container = document.getElementById('crop-container');
+
+        // 🔥 reset complet
+        if (cropper !== null) {
+            cropper.destroy();
+            cropper = null;
+        }
+
+        preview.src = "";
+        preview.src = e.target.result;
+
+        container.style.display = 'block';
+
+        preview.onload = function() {
+            cropper = new Cropper(preview, {
+                aspectRatio: 16 / 9,
+                viewMode: 1,
+                autoCropArea: 1
+            });
+        };
+    };
+
+    reader.readAsDataURL(file);
+}
+</script>
 <?php include_once 'includes/footer.php'; ?>
 </body>
 </html>
