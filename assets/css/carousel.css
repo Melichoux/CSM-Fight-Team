@@ -6,14 +6,23 @@
 
 .carrousel__slides { /* conteneur des slides  sur lequel on applique la propriete hidden sur les elements en dehors du "cadre" */
   overflow: hidden;
+  position: relative;
+  height: 400px; /* même hauteur que tes images */
 }
 
 .carrousel__slide { /* un slide caché par défaut */
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none; /* désactive les clics sur les slides cachés */
 }
 
 .carrousel__slide.active { /* slide visible */
-  display: block;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .carrousel__slide img { /* dimensionnement de l'image du slide */
@@ -23,6 +32,9 @@
 }
 
 .carrousel__content { /* description slide */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   padding: 1rem;
   background: rgba(0,0,0,0.6);
   color: white;

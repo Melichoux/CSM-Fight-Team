@@ -23,5 +23,5 @@ function goToSlide(index) {
 
 // Défilement auto toutes les 5 secondes
 if (document.querySelectorAll('.carrousel__slide').length > 0) {
-  setInterval(() => changeSlide(1), 5000);
+  setInterval(() => changeSlide(1), 6000);
 }
