@@ -14,46 +14,63 @@ $tags = [];
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = htmlspecialchars(trim($_POST['title'] ?? ''));
     $date_event = $_POST['date_event'] ?? '';
-    $img_event = '';
+    $img_event = ''; 
       if (!empty($_FILES['img_event']['name'])) {
 
-          $allowed_types = ['image/jpeg', 'image/png', 'image/webp'];
+          $allowed_types = ['image/jpeg', 'image/png', 'image/webp']; // pour def les formats acceptés
 
-          if (!in_array($_FILES['img_event']['type'], $allowed_types)) {
-              $errors['img_event'] = "Format non accepté. JPG, PNG ou WEBP uniquement.";
-          } else {
-              // Chargement de l'image source selon son type
-              $type = $_FILES['img_event']['type'];
-              if ($type === 'image/jpeg') $source = imagecreatefromjpeg($_FILES['img_event']['tmp_name']);
-              elseif ($type === 'image/png') $source = imagecreatefrompng($_FILES['img_event']['tmp_name']);
-              elseif ($type === 'image/webp') $source = imagecreatefromwebp($_FILES['img_event']['tmp_name']);
+          $finfo = finfo_open(FILEINFO_MIME_TYPE); //verification du type de fichier et pas seulement l'extension => securité supp contre les virus
+          $real_type = finfo_file($finfo, $_FILES['img_event']['tmp_name']);
+          // finfo_close supprimé car inutile en PHP 8
 
-              // Coordonnées du crop
-              $crop_x = (int)($_POST['crop_x'] ?? 0);
-              $crop_y = (int)($_POST['crop_y'] ?? 0);
-              $crop_w = (int)($_POST['crop_w'] ?? imagesx($source));
-              $crop_h = (int)($_POST['crop_h'] ?? imagesy($source));
-
-              // Canvas de destination aux dimensions finales
-              $target_w = 800;
-              $target_h = 450;
-              $resized = imagecreatetruecolor($target_w, $target_h);
-
-              // Crop + redimensionnement en une seule opération
-              imagecopyresampled($resized, $source, 0, 0, $crop_x, $crop_y, $target_w, $target_h, $crop_w, $crop_h);
-
-              // Sauvegarde en JPEG avec 80% de qualité
-              $filename = uniqid() . '.jpg';
-              $destination = 'uploads/articles/' . $filename;
-              imagejpeg($resized, $destination, 80);
-
-              // Libération mémoire
-              imagedestroy($source);
-              imagedestroy($resized);
-
-              $img_event = $destination;
+          if (!in_array($real_type, $allowed_types)) {
+              $errors['img_event'] = "Format non accepté.";
           }
-      }    
+
+          // verification du poids de l'image (adapté a des photos pros donc taille acceptée raisonnablement importante)
+          if ($_FILES['img_event']['size'] > 10 * 1024 * 1024) {
+              $errors['img_event'] = "Image trop lourde (max 10MB)";
+          }
+
+          // verification que le fichier est bien une image en analysant la structure interne du fichier
+          $img_info = getimagesize($_FILES['img_event']['tmp_name']);
+          if (!$img_info) {
+              $errors['img_event'] = "Fichier invalide.";
+          }
+
+          if (empty($errors['img_event'])) {
+
+              // Chargement de l'image source selon son type
+              if ($real_type === 'image/jpeg') $source = imagecreatefromjpeg($_FILES['img_event']['tmp_name']);
+              elseif ($real_type === 'image/png') $source = imagecreatefrompng($_FILES['img_event']['tmp_name']);
+              elseif ($real_type === 'image/webp') $source = imagecreatefromwebp($_FILES['img_event']['tmp_name']);
+
+              if (!$source) {
+                  $errors['img_event'] = "Erreur chargement image.";
+              } else {
+
+                  $crop_x = (int)($_POST['crop_x'] ?? 0);
+                  $crop_y = (int)($_POST['crop_y'] ?? 0);
+                  $crop_w = (int)($_POST['crop_w'] ?? imagesx($source));
+                  $crop_h = (int)($_POST['crop_h'] ?? imagesy($source));
+
+                  // Canvas de destination aux dimensions finales
+                  $target_w = 800;
+                  $target_h = 450;
+                  $resized = imagecreatetruecolor($target_w, $target_h);
+
+                  // Crop + redimensionnement en une seule opération
+                  imagecopyresampled($resized, $source, 0, 0, $crop_x, $crop_y, $target_w, $target_h, $crop_w, $crop_h);
+
+                  // Sauvegarde en WEBP avec 75% de qualité
+                  $filename = uniqid() . '.webp';
+                  $destination = 'uploads/articles/' . $filename;
+                  imagewebp($resized, $destination, 75); // valeur 75 = bon compromis peut etre augmetée jusqu'a 80% max pour rester optimale
+
+                  $img_event = $destination;
+              }
+          }
+      }  
     $intro = htmlspecialchars(trim($_POST['intro'] ?? ''));
     $description = htmlspecialchars(trim($_POST['description'] ?? ''));
     $tags = $_POST['tags'] ?? [];
@@ -116,6 +133,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
     <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css"> <!--permet l'affichage du cadre de dimensionnement des photos dans le CRUD, les poignets et l'assombrissement de l'overlay --> 
     <meta name="description" content="Bienvenue sur le site du CSM FIGHT TEAM, club de judo-jujitsu marseillais." />
 </head>
 <body>

@@ -1,16 +1,27 @@
-// -----------------------------------------------------------------------------------------------------------------------------------------------------------------
-//ANCHOR - Commande du menu deroulant sur l'onglet "Vie du club"
-const dropDownBtn = document.querySelector("#dropDownBtn");
-const dropDownList = document.querySelector("#dropDownList");
-if (dropDownBtn){
-dropDownBtn.addEventListener("click", (event) => {
-  event.stopPropagation(); // empêche le clic de "remonter" au document et de faire disparaitre le menu tout de suite apres le "click"
-  dropDownList.classList.toggle("open");
-});
+//ANCHOR -  Page index.php: carroussel
+let currentSlide = 0;
 
-//ANCHOR - fermer le menu si on clique ailleurs
-document.addEventListener("click", () => {
-  dropDownList.classList.remove("open");
-});
+function changeSlide(direction) {
+  const slides = document.querySelectorAll('.carrousel__slide');
+  if (slides.length === 0) return; // si pas de carrousel sur la page, on arrête là
+  const dots = document.querySelectorAll('.dot');
+  const total = slides.length;
+
+  slides[currentSlide].classList.remove('active');
+  dots[currentSlide].classList.remove('active');
+
+  currentSlide = (currentSlide + direction + total) % total;
+
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
 }
 
+function goToSlide(index) {
+  const direction = index - currentSlide;
+  changeSlide(direction);
+}
+
+// Défilement auto toutes les 5 secondes
+if (document.querySelectorAll('.carrousel__slide').length > 0) {
+  setInterval(() => changeSlide(1), 6000);
+}

@@ -47,6 +47,6 @@
     <?php
       include_once 'includes/footer.php';
     ?>
-    <script src="assets/javascript/carousel.js"></script>
+    <script src="assets/javascript/index.js" defer></script>
 </body>
 </html>

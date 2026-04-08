@@ -52,8 +52,6 @@ $articles = $stmt->fetchAll();
 <?php
 include_once 'includes/footer.php';
 ?>
-<!-- <script src="assets/javascript/index.js">  
-    </script> -->
 </body>
 
 </html>

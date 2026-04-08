@@ -27,4 +27,4 @@
         </div>
         <p id="copyright">Copyright © CSM Fight Team 2026</p>
     </footer>
-    <script src="assets/javascript/index.js"></script>
+    <script src="assets/javascript/global.js" defer></script>

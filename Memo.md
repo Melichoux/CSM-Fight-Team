@@ -80,6 +80,25 @@ Bonus Faire une method pour recup dans l'intro d'un article la premiere phrase d
 - [ ] Voir cours SEO pour le referencement backlink => mettre en avant dans le dossier et presentation finale le deploiement definitif et la MaJ du site de la FFJDA pour le backlink du site
 - [ ] Parler de notion "vanilla" car pas d'utilisation de frameworks dans mon projet
 - [ ] Mon site est en monolithique donc pas de moyen de faire une arborescence du site en dossiers "frontend" et "backend" car mes langages se mélange dans le nav et php genere du html, cela se fait sur des projets plus important ou des projets avec des api en back et des frameworks en front pour bien séparer les deux env (ou dans le cas ou des equipes diff s'occupent du back et du front)
+- [ ] creation d'un fichier commun (global.js) integré au footer et qui gere le js de la navbar et index.js spé au fichier de la page d'acceuil (index.php)
+- [ ] Concernant le SEO et le perf au chargement des pages du site: “J’ai ajouté defer (sur les scripts externes) pour éviter le render blocking”
+- [ ] 🧠 GD, c’est quoi ?
+
+👉 GD (ou GD Library) est une bibliothèque PHP pour manipuler des images.
+
+Concrètement, c’est elle qui te permet de faire :
+
+charger une image
+la redimensionner
+la recadrer (crop)
+la convertir (JPG → WebP)
+ajouter du texte / filtres
+🔧 Dans TON code, GD est utilisé ici
+$source = imagecreatefromjpeg(...)
+imagecopyresampled(...)
+imagewebp(...)
+
+👉 Toutes ces fonctions viennent de GD ( a la diff de move_upload_file qui enregistre sans faire de resize ou autre)
 
   ## PixelBay
 
