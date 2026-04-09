@@ -79,6 +79,7 @@ Site d'informations du club avec accès aux informations suivantes:
  - PHP 8.4.18
  - Phpmyadmin 5.2.2
  - Docker
+ - Extension GD Library
 
 ## Installation
 
@@ -86,6 +87,40 @@ Site d'informations du club avec accès aux informations suivantes:
 ```bash
 git clone https://github.com/Melichoux/CSM-Fight-Team.git
 ```
+
+## Activation de l'extension GD (PHP)
+
+Requis pour le traitement et l'upload des images (crop, resize, conversion WEBP).
+
+### 1. Ajouter les librairies système dans `Dockerfile.php`
+
+Dans le bloc `apt-get install`, ajouter :
+
+```dockerfile
+libpng-dev libjpeg-dev libwebp-dev \
+```
+
+### 2. Configurer et installer l'extension GD dans `Dockerfile.php`
+
+Remplacer le bloc `docker-php-ext-install` par :
+
+```dockerfile
+RUN docker-php-ext-configure gd --with-jpeg --with-webp \
+  && docker-php-ext-install \
+    pdo pdo_mysql pdo_pgsql mysqli zip \
+    intl mbstring opcache gd
+```
+
+### 3. Rebuilder le conteneur Docker
+
+Dans le terminal, à la racine du projet :
+
+```bash
+docker compose down
+docker compose up --build
+```
+
+> Les données MySQL sont persistées via un volume Docker et ne sont pas affectées par le rebuild.
 
 ## BDD
 
