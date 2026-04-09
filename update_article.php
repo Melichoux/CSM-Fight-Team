@@ -1,10 +1,14 @@
 <?php
 include_once 'includes/head.php';
+$id_article = (int)($_GET['aid'] ?? 0); //le 0 permet d'eviter un warning "undefined index" si pas d'id valide
 // Récupération de l'article grace a son id dans l'url via la superglobale $_get
 $tags_update = [];
 $stmt = Database::getInstance()->prepare("SELECT * FROM csm_article WHERE id_article=:id ");// : apres le egal correspond a un "prepare"
-$stmt->execute([':id'=>$_GET['aid']]);
+$stmt->execute([':id'=>$id_article]);
 $result= $stmt->fetch();
+  if (!$result) { // sécu en cas d'id incorrect entré par un user/hacker via l'url par exemple
+    die("Article introuvable");
+    }
 $title = $result['title'];
 $date_event=$result['date_event'];
 $img_event=$result['img_event'];
@@ -12,7 +16,7 @@ $intro=$result['intro'];
 $description=$result['description'];
 
 $tags = Database::getInstance()->prepare("SELECT * FROM `csm_article_tag` WHERE id_article =:id");
-$tags->execute([':id'=>$_GET['aid']]);
+$tags->execute([':id'=>$id_article]);
 $result_tags= $tags->fetchAll();
 // var_dump($result_tags);
 // var_dump($tags_update);
@@ -26,17 +30,79 @@ foreach ($result_tags as $value) {// recuperation des valeurs de la table tag as
 
 //Comme tjs, verification des champs
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $errors = [];
     $title = htmlspecialchars(trim($_POST['title'] ?? ''));
     $date_event = $_POST['date_event'] ?? '';
-    $img_event = htmlspecialchars(trim($_POST['img_event'] ?? ''));
+    $img_event = $result['img_event']; // garde l'ancienne image par défaut    
     $intro = htmlspecialchars(trim($_POST['intro'] ?? ''));
     $description = htmlspecialchars(trim($_POST['description'] ?? ''));
     $tags = $_POST['tags'] ?? [];
-    $id_article = $_GET['aid'];
+      if (!empty($_FILES['img_event']['name'])) {
+
+          $allowed_types = ['image/jpeg', 'image/png', 'image/webp']; // pour def les formats acceptés
+
+          $finfo = finfo_open(FILEINFO_MIME_TYPE); //verification du type de fichier et pas seulement l'extension => securité supp contre les virus
+          $real_type = finfo_file($finfo, $_FILES['img_event']['tmp_name']);
+          // finfo_close supprimé car inutile en PHP 8
+
+          if (!in_array($real_type, $allowed_types)) {
+              $errors['img_event'] = "Format non accepté.";
+          }
+
+          // verification du poids de l'image (adapté a des photos pros donc taille acceptée raisonnablement importante)
+          if ($_FILES['img_event']['size'] > 10 * 1024 * 1024) {
+              $errors['img_event'] = "Image trop lourde (max 10MB)";
+          }
+
+          // verification que le fichier est bien une image en analysant la structure interne du fichier
+          $img_info = getimagesize($_FILES['img_event']['tmp_name']);
+          if (!$img_info) {
+              $errors['img_event'] = "Fichier invalide.";
+          }
+
+          if (empty($errors['img_event'] ?? null)) {
+
+              // Chargement de l'image source selon son type
+              if ($real_type === 'image/jpeg') $source = imagecreatefromjpeg($_FILES['img_event']['tmp_name']);
+              elseif ($real_type === 'image/png') $source = imagecreatefrompng($_FILES['img_event']['tmp_name']);
+              elseif ($real_type === 'image/webp') $source = imagecreatefromwebp($_FILES['img_event']['tmp_name']);
+              else $source = false; // bonne habitude de code defensif mais inutile dans ce cas car si le if(!in_array=true) alors ce code ne sera jamais executé
+
+              if (!$source) {
+                  $errors['img_event'] = "Erreur chargement image.";
+              } else {
+
+                  $crop_x = (int)($_POST['crop_x'] ?? 0);
+                  $crop_y = (int)($_POST['crop_y'] ?? 0);
+                  $crop_w = (int)($_POST['crop_w'] ?? imagesx($source));
+                  $crop_h = (int)($_POST['crop_h'] ?? imagesy($source));
+
+                  // Canvas de destination aux dimensions finales
+                  $target_w = 800;
+                  $target_h = 450;
+                  $resized = imagecreatetruecolor($target_w, $target_h);
+
+                  // Crop + redimensionnement en une seule opération
+                  imagecopyresampled($resized, $source, 0, 0, $crop_x, $crop_y, $target_w, $target_h, $crop_w, $crop_h);
+
+                  // Sauvegarde en WEBP avec 75% de qualité
+                  $filename = uniqid() . '.webp';
+                  $destination = 'uploads/articles/' . $filename;
+                  imagewebp($resized, $destination, 75); // valeur 75 = bon compromis peut etre augmetée jusqu'a 80% max pour rester optimale
+
+                  // Supprime l'ancienne image
+                  if (!empty($img_event) && file_exists($img_event)) {
+                      unlink($img_event);
+                  }
+
+                  //Enregistre l'image
+                  $img_event = $destination;
+              }
+          }
+      }  
 
     if(empty($title)) $errors['title'] = "ATTENTION! Il manque le titre.";
     if(empty($date_event)) $errors['date_event'] = "ATTENTION! Il manque la date.";
-    if(empty($img_event)) $errors['img_event'] = "ATTENTION! Il manque une image.";
     if(empty($intro)) $errors['intro'] = "ATTENTION! Il manque une introduction.";
     if(empty($description)) $errors['description'] = "ATTENTION! Il n'y a pas de description.";
 
@@ -83,7 +149,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
+    <title>Modifier un article</title>
     <link rel="stylesheet" href="assets/css/main.css">
     <meta name="description" content="Bienvenue sur le site du CSM FIGHT TEAM, club de judo-jujitsu marseillais." />
 </head>
@@ -116,7 +182,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
       </a>
     </div>
     <div class="form-contact p24 mb-32">
-      <form method="post" action="" class="dflex fd-c gap-16">
+      <form method="post" action="" enctype="multipart/form-data" class="dflex fd-c gap-16">
 
         <div class="dflex fd-c gap-8">
           <label for="title" class="color-w">Titre </label>
@@ -136,9 +202,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="dflex fd-c gap-8">
           <label for="img_event" class="color-w">Image </label>
-          <input id="img_event" type="text" name="img_event" placeholder="assets/images/articles/mon-image.jpg" value="<?= $img_event ?>" required />
+          <input id="img_event" type="file" name="img_event" accept="image/jpeg, image/png, image/webp"/>
+        <img src="<?= htmlspecialchars($img_event) ?>" style="max-width:200px;">  <!-- permet de visu l'image -->
           <?php if(isset($errors['img_event'])): ?>
-            <p class="color-r"><?= $errors['img_event'] ?></p>
+          <p class="color-r"><?= $errors['img_event'] ?></p>
           <?php endif; ?>
         </div>
 
@@ -166,7 +233,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
           foreach($tags_list as $tag): /* creation d'une checkbox avec toutes les valeurs de la table tag ce qui permet de recuperer l'id et la valeur associée sans se tromper pour lier id et valeur coté user*/?>
             <div class="dflex ai-c gap-8">
               <input type="checkbox" id="tag_<?= $tag['id_tag'] ?>" name="tags[]" value="<?= $tag['id_tag'] ?>" 
-                <?= in_array($tag['id_tag'], $tags_update) ? 'checked' : '' ?>
+                <?= in_array($tag['id_tag'], $tags_update) ? 'checked' : '' ?>>
               <label for="tag_<?= $tag['id_tag'] ?>" class="color-w"><?= htmlspecialchars($tag['tag']) ?></label>
             </div>
           <?php endforeach; ?>

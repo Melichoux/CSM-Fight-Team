@@ -83,11 +83,8 @@ Bonus Faire une method pour recup dans l'intro d'un article la premiere phrase d
 - [ ] creation d'un fichier commun (global.js) integré au footer et qui gere le js de la navbar et index.js spé au fichier de la page d'acceuil (index.php)
 - [ ] Concernant le SEO et le perf au chargement des pages du site: “J’ai ajouté defer (sur les scripts externes) pour éviter le render blocking”
 - [ ] 🧠 GD, c’est quoi ?
-
 👉 GD (ou GD Library) est une bibliothèque PHP pour manipuler des images.
-
 Concrètement, c’est elle qui te permet de faire :
-
 charger une image
 la redimensionner
 la recadrer (crop)
@@ -97,8 +94,18 @@ ajouter du texte / filtres
 $source = imagecreatefromjpeg(...)
 imagecopyresampled(...)
 imagewebp(...)
-
-👉 Toutes ces fonctions viennent de GD ( a la diff de move_upload_file qui enregistre sans faire de resize ou autre)
+👉 Toutes ces fonctions viennent de GD ( a la diff de move_upload_file qui enregistre sans faire de resize ou autre),
+- [ ] enctype="multipart/form-data" sert à :✔️ envoyer des fichiers ✔️ remplir $_FILES ✔️ activer ton upload PHP
+- [ ] Page upload_article: On dit bien "vanilla PHP" — c'est correct, ça veut dire sans framework (pas de Laravel, Symfony, etc.). ✓
+Globalement c'est un très bon fichier pour un projet étudiant DWWM. Ce qui est bien fait :
+Requêtes préparées PDO partout → pas d'injection SQL
+Vérification du vrai type MIME avec finfo (pas juste l'extension)
+Vérification du poids + getimagesize()
+Conversion en WEBP + crop/resize avec GD
+Suppression de l'ancienne image avec unlink()
+Gestion des tags via table associative proprement (DELETE puis INSERT)
+htmlspecialchars sur les inputs
+Je peux dire "projet full stack vanilla" — ça veut dire : Full stack → tu gères le front (HTML/CSS/JS) ET le back (PHP/SQL); Vanilla → sans framework ni librairie externe (pas de Laravel, React, Bootstrap, etc.)
 
   ## PixelBay
 
