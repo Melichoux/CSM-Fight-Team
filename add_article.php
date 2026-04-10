@@ -241,6 +241,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   </div>
 </main>
+<?php include_once 'includes/footer.php'; ?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
 <script>
 let cropper = null;
 
@@ -254,7 +256,6 @@ function previewImage(input) {
         const preview = document.getElementById('preview');
         const container = document.getElementById('crop-container');
 
-        // 🔥 reset complet
         if (cropper !== null) {
             cropper.destroy();
             cropper = null;
@@ -262,7 +263,6 @@ function previewImage(input) {
 
         preview.src = "";
         preview.src = e.target.result;
-
         container.style.display = 'block';
 
         preview.onload = function() {
@@ -276,7 +276,17 @@ function previewImage(input) {
 
     reader.readAsDataURL(file);
 }
+
+// Remplit les inputs hidden avec les coordonnées du crop au moment du submit
+document.querySelector('form').addEventListener('submit', function() {
+    if (cropper !== null) {
+        const data = cropper.getData(true);
+        document.getElementById('crop_x').value = data.x;
+        document.getElementById('crop_y').value = data.y;
+        document.getElementById('crop_w').value = data.width;
+        document.getElementById('crop_h').value = data.height;
+    }
+});
 </script>
-<?php include_once 'includes/footer.php'; ?>
 </body>
 </html>

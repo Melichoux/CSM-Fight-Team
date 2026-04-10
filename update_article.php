@@ -151,6 +151,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modifier un article</title>
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css">
     <meta name="description" content="Bienvenue sur le site du CSM FIGHT TEAM, club de judo-jujitsu marseillais." />
 </head>
 <body>
@@ -202,11 +203,20 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="dflex fd-c gap-8">
           <label for="img_event" class="color-w">Image </label>
-          <input id="img_event" type="file" name="img_event" accept="image/jpeg, image/png, image/webp"/>
-        <img src="<?= htmlspecialchars($img_event) ?>" style="max-width:200px;">  <!-- permet de visu l'image -->
+          <input id="img_event" type="file" name="img_event" accept="image/jpeg, image/png, image/webp" onchange="previewImage(this)"/>
+        <img src="/CSM-Fight-Team/<?= htmlspecialchars($img_event) ?>" style="max-width:200px;">  <!-- permet de visu l'image -->
           <?php if(isset($errors['img_event'])): ?>
           <p class="color-r"><?= $errors['img_event'] ?></p>
           <?php endif; ?>
+            <div id="crop-container" style="display:none; max-width:800px; margin-top:16px;">
+              <img id="preview" src="" alt="preview" style="max-width:300px;">
+            </div>
+
+            <input type="hidden" name="crop_x" id="crop_x">
+            <input type="hidden" name="crop_y" id="crop_y">
+            <input type="hidden" name="crop_w" id="crop_w">
+            <input type="hidden" name="crop_h" id="crop_h">
+
         </div>
 
         <div class="dflex fd-c gap-8">
@@ -250,5 +260,51 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 </main>
 
 <?php include_once 'includes/footer.php'; ?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+<script>
+let cropper = null;
+
+function previewImage(input) {
+    const file = input.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+        const preview = document.getElementById('preview');
+        const container = document.getElementById('crop-container');
+
+        if (cropper !== null) {
+            cropper.destroy();
+            cropper = null;
+        }
+
+        preview.src = "";
+        preview.src = e.target.result;
+        container.style.display = 'block';
+
+        preview.onload = function() {
+            cropper = new Cropper(preview, {
+                aspectRatio: 16 / 9,
+                viewMode: 1,
+                autoCropArea: 1
+            });
+        };
+    };
+
+    reader.readAsDataURL(file);
+}
+
+// Remplit les inputs hidden avec les coordonnées du crop au moment du submit
+document.querySelector('form').addEventListener('submit', function() {
+    if (cropper !== null) {
+        const data = cropper.getData(true);
+        document.getElementById('crop_x').value = data.x;
+        document.getElementById('crop_y').value = data.y;
+        document.getElementById('crop_w').value = data.width;
+        document.getElementById('crop_h').value = data.height;
+    }
+});
+</script>
 </body>
 </html>

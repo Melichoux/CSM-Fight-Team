@@ -4,4 +4,4 @@ Options -Indexes
     Deny from all
 </FilesMatch>
 
-<!-- .HyperTextaccess est un fichier de config local utilisé par Apache HTTP Server uniquement donc attention si autre stack -->
+# .HyperTextaccess est un fichier de config local utilisé par Apache HTTP Server uniquement donc attention si autre stack
