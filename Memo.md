@@ -106,6 +106,8 @@ Suppression de l'ancienne image avec unlink()
 Gestion des tags via table associative proprement (DELETE puis INSERT)
 htmlspecialchars sur les inputs
 Je peux dire "projet full stack vanilla" — ça veut dire : Full stack → tu gères le front (HTML/CSS/JS) ET le back (PHP/SQL); Vanilla → sans framework ni librairie externe (pas de Laravel, React, Bootstrap, etc.)
+- [ ] principe DRY=don't repeat yourself
+
 
   ## PixelBay
 

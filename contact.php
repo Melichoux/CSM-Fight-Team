@@ -1,8 +1,56 @@
 <?php
     include_once 'includes/head.php';
-    ?>
-    <?php
-      include_once 'includes/header.php';
+ 
+    $errors = [];
+    $success = false;
+
+    $nom = "";
+    $prenom = "";
+    $email = "";
+    $options = [];
+    $message = "";
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $nom     = htmlspecialchars(trim($_POST['nom'] ?? ''));
+        $prenom  = htmlspecialchars(trim($_POST['prenom'] ?? ''));
+        $email   = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+        $options = $_POST['option'] ?? [];
+        $message = htmlspecialchars(trim($_POST['message'] ?? ''));
+
+        if (empty($nom))     $errors['nom']     = "Votre nom est requis.";
+        if (empty($prenom))  $errors['prenom']  = "Votre prénom est requis.";
+        if (!$email)         $errors['email']   = "Email invalide.";
+        if (empty($message)) $errors['message'] = "Le message est requis.";
+
+        if (empty($errors)) {
+            try {
+                require_once 'includes/mailer.php';
+                $mail = createMailer();
+
+                $mail->setFrom('', 'CSM Fight Team'); // email du club à remplir
+                $mail->addAddress(''); // email destinataire à remplir
+                $mail->addReplyTo($email, $nom . ' ' . $prenom); // permet de répondre directement à l'expéditeur
+
+                $mail->isHTML(true);
+                $mail->Subject = 'Nouveau message de ' . $nom . ' ' . $prenom;
+                $mail->Body = "
+                    <h2>Nouveau message depuis le site</h2>
+                    <p><b>Nom :</b> $nom $prenom</p>
+                    <p><b>Email :</b> $email</p>
+                    <p><b>Sujet(s) :</b> " . implode(', ', $options) . "</p>
+                    <p><b>Message :</b> $message</p>
+                ";
+
+                $mail->send();
+                $success = true;
+
+            } catch (Exception $e) {
+                $errors['mail'] = "Erreur d'envoi : " . $mail->ErrorInfo;
+            }
+        }
+    }
+    
+    include_once 'includes/header.php';
     ?>
     <main class="dflex jc-c ai-c ">
       <div class="form-contact dflex fw-w jc-c ai-c minw-100 mt-32">
@@ -59,55 +107,5 @@
       include_once 'includes/footer.php';
     ?>
 
-  <!-- // Initialisation avec ta clé publique EmailJS
-  emailjs.init("28Nlfyq7zS4Hhf6hm"); // remplace par ta clé publique -->
-<script
-  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-</script>
-
-<script>
-  (function () {
-    emailjs.init({
-      publicKey: "28Nlfyq7zS4Hhf6hm", // NOUVELLE SYNTAXE
-    });
-  })();
-</script>
-<script>
-  const form = document.querySelector("form");
-
-  form.addEventListener("submit", function(event) {
-    event.preventDefault(); // Empêche le rechargement de la page
-
-    // Récupérer toutes les options cochées
-    const options = Array.from(document.querySelectorAll("input[name='option[]']:checked"))
-                         .map(el => el.value)
-                         .join(", ");
-
-    // Préparer les données à envoyer
-    const templateParams = {
-      nom: document.getElementById("nom").value,
-      prenom: document.getElementById("prenom").value,
-      email: document.getElementById("email").value,
-      option: options,
-      message: document.getElementById("message").value
-    };
-
-    // Envoyer le formulaire via EmailJS
-    emailjs.send("service_ul91nnp", "template_0ecflha", templateParams)
-      .then(function(response) {
-        console.log("Message envoyé!", response.status, response.text);
-        alert("Merci, votre message a été envoyé !");
-        form.reset(); // vide le formulaire après envoi
-      }) 
-      .catch((error) => {
-    console.error("EmailJS error:", error);
-    alert("Erreur");
-  });
-});
-        // function(error) {
-      //   console.log("Erreur...", error);
-      //   alert("Oups, le message n'a pas pu être envoyé. Réessayez.");
-      // });
-</script>
   </body>
 </html>

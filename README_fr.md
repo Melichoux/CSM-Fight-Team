@@ -80,6 +80,7 @@ Site d'informations du club avec accès aux informations suivantes:
  - Phpmyadmin 5.2.2
  - Docker
  - Extension GD Library
+ - Entension Email.js puis PHPMailer (remplace Email.js apres integration du back au projet)
 
 ## Installation
 
@@ -87,7 +88,7 @@ Site d'informations du club avec accès aux informations suivantes:
 ```bash
 git clone https://github.com/Melichoux/CSM-Fight-Team.git
 ```
-
+----------------------------------------------------------
 ## Activation de l'extension GD (PHP)
 
 Requis pour le traitement et l'upload des images (crop, resize, conversion WEBP).
@@ -121,7 +122,7 @@ docker compose up --build
 ```
 
 > Les données MySQL sont persistées via un volume Docker et ne sont pas affectées par le rebuild.
-
+---------------------------------------------------
 ## BDD
 
 1. Merise
