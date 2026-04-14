@@ -17,10 +17,10 @@
         $options = $_POST['option'] ?? [];
         $message = htmlspecialchars(trim($_POST['message'] ?? ''));
 
-        if (empty($nom))     $errors['nom']     = "Votre nom est requis.";
-        if (empty($prenom))  $errors['prenom']  = "Votre prénom est requis.";
-        if (!$email)         $errors['email']   = "Email invalide.";
-        if (empty($message)) $errors['message'] = "Le message est requis.";
+        if (empty($nom))     {$errors['nom']     = "Votre nom est requis.";}
+        if (empty($prenom))  {$errors['prenom']  = "Votre prénom est requis.";}
+        if (!$email)         {$errors['email']   = "Email invalide.";}
+        if (empty($message)) {$errors['message'] = "Le message est requis.";}
 
         if (empty($errors)) {
             try {
@@ -45,30 +45,60 @@
                 $success = true;
 
             } catch (Exception $e) {
-                $errors['mail'] = "Erreur d'envoi : " . $mail->ErrorInfo;
+                $errors['mail'] = true;
             }
         }
     }
     
     include_once 'includes/header.php';
     ?>
-    <main class="dflex jc-c ai-c ">
+    <main class="dflex jc-c ai-c ">  <!-- modale envoi mail avec succes -->
+      <?php if ($success): ?>
+        <div id="succes-modal" class="modale">
+            <div style="background:white; padding:32px; border-radius:8px; text-align:center;">
+                <h2>Message envoyé !</h2>
+                <p>Merci de nous avoir contacté, nous ferons tout pour vous répondre dans les plus brefs délais. <br>
+                  Vous allez etre redirigé vers la page d'accueil.
+                </p>
+            </div>
+        </div>
+      <?php endif; ?>
+
+      <?php if (isset($errors['mail'])): ?>  <!-- modale erreur d'envoi mail -->
+        <div id="error-modal" class="modale" >
+            <div style="background:white; padding:32px; border-radius:8px; text-align:center;">
+                <h2 class="color-r">Erreur d'envoi</h2>
+                <p>Une erreur est survenue, veuillez réessayer.</p>
+                <button onclick="document.getElementById('error-modal').remove()">Fermer</button>
+            </div>
+        </div>
+      <?php endif; ?>
+
       <div class="form-contact dflex fw-w jc-c ai-c minw-100 mt-32">
       <form method="post" action="#" class="dblock fd-c ai-c ta-c mw-800px">
         <h1 class="p24">Contactez-nous</h1>
         <div class="mb-16">
           <label for="nom">Nom<span class="color-r ">*</span></label><br>
-          <input id="nom" type="text" placeholder="Votre nom" name="nom" required/>
+          <input id="nom" type="text" placeholder="Votre nom" name="nom" value="<?= $nom ?>" required/>
+          <?php if (isset($errors['nom'])): ?>
+            <p class="color-r"><?= $errors['nom'] ?></p>
+          <?php endif; ?>
         </div>
 
         <div class="mb-16">
           <label for="prenom">Prénom<span class="color-r ">*</span></label><br>
-          <input id="prenom" type="text" placeholder="Votre prénom" name="prenom" required/>
+          <input id="prenom" type="text" placeholder="Votre prénom" name="prenom" value="<?= $prenom ?>" required/>
+          <?php if (isset($errors['prenom'])): ?>
+            <p class="color-r"><?= $errors['prenom'] ?></p>
+          <?php endif; ?>
         </div>
 
         <div class="mb-16">
           <label for="email">Email<span class="color-r">*</span></label><br>
-          <input id="email" type="email" name="email" placeholder="username@gmail.com" required/>
+          <input id="email" type="email" name="email" placeholder="username@gmail.com" value="<?= $email ?>" required/>
+          <?php if (isset($errors['email'])): ?>
+            <p class="color-r"><?= $errors['email'] ?></p>
+          <?php endif; ?>
         </div>
 
         <fieldset class="mb-16">
@@ -76,25 +106,29 @@
 
           <div>
             <label for="judo">Judo</label>
-            <input type="checkbox" id="judo" name="option[]" value="judo"/>
+            <input type="checkbox" id="judo" name="option[]" value="judo" <?= in_array('judo', $options) ? 'checked' : '' ?>/>
           </div>
 
           <div>
             <label for="jujitsu">Jujitsu</label>
-            <input type="checkbox" id="jujitsu" name="option[]" value="jujitsu" />
+            <input type="checkbox" id="jujitsu" name="option[]" value="jujitsu" <?= in_array('jujitsu', $options) ? 'checked' : '' ?>/>
           </div>
           <div>
             <label for="jujitsu-bresilien">Jujitsu Brésilien</label>
-            <input type="checkbox" id="jujitsu-bresilien" name="option[]" value="jujitsu-bresilien"/>
+            <input type="checkbox" id="jujitsu-bresilien" name="option[]" value="jujitsu-bresilien" <?= in_array('jujitsu-bresilien', $options) ? 'checked' : '' ?>/>
           </div>
           <div>
             <label for="autre">Autre</label>
-            <input type="checkbox" id="autre" name="option[]" value="autre" />
+            <input type="checkbox" id="autre" name="option[]" value="autre" <?= in_array('autre', $options) ? 'checked' : '' ?>/>
           </div>
         </fieldset>
+
         <div class="mb-16">
           <label for="message">Votre message :<span class="color-r">*</span></label><br />
-          <textarea id="message" name="message" placeholder="Écrivez votre message ici..." maxlength="500" required> </textarea><br />
+          <textarea id="message" name="message" placeholder="Écrivez votre message ici..." maxlength="500" required><?= $message ?></textarea><br />
+          <?php if (isset($errors['message'])): ?>
+            <p class="color-r"><?= $errors['message'] ?></p>
+          <?php endif; ?>
         </div>
 
         <div class="mb-32">
@@ -106,6 +140,12 @@
     <?php
       include_once 'includes/footer.php';
     ?>
-
+    <?php if ($success): ?>
+      <script>
+          setTimeout(() => {
+              window.location.href = "index.php";
+          }, 5000);
+      </script>
+    <?php endif; ?>
   </body>
 </html>

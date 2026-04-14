@@ -71,8 +71,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
               }
           }
       }  
-    $intro = htmlspecialchars(trim($_POST['intro'] ?? ''));
-    $description = htmlspecialchars(trim($_POST['description'] ?? ''));
+    $intro = trim($_POST['intro'] ?? '');
+    $description = trim($_POST['description'] ?? '');
     $tags = $_POST['tags'] ?? [];
 
     // Validation du formulaire
@@ -131,7 +131,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
+    <title>Ajouter un article</title>
     <link rel="stylesheet" href="assets/css/main.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css"> <!--permet l'affichage du cadre de dimensionnement des photos dans le CRUD, les poignets et l'assombrissement de l'overlay --> 
     <meta name="description" content="Bienvenue sur le site du CSM FIGHT TEAM, club de judo-jujitsu marseillais." />

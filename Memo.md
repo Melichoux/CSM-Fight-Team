@@ -108,6 +108,14 @@ htmlspecialchars sur les inputs
 Je peux dire "projet full stack vanilla" — ça veut dire : Full stack → tu gères le front (HTML/CSS/JS) ET le back (PHP/SQL); Vanilla → sans framework ni librairie externe (pas de Laravel, React, Bootstrap, etc.)
 - [ ] principe DRY=don't repeat yourself
 
+- [ ] "Pour la navigation du dashboard d'administration, j'ai étudié plusieurs approches.
+
+La première consiste à centraliser toutes les sections dans un seul fichier en utilisant un paramètre GET dans l'URL — comme `dashboard.php?section=articles` ou `dashboard.php?section=albums`. PHP récupère ce paramètre via `$_GET` et affiche le bon bloc de contenu de manière conditionnelle. C'est une approche compacte mais qui présente un inconvénient : le serveur exécute l'intégralité du code, y compris les requêtes SQL de toutes les sections, même si l'utilisateur n'en consulte qu'une seule. On peut l'optimiser en combinant `$_GET` avec `include` dynamique pour ne charger que le fichier de la section demandée.
+
+J'ai retenu la deuxième approche qui consiste à créer un fichier PHP par section — c'est d'ailleurs cohérent avec l'architecture que j'avais déjà mise en place sur le projet. Chaque onglet est un lien vers une page distincte, et j'utilise `$_SERVER['PHP_SELF']` combiné à `basename()` pour détecter le fichier en cours d'exécution et appliquer dynamiquement la classe CSS `active` sur le bon onglet. Cette approche est simple, maintenable, et ne charge que les ressources nécessaires à la section consultée."
+
+- [ ]
+
 
   ## PixelBay
 

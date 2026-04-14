@@ -28,13 +28,13 @@
                     <li id="dropDown" class="navElmt">
                         <button id="dropDownBtn"> LA VIE DU CLUB ▾</button>
                         <ul id="dropDownList" class="dflex">
-                            <li class="dropDownElmt"><a href="#" class="color-bck">Histoire du Club</a></li>
-                            <li class="dropDownElmt"><a href="#" class="color-bck">Galeries Photos</a></li>
-                            <li class="dropDownElmt"><a href="#" class="color-bck">Résultats</a></li>
-                            <li class="dropDownElmt"><a href="#" class="color-bck">Agenda</a></li>
+                            <li class="dropDownElmt"><a href="club-history.php" class="color-bck">Histoire du Club</a></li>
+                            <li class="dropDownElmt"><a href="gallery.php" class="color-bck">Galeries Photos</a></li>
+                            <li class="dropDownElmt"><a href="results.php" class="color-bck">Résultats</a></li>
+                            <li class="dropDownElmt"><a href="events.php" class="color-bck">Agenda</a></li>
                         </ul>
                     </li>
-                    <li class="navElmt"><a href="#">LES COURS</a></li>
+                    <li class="navElmt"><a href="training.php">LES COURS</a></li>
                     <li class="navElmt"><a href="contact.php">CONTACTEZ-NOUS</a></li>
                     <li class="navElmt"><a href="login.php">SE CONNECTER</a></li>
 
