@@ -7,6 +7,7 @@
     $stmt->execute();
     $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
 //  -------- fin carroussel ---------------
+    $page_title="Acceuil";
     include_once 'includes/header.php';
     ?>
     <main>

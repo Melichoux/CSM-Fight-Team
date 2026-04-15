@@ -14,11 +14,11 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       // Vérifier si le paramètre existe et n'est pas vide + "nettoyage" cad mise en forme anti-XSS
 
-      $last_name = (trim($_POST['lastName'] ?? ""));
-      $first_name = (trim($_POST['firstName'] ?? ''));
+      $last_name = strip_tags(trim($_POST['lastName'] ?? ""));
+      $first_name = strip_tags(trim($_POST['firstName'] ?? ''));
       $email = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);
-      $password = (trim($_POST['password'] ?? '')); // htmlspecialchars s'utilise dans le html et pas en php
-      $confirm_password = (trim($_POST['confirm_password'] ?? ''));
+      $password = $_POST['password'] ?? ''; // htmlspecialchars s'utilise dans le html et pas en php
+      $confirm_password = $_POST['confirm_password'] ?? '';
 
       /* On crée cette variable pour ne pas lancer la fonction deux fois à l'appel de $name. mb_strlen permet de compter le nombre exact de caractere dans la saisie (a l'inverse de strlen qui compte le poids des caracteres en octets, donc pour l'alphabet francais on priviligie la fonction mb_stlen)*/
       $l_name_lenght = mb_strlen($last_name, "UTF-8");
@@ -73,8 +73,9 @@
         $success_message= "Votre formulaire a été envoyé avec succes!<br>" . "Vous etes $last_name $first_name.<br> Votre email -- $email -- <br> Mot de passe : **** <br>";
             // on ne définit le succès que lors du véritable enregistrement plus bas
         // Pas besoin de else car les messages d'erreur s'affichent directement à coté des inputs concernés.
-  }
+      }
     }
+    $page_title="inscription";
     include_once 'includes/header.php';
     ?>
 
@@ -86,26 +87,41 @@
           <div class="mb-16">
             <label for="lastName">Nom<span class="color-r ">*</span></label><br>
             <input id="lastName" type="text" placeholder="Votre nom" name="lastName" required />
+            <?php if (isset($errors['lastName'])): ?>
+              <p class="color-r"><?= $errors['lastName'] ?></p>
+            <?php endif; ?>
           </div>
 
           <div class="mb-16">
             <label for="firstName">Prénom<span class="color-r ">*</span></label><br>
             <input id="firstName" type="text" placeholder="Votre prénom" name="firstName" required />
+            <?php if (isset($errors['firstName'])): ?>
+              <p class="color-r"><?= $errors['firstName'] ?></p>
+            <?php endif; ?>
           </div>
 
           <div class="mb-16">
             <label for="email">Email<span class="color-r">*</span></label><br>
             <input id="email" type="email" name="email" placeholder="username@gmail.com" required />
+            <?php if (isset($errors['email'])): ?>
+              <p class="color-r"><?= $errors['email'] ?></p>
+            <?php endif; ?>
           </div>
 
           <div class="mb-16">
             <label for="password">Mot de passe<span class="color-r">*</span></label><br>
             <input id="password" type="password" name="password" placeholder="Abcdé1!" required />
+            <?php if (isset($errors['password'])): ?>
+              <p class="color-r"><?= $errors['password'] ?></p>
+            <?php endif; ?>
           </div>
 
           <div class="mb-16">
             <label for="confirm_password">Confirmation mot de passe<span class="color-r">*</span></label><br>
-            <input id="confirm_password" type="confirm_password" name="confirm_password" placeholder="Abcdé1!" required />
+            <input id="confirm_password" type="password" name="confirm_password" placeholder="Abcdé1!" required />
+            <?php if (isset($errors['confirm_password'])): ?>
+              <p class="color-r"><?= $errors['confirm_password'] ?></p>
+            <?php endif; ?>
           </div>
 
           <div class="mb-32">

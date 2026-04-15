@@ -1,7 +1,7 @@
 <?php
 include_once 'includes/head.php';
 // var_dump($_SESSION);
-include_once 'config/Database.php';
+// include_once 'config/Database.php';
 
 $error = ''; // le "$success" n'est pas necessaire car en cas de reussite, il y a une redirection donc pas besoin de définir un message de reussite sur la page si on ne reste pas dessus
 
@@ -30,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $error = "ATTENTION! Email ou mot de passe incorrect.";
   }
 }
+$page_title="connexion";
 include_once 'includes/header.php';
 ?>
 <main class="dflex jc-c ai-c ">

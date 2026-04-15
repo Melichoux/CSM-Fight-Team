@@ -145,7 +145,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 <?php 
-$page_courant = "update article";
+$page_title = "update article";
 include_once 'includes/dashboard_header.php';
 ?>
 

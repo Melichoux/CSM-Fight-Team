@@ -127,7 +127,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <?php
-$page_title= "csm";
+$page_title= "Ajouter un article";
 include_once 'includes/dashboard_header.php';
 ?>
 <main class="p16">
@@ -201,7 +201,7 @@ include_once 'includes/dashboard_header.php';
           foreach($tags_list as $tag): /* creation d'une checkbox avec toutes les valeurs de la table tag ce qui permet de recuperer l'id et la valeur associée sans se tromper pour lier id et valeur coté user*/?>
             <div class="dflex ai-c gap-8">
               <input type="checkbox" id="tag_<?= $tag['id_tag'] ?>" name="tags[]" value="<?= $tag['id_tag'] ?>" 
-                <?= in_array($tag['id_tag'], $tags) ? 'checked' : ''  // pour conserver la valeur si form invalide?>
+              <?= in_array($tag['id_tag'], $tags) ? 'checked' : ''/* sert a conserver la valeur si form invalide*/?>> 
               <label for="tag_<?= $tag['id_tag'] ?>" class="color-w"><?= htmlspecialchars($tag['tag']) ?></label>
             </div>
           <?php endforeach; ?>

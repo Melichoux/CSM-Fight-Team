@@ -11,11 +11,11 @@
     $message = "";
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $nom     = htmlspecialchars(trim($_POST['nom'] ?? ''));
-        $prenom  = htmlspecialchars(trim($_POST['prenom'] ?? ''));
+        $nom     = strip_tags(trim($_POST['nom'] ?? ''));
+        $prenom  = strip_tags(trim($_POST['prenom'] ?? ''));
         $email   = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
         $options = $_POST['option'] ?? [];
-        $message = htmlspecialchars(trim($_POST['message'] ?? ''));
+        $message = strip_tags(trim($_POST['message'] ?? ''));
 
         if (empty($nom))     {$errors['nom']     = "Votre nom est requis.";}
         if (empty($prenom))  {$errors['prenom']  = "Votre prénom est requis.";}
@@ -49,7 +49,7 @@
             }
         }
     }
-    
+    $page_title="Contactez-nous";
     include_once 'includes/header.php';
     ?>
     <main class="dflex jc-c ai-c ">  <!-- modale envoi mail avec succes -->

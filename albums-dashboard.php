@@ -2,7 +2,7 @@
 include_once 'includes/dashboard_head.php';
 ?>
 <?php
-$page_title= "csm";
+$page_title= "ajout album";
 include_once 'includes/dashboard_header.php';
 ?>
 

@@ -1,7 +1,7 @@
 <?php
 include_once 'includes/head.php';
+$page_title = "Catalogue";
 include_once 'includes/header.php';
-$stmt = Database::getInstance()->query("SELECT * FROM csm_article ORDER BY date_event DESC");
 // var_dump($_POST['filter']);
 if (isset($_POST['filter']) && $_POST['filter'] !== 'default') {
     $stmt = Database::getInstance()->prepare("SELECT * FROM csm_article as csm_a 

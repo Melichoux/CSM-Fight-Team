@@ -2,7 +2,7 @@
 include_once 'includes/dashboard_head.php';
 ?>
 <?php 
-$page_courant = "dashboard";
+$page_ = "dashboard";
 include_once 'includes/dashboard_header.php';
 ?>
 
@@ -10,12 +10,6 @@ include_once 'includes/dashboard_header.php';
   <div class="container mw-950px mil-auto">
 
 <div class="dashboardCard">
-    <?php
-    if(!empty($supress_message)):?>
-    <div>
-        <?= $supress_message ?>
-    </div>
-    <?php endif;?>
 <div>
     <h2 class="fs-32 color-w">Créer un nouvel article</h2>
      <a href="add_article.php" class="btn-logout-container"><span class="btn-logout">Créer un article</span></a>
