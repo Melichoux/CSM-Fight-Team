@@ -24,11 +24,11 @@
                 <!-- aria-label sert a l'accessibilité pour les malvoyants et permet un meilleur parsing par les moteurs comme google -->
                 <ul class="dflex fw-w">
                     <li class="navElmt"><a href="index.php">ACCUEIL</a></li>
-                    <li class="navElmt"><a href="catalogue-article.php">ACTUALITES</a></li>
+                    <li class="navElmt"><a href="catalogue_article.php">ACTUALITES</a></li>
                     <li id="dropDown" class="navElmt">
                         <button id="dropDownBtn"> LA VIE DU CLUB ▾</button>
                         <ul id="dropDownList" class="dflex">
-                            <li class="dropDownElmt"><a href="club-history.php" class="color-bck">Histoire du Club</a></li>
+                            <li class="dropDownElmt"><a href="club_history.php" class="color-bck">Histoire du Club</a></li>
                             <li class="dropDownElmt"><a href="gallery.php" class="color-bck">Galeries Photos</a></li>
                             <li class="dropDownElmt"><a href="results.php" class="color-bck">Résultats</a></li>
                             <li class="dropDownElmt"><a href="events.php" class="color-bck">Agenda</a></li>

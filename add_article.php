@@ -1,5 +1,5 @@
 <?php
-include_once 'includes/head.php';
+include_once 'includes/dashboard_head.php';
 
 $errors = [];
 $success = false;
@@ -124,37 +124,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 }
-
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter un article</title>
-    <link rel="stylesheet" href="assets/css/main.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css"> <!--permet l'affichage du cadre de dimensionnement des photos dans le CRUD, les poignets et l'assombrissement de l'overlay --> 
-    <meta name="description" content="Bienvenue sur le site du CSM FIGHT TEAM, club de judo-jujitsu marseillais." />
-</head>
-<body>
-    <header>
-        <div class="container">
-            <div class="cadreLogo">
-                <a href="dashboard.php">
-                    <!-- a voir si on place le logo dans une div ou pas besoin -->
-                    <img class="logoNav" src="assets/images/Logo CSM Fight Club.png" alt="Logo du club CSM Fight Team - retour a la page d'accueil">
-                </a>
-            </div>
-                <div class="dflex jc-c ai-c mb-32 mt-32">
-                <h1 class="fs-32">Ajouter un article</h1>
-                </div>
-            </div>
-            <div class="ta-e mt-16">
-                <div class="btn-logout-container">
-                    <a class="btn-logout" href="logout.php">Déconnexion</a>
-                </div>
-            </div>
-    </header>
+
+<?php
+$page_title= "csm";
+include_once 'includes/dashboard_header.php';
+?>
 <main class="p16">
   <div class="container mw-950px mil-auto">
 
