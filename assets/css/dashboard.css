@@ -1,0 +1,58 @@
+.subnav {
+    background: #182330;
+    border-bottom: 0.5px solid rgba(255,255,255,0.08);
+    display: flex;
+    gap: 4px;
+    padding: 0 24px;
+}
+
+.subnav-tab {
+    font-size: 13px;
+    padding: 12px 18px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+}
+
+.subnav-tab:hover {
+    color: rgba(255,255,255,0.8);
+}
+
+.subnav-tab.active {
+    color: #fff;
+    border-bottom: 2px solid #2e86de;
+    font-weight: 500;
+}
+
+.badge {
+    font-size: 10px;
+    padding: 2px 6px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    color: rgba(255,255,255,0.4);
+    margin-left: 6px;
+}
+
+
+/*-------------------------- gestion card ------------------------------*/
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* le reapet permet d'appliquer sur tous les elements le meme espacement défini (ici 3 elements qui occupe 1 fragment */
+    gap: 16px;
+}
+
+.articleCard-body {
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}

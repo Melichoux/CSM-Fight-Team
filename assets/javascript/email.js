@@ -42,7 +42,4 @@
     alert("Erreur");
   });
 });
-        // function(error) {
-      //   console.log("Erreur...", error);
-      //   alert("Oups, le message n'a pas pu être envoyé. Réessayez.");
-      // });
+

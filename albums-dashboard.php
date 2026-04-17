@@ -7,6 +7,10 @@ include_once 'includes/dashboard_header.php';
 ?>
 
 <main class="p16">
+  <div class="container mw-950px mil-auto">
+    <div class="dashboardCard">
+    </div>
+  </div>
 </main>
 <?php include_once 'includes/footer.php'; ?>
 </body>

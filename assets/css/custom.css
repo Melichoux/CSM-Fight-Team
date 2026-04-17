@@ -212,3 +212,12 @@ display: flex;
 justify-content: center;
 align-items: center;
 }
+
+/* ------------ Modale card  page contact ------------ */
+
+.modaleCard {
+  background:white; 
+  padding:32px; 
+  border-radius:8px; 
+  text-align:center;
+}

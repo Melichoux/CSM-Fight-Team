@@ -46,12 +46,12 @@ include_once 'includes/header.php';
 
       <div class="mb-16">
         <label for="email">Email</label><br>
-        <input id="email" type="email" name="email" placeholder="votreadresse@gmail.com" required />
+        <input id="email" type="email" name="email" placeholder="votreadresse@gmail.com" value="csmft@gmail.com" required />
       </div>
 
       <div class="mb-16">
         <label for="password">Mot de passe</label><br>
-        <input id="password" type="password" name="password" placeholder="Abcdé1!" required />
+        <input id="password" type="password" name="password" placeholder="Abcdé1!" value="321321321" required />
       </div>
 
       <div class="mb-32">

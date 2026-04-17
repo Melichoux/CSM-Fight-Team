@@ -8,6 +8,16 @@
 
 .color-r    {color:red}
 
+/* ANCHOR BACKGROUND COLOR */
+
+.bgc-b    {color: rgb(61, 181, 236);}
+
+.bgc-w    {color: aliceblue;}
+
+.bgc-bck  {color: rgb(37, 54, 73);}
+
+.bgc-r    {color:red}   
+
 
 /* ANCHOR SPACING */  
 
@@ -55,6 +65,7 @@
 .p8   {padding: 8px;}                  
 .p16  {padding: 16px;}
 .p24  {padding: 24px;}
+.p32  {padding: 32px;}
 
 
         /* Gap */
