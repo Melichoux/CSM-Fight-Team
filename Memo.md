@@ -114,7 +114,16 @@ La première consiste à centraliser toutes les sections dans un seul fichier en
 
 J'ai retenu la deuxième approche qui consiste à créer un fichier PHP par section — c'est d'ailleurs cohérent avec l'architecture que j'avais déjà mise en place sur le projet. Chaque onglet est un lien vers une page distincte, et j'utilise `$_SERVER['PHP_SELF']` combiné à `basename()` pour détecter le fichier en cours d'exécution et appliquer dynamiquement la classe CSS `active` sur le bon onglet. Cette approche est simple, maintenable, et ne charge que les ressources nécessaires à la section consultée."
 
-- [ ]
+- [ ] Composer — ce que c'est et comment l'expliquer
+Composer est le gestionnaire de dépendances PHP. Son rôle est de télécharger et d'installer des librairies PHP externes dans ton projet, et de gérer leurs versions.
+Concrètement quand tu fais :
+bashcomposer require phpmailer/phpmailer
+Composer va chercher le package sur packagist.org (le registre officiel PHP), le télécharger dans un dossier vendor/, et générer/mettre à jour composer.json (liste de tes dépendances) et composer.lock (versions exactes installées).
+À l'oral tu peux dire : "Composer est l'équivalent PHP de npm pour JavaScript — il gère les dépendances du projet et garantit que tout le monde qui clone le repo installe exactement les mêmes versions."
+
+Sur npm et Node.js — tu ne t'es pas trompé de package, mais la nuance c'est que npm est le gestionnaire de paquets JavaScript/Node.js, pas PHP. Si tu l'as utilisé dans ton projet c'était probablement pour installer des outils front (comme pour générer le docx ici par exemple), pas pour PHPMailer qui lui passe exclusivement par Composer.
+
+- [ ] 
 
 
   ## PixelBay

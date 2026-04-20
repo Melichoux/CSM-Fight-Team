@@ -11,6 +11,12 @@
     $message = "";
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      
+              // Honeypot anti-spam
+        if (!empty($_POST['honeypot'])) {
+            exit;
+        }
+
         $nom     = strip_tags(trim($_POST['nom'] ?? ''));
         $prenom  = strip_tags(trim($_POST['prenom'] ?? ''));
         $email   = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
@@ -129,6 +135,11 @@
           <?php if (isset($errors['message'])): ?>
             <p class="color-r"><?= $errors['message'] ?></p>
           <?php endif; ?>
+        </div>
+
+        <div>
+        <!-- Honeypot anti-spam -->
+        <input type="text" name="honeypot" style="display:none" tabindex="-1" autocomplete="off">
         </div>
 
         <div class="mb-32">

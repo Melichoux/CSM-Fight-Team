@@ -1,10 +1,10 @@
 /* ANCHOR COLORS */
 
-.color-b    {color: rgb(61, 181, 236);}
+.color-b    {color: #3db5ec;}
 
-.color-w    {color: aliceblue;}
+.color-w    {color: #f0f8ff;}
 
-.color-bck  {color: rgb(37, 54, 73);}
+.color-bck  {color: #26374b;}
 
 .color-r    {color:red}
 
@@ -16,7 +16,7 @@
 
 .bgc-bck  {color: rgb(37, 54, 73);}
 
-.bgc-r    {color:red}   
+.bgc-r    {color:#ff0000}   
 
 
 /* ANCHOR SPACING */  
