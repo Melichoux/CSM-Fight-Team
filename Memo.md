@@ -123,6 +123,16 @@ Composer va chercher le package sur packagist.org (le registre officiel PHP), le
 
 Sur npm et Node.js — tu ne t'es pas trompé de package, mais la nuance c'est que npm est le gestionnaire de paquets JavaScript/Node.js, pas PHP. Si tu l'as utilisé dans ton projet c'était probablement pour installer des outils front (comme pour générer le docx ici par exemple), pas pour PHPMailer qui lui passe exclusivement par Composer.
 
+- [ ] Pour être encore plus précis :
+
+Le port 443 = le poste de douane (point d'entrée HTTPS)
+Le certificat Let's Encrypt = les papiers d'identité du site
+Le navigateur = le douanier qui vérifie si les papiers sont valides et délivrés par une autorité reconnue
+Let's Encrypt = l'ambassade qui a délivré les papiers
+
+Si les papiers sont invalides, expirés ou non reconnus par le douanier (navigateur), il bloque l'accès et affiche l'erreur "connexion non sécurisée".
+Et le chiffrement HTTPS c'est comme si toute la conversation entre le voyageur et le pays de destination se faisait dans une langue secrète que seuls eux deux comprennent — même si quelqu'un intercepte la communication en route, il ne peut pas la lire.
+
 - [ ] 
 
 

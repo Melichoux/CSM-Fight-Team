@@ -61,7 +61,7 @@ a:hover{
 /* <!-- ==========  FOOTER  ========== --> */
 footer {
   background-color: rgb(37, 54, 73);
-  margin-bottom: 16px;
+  margin-bottom: 0;
   padding: 16px; 
 }
 

@@ -25,6 +25,7 @@
                 </ul>
             </section>
         </div>
-        <p id="copyright">Copyright © CSM Fight Team 2026</p>
+        <p id="copyright">Copyright © CSM Fight Team 2026 - <a href="rgpd.php"> Mention légales et Politique de confidentialité</a></p>
     </footer>
     <script src="assets/javascript/global.js" defer></script>
+ 

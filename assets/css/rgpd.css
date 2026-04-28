@@ -1,0 +1,66 @@
+ .rgpd-section { /* bloc de section RGPD */
+    background-color: rgb(37, 54, 73);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+ 
+  .rgpd-section h2 { /* titre de section */
+    color: rgb(61, 181, 236);
+    font-size: 18px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(61, 181, 236, 0.3);
+  }
+ 
+  .rgpd-section h3 { /* sous-titre */
+    color: aliceblue;
+    font-size: 15px;
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+ 
+  .rgpd-section p { /* paragraphe */
+    color: aliceblue;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+ 
+  .rgpd-list { /* liste RGPD */
+    display: block;
+    padding-left: 20px;
+    margin-bottom: 12px;
+  }
+ 
+  .rgpd-list li { /* élément de liste */
+    list-style: disc;
+    color: aliceblue;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 6px;
+  }
+ 
+  .rgpd-section a { /* lien */
+    color: rgb(61, 181, 236);
+    text-decoration: underline;
+  }
+ 
+  .rgpd-section a:hover { /* lien survol */
+    color: aliceblue;
+    transition: color 300ms;
+  }
+ 
+  .rgpd-section strong { /* texte en gras */
+    color: aliceblue;
+    font-weight: bold;
+  }
+ 
+  .rgpd-section code { /* code inline */
+    background-color: rgba(61, 181, 236, 0.15);
+    color: rgb(61, 181, 236);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
