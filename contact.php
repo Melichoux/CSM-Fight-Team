@@ -33,14 +33,14 @@
                 require_once 'includes/mailer.php';
                 $mail = createMailer();
 
-                $mail->setFrom('', 'CSM Fight Team'); // email du club à remplir
-                $mail->addAddress(''); // email destinataire à remplir
+                $mail->setFrom(MAIL_FROM, 'CSM Fight Team'); // email du club à remplir
+                $mail->addAddress(MAIL_TO); // email destinataire à remplir
                 $mail->addReplyTo($email, $nom . ' ' . $prenom); // permet de répondre directement à l'expéditeur
 
                 $mail->isHTML(true);
                 $mail->Subject = 'Nouveau message de ' . $nom . ' ' . $prenom;
                 $mail->Body = "
-                    <h2>Nouveau message depuis le site</h2>
+                    <h2>Nouveau message depuis le site CSM Fight Team</h2>
                     <p><b>Nom :</b> $nom $prenom</p>
                     <p><b>Email :</b> $email</p>
                     <p><b>Sujet(s) :</b> " . implode(', ', $options) . "</p>
@@ -52,6 +52,7 @@
 
             } catch (Exception $e) {
                 $errors['mail'] = true;
+                 error_log($e->getMessage());
             }
         }
     }

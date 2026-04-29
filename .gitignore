@@ -1,9 +1,9 @@
 # ecrire le nom d'un fichier ou dossier dans ce fichier permet de ne pas commit ces derniers sur git.
 node_modules/
-Database.php
 .env
 vendor
 composer.json
 composer.lock
 mailer.php
 uploads
+config/

@@ -1,0 +1,65 @@
+5c925a6 Ajout du rgpd
+f2f5cf1 ajout du honeypot sur le formulaire de contact
+b7f50e3 mise en forme du dashboard - en cours
+bd9a0d0 ajout de sécurité sur les données envoyés en bdd avec strip_tags+trim
+5b3299a mise en place du dashboard_header - en cours
+c530f1d mise en place de la sidebar dans le dashboard - en cours
+642173b mise en place de phpmailer a la place de email.js
+17af409 debug .htaccess (commentaire avec * pas <--! -->), ajout js avec cropper.js et modif du chemin de src img_event dans les fichiers add_article.php et update_article.php
+901e96d install gd library pour recup de fichier image dans le crud article
+e03f7a8 amelioration sécurité sur page upload_article.php
+b7fe09a maj verif et secu des images a la creation d'un articles
+f7efe90 carousel index.php ok!
+c9ceaa0 recuperation des articles via php et non plus javascript et le json de la partie de cours frontend
+1ff0a48 ajout de la fonctionnalité de crop sur les images ajouter a un nouvel article - en cours
+ca3727a navBar comptatibilité cross-browser chrome/firefox
+f22b6ed affichage  sur login.php
+8cb239b image
+bed0e32 amélioration affichage filtre
+1587eb6 MAJ pour l'update des articles + maj readme
+85ce1de CRUD enfin terminé! =)
+26a0150 affichage page catalogue en php + C du CRUD des articles coté admin ok, U en cours
+02a2a50 maj des pages avec le location entre login et dashboard
+2e20625 maj enregistrement pour user
+99d20df c du crud okay pour le form d'inscription user
+d6b2257 creation BDD + maj readme
+92cbe88 Maj du read me avec ajout de merise
+ccebfbb commit avant back, passage sur docker et transform en php
+7b81b97 merge pour la MàJ des url pour le deploiement
+bb95a09 maj des URL pour le deploiement avec vercel
+762ef47 merge de Dev apres rename des dossiers
+47247ee rename final sans plus acunne majuscule
+cdd13ac tjs le rename
+9a65f87 rename sans majuscule
+72322c4 Maj du readme
+9b3ec46 Maj du readme sur le Dev
+3c642e9 "Merge de Dev sur main"
+4909c76 resolution conflit
+fa37ea2 meta name ajouté sur toutes les pages
+5e11958 modiif du readme
+f3d706a version ecf janvier 2026
+8f02d2b commit prepa ecf
+c34aff8 reglage en cours burger menu, pas encore ok
+e0513ff maj du emailjs ok
+8bd328e form+emailjs
+06d1b13 ajout fichier/page contact avec le formulaire
+614537c Maj navbar sur la page article
+1503851 debut de mise en place du filtre sur la page index.js
+d0d4ae5 commit pour merge sur main
+4439eeb fin de journée du 06/12/26
+0315c4c Fetch avec script dans le fichier article
+2e809a6 Mise en place du formFilter, debut de la partie js
+51f78ba Amelioration du header+mise en forme du catalogue
+19dfa23 menu deroulant + align footer
+7ce4456 Travail sur l'onglet deroulant de la nav bar
+db70b48 Reprise de la navBar pour repondre aux demandes client+creation btn des articles
+9736855 MaJ noms des fichiers + organisation fichiers CSS
+4e2b965 Maj du main
+7cac967 Creation du catalogue avec fetch + debut CSS
+506206a header ok, footer commencé, merge avec main
+4b420c6 commencement du hearder
+37a2499 Maj du json avec ajout de date de parution
+24ea98b ajout index
+32df0af 2ieme tentative de push
+cae13ac Creation du article-json
+10086af first commit
