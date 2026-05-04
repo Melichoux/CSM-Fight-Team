@@ -133,6 +133,7 @@ Let's Encrypt = l'ambassade qui a délivré les papiers
 Si les papiers sont invalides, expirés ou non reconnus par le douanier (navigateur), il bloque l'accès et affiche l'erreur "connexion non sécurisée".
 Et le chiffrement HTTPS c'est comme si toute la conversation entre le voyageur et le pays de destination se faisait dans une langue secrète que seuls eux deux comprennent — même si quelqu'un intercepte la communication en route, il ne peut pas la lire.
 
+- [ ] Ce sont des classes utilitaires — le même principe que Tailwind mais en vanilla CSS.
 - [ ] 
 
 

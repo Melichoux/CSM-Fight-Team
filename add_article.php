@@ -131,7 +131,7 @@ $page_title= "Ajouter un article";
 include_once 'includes/dashboard_header.php';
 ?>
 <main class="p16">
-  <div class="container mw-950px mil-auto">
+  <div class="mw-950px mil-auto">
 
     <div class="ta-e mt-16">
       <a class="btn-logout-container" href="dashboard.php">

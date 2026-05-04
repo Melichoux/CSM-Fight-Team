@@ -10,16 +10,14 @@ include_once 'includes/dashboard_header.php';
 ?>
 
 <main class="p16">
-  <div class="container mw-950px mil-auto">
+  <div class="mw-950px mil-auto">
 
 <div class="dashboardCard">
-<div class="dflex jc-sb ai-c mb-16">
+
     <h2 class="fs-32 color-w">Créer un nouvel article</h2>
      <a href="add_article.php" class="btn-logout-container"><span class="btn-logout">Créer un article</span></a>
-</div>
-</div>
 
-<div class="dashboardCard">
+
     <h2 class="fs-32 color-w">Modifier un article</h2>
  
         <div class="dashboard-grid">
