@@ -14,10 +14,8 @@ if (isset($_POST['filter']) && $_POST['filter'] !== 'default') {
 };
 $articles = $stmt->fetchAll();
 ?>
-<main>
-    <h1>Toutes nos actualités</h1>
-
-    <form action="#" method="post" id="formFilter" class="dflex jc-c ">
+<main> 
+    <form action="#" method="post" id="block-blue" class="dflex jc-c">
         <label for="filter" class="color-w"> Filtrer les actualités
             <select name="filter" id="filter" placeholder="--Séléctionner un filtre--" onchange = "this.form.submit()">
                 <option value="default">--Séléctionner un filtre--</option>
@@ -25,15 +23,17 @@ $articles = $stmt->fetchAll();
                 $tags_list = Database::getInstance()->query("SELECT * FROM csm_tag ORDER BY tag");
                 foreach ($tags_list as $tag): /* creation d'une checkbox avec toutes les valeurs de la table tag ce qui permet de recuperer l'id et la valeur associée sans se tromper pour lier id et valeur coté user*/ ?>
                      <option value="<?= $tag['id_tag'] ?>" <?= isset($_POST['filter']) && $_POST['filter'] == $tag['id_tag'] ? 'selected' : '' ?>>
-                        <?= htmlspecialchars($tag['tag']) ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
-        </label>
-        <!-- <input type="submit" id="submit" name="submit" value="OK"> -->
-        <!-- Pas besoin de label car j'ai uniquement besoin du bouton. Du coup, pas de probleme d'alignement entre la checkbox et le bouton -->
-    </form>
-    <div class="article-container mw-950px dflex fw-w gap-24 jc-c mil-auto">
+                         <?= htmlspecialchars($tag['tag']) ?>
+                        </option>
+                        <?php endforeach; ?>
+                    </select>
+                </label>
+                <!-- <input type="submit" id="submit" name="submit" value="OK"> -->
+                <!-- Pas besoin de label car j'ai uniquement besoin du bouton. Du coup, pas de probleme d'alignement entre la checkbox et le bouton -->
+            </form>
+    <div class="bg-catalogue">
+        <h1 class="mb-16">Toutes nos actualités</h1>
+    <div class="mw-1200px dflex fw-w gap-24 jc-c mil-auto">
         <?php
         foreach ($articles as $element) : ?>
 
@@ -48,6 +48,7 @@ $articles = $stmt->fetchAll();
             </article>
         <?php endforeach; ?>
     </div>
+        </div>
 </main>
 <?php
 include_once 'includes/footer.php';

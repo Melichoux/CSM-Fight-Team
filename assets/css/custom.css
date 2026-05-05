@@ -36,8 +36,25 @@ a:hover{
       min-height: 75vh;
       /* taille du main par rapport a la taille de la fenetre (=viewport) */
       border-bottom: 4px solid rgb(61, 181, 236);
+      overflow:hidden;
+    }
 
-    }  
+
+/* <!-- ==========  HERO SECTION  ========== --> */
+.bg-hero {
+  background-color: rgb(37, 54, 73) ;
+  max-width: 1800px;
+  margin: 32px auto;
+  padding: 32px;
+  border-radius: 8px;
+}
+
+.hero-grid{
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* repartition en 2 colonnes 2/3 et 1/3*/
+  gap: 32px;
+  align-items: center;
+}
 
 /* <!-- ==========  BUTTON LOGOUT (admin profil)  ========== --> */
 .btn-logout-container {
@@ -79,6 +96,15 @@ footer {
 #copyright{
   color: aliceblue;
   text-align: center;
+}
+
+/* ------------ CATALOGUE ------------ */
+.bg-catalogue {
+  background-color: rgb(37, 54, 73) ;
+  max-width: 1400px;
+  margin: 32px auto;
+  padding: 32px;
+  border-radius: 8px;
 }
 /* ------------ Elements des cards ------------ */
 .articleCard {
@@ -164,13 +190,27 @@ padding: 8px;
   padding: 16px;
 }
 
-/* ------------ Barre de filtre de la page catalogue ------------ */
-#formFilter{
+/* ------------ Fond bleu  ------------ */
+#block-blue{
     background-color: rgb(37, 54, 73);
     border-radius: 8px;
     margin: 16px;
     padding: 16px;
 }
+
+.home-news {
+  color: aliceblue;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 8px;
+  box-shadow: 1px 1px 10px 1px rgb(61, 181, 236);
+  background-color: rgb(37, 54, 73);
+  max-width: 1200px;
+  margin-inline: auto;
+  margin-top: 32px;
+  margin-bottom: 24px;
+  padding: 32px;
+}
+
 
 /* ------------ Mise en page du formulaire de la page contact ------------ */
 .form-contact{

@@ -134,6 +134,7 @@ Si les papiers sont invalides, expirés ou non reconnus par le douanier (navigat
 Et le chiffrement HTTPS c'est comme si toute la conversation entre le voyageur et le pays de destination se faisait dans une langue secrète que seuls eux deux comprennent — même si quelqu'un intercepte la communication en route, il ne peut pas la lire.
 
 - [ ] Ce sont des classes utilitaires — le même principe que Tailwind mais en vanilla CSS.
+- [ ] axe d'amelioration: Ce que je te conseille : note-le comme point d'amélioration pour la soutenance. Si le jury te demande "qu'est-ce que vous amélioreriez ?", tu peux dire "j'utiliserais rem plutôt que px pour les tailles de police afin d'améliorer l'accessibilité". Ça montre que tu connais la bonne pratique même si tu ne l'as pas appliquée partout.
 - [ ] 
 
 

@@ -4,7 +4,7 @@
     include_once 'includes/header.php';
     ?>
 <main>
-  <div class="mw-950px mil-auto">
+  <div class="mw-950px mil-auto p16">
     <div class="dashboardCard">
         <p class="m-32 ta-c">🚧 Cette page est en cours de construction.</p>
     </div>

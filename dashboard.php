@@ -12,13 +12,13 @@ include_once 'includes/dashboard_header.php';
 <main class="p16">
   <div class="mw-950px mil-auto">
 
-<div class="dashboardCard">
+<div class="bg-catalogue">
 
-    <h2 class="fs-32 color-w">Créer un nouvel article</h2>
+    <h2 class="fs-32 color-w mb-24">Créer un nouvel article</h2>
      <a href="add_article.php" class="btn-logout-container"><span class="btn-logout">Créer un article</span></a>
 
 
-    <h2 class="fs-32 color-w">Modifier un article</h2>
+    <h2 class="fs-32 color-w mt-24 mb-24">Modifier un article</h2>
  
         <div class="dashboard-grid">
         <?php foreach ($articles as $element) : ?>

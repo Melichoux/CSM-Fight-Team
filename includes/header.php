@@ -20,7 +20,7 @@
             <!-- 0.5rem 4rem 2rem 0.5rem; a appliquer sur l'image pour recreer le design chelou du site -->
 
             <!-- Bouton pour le menu burger -->
-            <nav aria-label="Navigation principale dflex fw-w" class="mainNav">
+            <nav aria-label="Navigation principale" class="mainNav">
                 <!-- aria-label sert a l'accessibilité pour les malvoyants et permet un meilleur parsing par les moteurs comme google -->
                 <ul class="dflex fw-w">
                     <li class="navElmt"><a href="index.php">ACCUEIL</a></li>

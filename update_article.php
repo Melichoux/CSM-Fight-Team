@@ -31,11 +31,11 @@ foreach ($result_tags as $value) {// recuperation des valeurs de la table tag as
 //Comme tjs, verification des champs
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors = [];
-    $title = htmlspecialchars(trim($_POST['title'] ?? ''));
+    $title = trim($_POST['title'] ?? '');
     $date_event = $_POST['date_event'] ?? '';
     $img_event = $result['img_event']; // garde l'ancienne image par défaut    
-    $intro = htmlspecialchars(trim($_POST['intro'] ?? ''));
-    $description = htmlspecialchars(trim($_POST['description'] ?? ''));
+    $intro = trim($_POST['intro'] ?? '');
+    $description = trim($_POST['description'] ?? '');
     $tags = $_POST['tags'] ?? [];
       if (!empty($_FILES['img_event']['name'])) {
 
@@ -152,7 +152,7 @@ include_once 'includes/dashboard_header.php';
 <main class="p16">
   <div class="container mw-950px mil-auto">
 
-    <div class="ta-e mt-16">
+    <div class="ta-e mt-16 mb-24">
       <a class="btn-logout-container" href="dashboard.php">
         <span class="btn-logout">Retour au dashboard</span>
       </a>

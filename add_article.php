@@ -12,7 +12,7 @@ $description = "";
 $tags = [];
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $title = htmlspecialchars(trim($_POST['title'] ?? ''));
+    $title = trim($_POST['title'] ?? '');
     $date_event = $_POST['date_event'] ?? '';
     $img_event = ''; 
       if (!empty($_FILES['img_event']['name'])) {
@@ -133,7 +133,7 @@ include_once 'includes/dashboard_header.php';
 <main class="p16">
   <div class="mw-950px mil-auto">
 
-    <div class="ta-e mt-16">
+    <div class="ta-e mt-16 mb-24">
       <a class="btn-logout-container" href="dashboard.php">
         <span class="btn-logout">Retour au dashboard</span>
       </a>

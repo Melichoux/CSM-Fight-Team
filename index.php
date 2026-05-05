@@ -7,16 +7,25 @@
     $stmt->execute();
     $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
 //  -------- fin carroussel ---------------
-    $page_title="Acceuil";
+    $page_title="Accueil";
     include_once 'includes/header.php';
     ?>
     <main>
-        <h1 class="ai-c border-b">Bienvenu au CSM Fight Team</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam natus ab possimus dolores adipisci culpa architecto nostrum molestiae expedi.</p>
-<h2>Prochains événements</h2>
-
-<h2>Ce que vous avez raté...</h2>
-
+      <div class="bg-hero">
+        <h1 class="ta-c mb-24">Bienvenu au CSM Fight Team</h1>
+        <div class="hero-grid">
+          <div>
+            <h2>À la une</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati tempore nisi ab accusantium dolor perferendis recusandae ea iusto placeat pariatur esse incidunt, fugit earum minima iste magni fugiat, cum temporibus.</p>
+            <a href="#">En savoir +</a>
+          </div>
+          <div>
+            <img src="assets/images/illustration.png" alt="Photo judo" class="color-w">
+          </div>
+        </div>
+      </div>
+            <div class="home-news">
+<h2 class="mb-16">Ce que vous avez raté...</h2>
 <div class="carrousel">
   <div class="carrousel__slides">
     <?php foreach ($articles as $index => $article): ?>
@@ -43,7 +52,7 @@
     <?php endfor; ?>
   </div>
 </div>
-
+    </div>
     </main>
     <?php
       include_once 'includes/footer.php';
