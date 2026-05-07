@@ -10,6 +10,7 @@ $img_event = "";
 $intro = "";
 $description = "";
 $tags = [];
+$source = null;
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = trim($_POST['title'] ?? '');
@@ -127,7 +128,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <?php
-$page_title= "Ajouter un article";
+$page_title= "Ajouter un article - CSM fight team";
+$meta_description="Création d'un nouvel article dans l'espace d'administration du CSM Fight Team.";
 include_once 'includes/dashboard_header.php';
 ?>
 <main class="p16">

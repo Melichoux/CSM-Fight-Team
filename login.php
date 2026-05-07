@@ -30,7 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $error = "ATTENTION! Email ou mot de passe incorrect.";
   }
 }
-$page_title="connexion";
+$page_title="Connexion - CSM fight team";
+$meta_description=" Accès à l'espace d'administration ou membre du CSM Fight Team.";
 include_once 'includes/header.php';
 ?>
 <main class="dflex jc-c ai-c ">
@@ -38,23 +39,23 @@ include_once 'includes/header.php';
   
   <div class="form-contact dflex fw-w jc-c ai-c minw-100 mt-32">
     <form method="post" class="dblock fd-c ai-c ta-c mw-800px">
-      <h1 class="p24">Se connecter</h1>
+      <h1 class="p24 mb-24">Se connecter</h1>
       
       <?php if ($error): ?>
         <p class="p24 color-r"><?= $error ?></p>
       <?php endif; ?>
 
-      <div class="mb-16">
+      <div class="mb-24">
         <label for="email">Email</label><br>
         <input id="email" type="email" name="email" placeholder="votreadresse@gmail.com" value="csmft@gmail.com" required />
       </div>
 
-      <div class="mb-16">
+      <div class="mb-24">
         <label for="password">Mot de passe</label><br>
         <input id="password" type="password" name="password" placeholder="Abcdé1!" value="321321321" required />
       </div>
 
-      <div class="mb-32">
+      <div class="mb-64">
         <button type="submit">Envoyer</button>
       </div>
 

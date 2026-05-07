@@ -1,6 +1,7 @@
 <?php
 include_once 'includes/head.php';
-$page_title = "Catalogue";
+$page_title = "Catalogue - CSM fight team";
+$meta_description =" Retrouvez toutes les actualités et articles du CSM Fight Team : événements, compétitions et résultats de notre club marseillais.";
 include_once 'includes/header.php';
 // var_dump($_POST['filter']);
 if (isset($_POST['filter']) && $_POST['filter'] !== 'default') {
@@ -34,6 +35,7 @@ $articles = $stmt->fetchAll();
     <div class="bg-catalogue">
         <h1 class="mb-16">Toutes nos actualités</h1>
     <div class="mw-1200px dflex fw-w gap-24 jc-c mil-auto">
+        <?php if ($articles) : ?>
         <?php
         foreach ($articles as $element) : ?>
 
@@ -47,6 +49,9 @@ $articles = $stmt->fetchAll();
                 </div>
             </article>
         <?php endforeach; ?>
+        <?php else : ?>
+            <p>Aucun article disponible pour le moment.</p>
+        <?php endif; ?>
     </div>
         </div>
 </main>

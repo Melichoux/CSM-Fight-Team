@@ -1,5 +1,20 @@
 /* ANCHOR  Customs*/
 
+/* ---- TITLE ---- */
+h1{
+  color: aliceblue;
+  text-decoration: underline;
+}
+
+h2{
+  color: aliceblue;
+  text-decoration: underline;
+}
+
+h3{
+  color: aliceblue;
+}
+
 /* ---- LOGO ---- */
 .logoNav{
   max-width: 150px;
@@ -56,24 +71,6 @@ a:hover{
   align-items: center;
 }
 
-/* <!-- ==========  BUTTON LOGOUT (admin profil)  ========== --> */
-.btn-logout-container {
-    background-color: rgb(37, 54, 73);
-    border-radius: 8px;
-    border: 1px solid aliceblue;
-    display: inline-block;
-    padding: 8px 16px;
-}
-
-.btn-logout {
-    color: aliceblue;
-    font-weight: bold;
-}
-
-.btn-logout:hover {
-    color: rgb(61, 181, 236);
-    transition: color 300ms;
-}
     
 /* <!-- ==========  FOOTER  ========== --> */
 footer {
@@ -164,13 +161,17 @@ text-decoration: underline;
 
 /* ------------ Mise en page de l'article ------------ */
 
+.pageArticle {
+    min-height: 80vh;
+    align-items: center;
+}
+
   .articleSeul {
     color: aliceblue;
     border: 1px solid rgb(255, 255, 255);
     border-radius: 8px;
     box-shadow: 1px 1px 10px 1px rgb(61, 181, 236);  
     background-color: rgb(37, 54, 73);
-    margin-bottom: 24px;
 }
 
 .imgArticle{
@@ -190,7 +191,7 @@ padding: 8px;
   padding: 16px;
 }
 
-/* ------------ Fond bleu  ------------ */
+/* ------------ Page Home et Fond bleu ------------ */
 #block-blue{
     background-color: rgb(37, 54, 73);
     border-radius: 8px;

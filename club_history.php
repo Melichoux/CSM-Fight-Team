@@ -1,6 +1,7 @@
 <?php
     include_once 'includes/head.php';
-    $page_title = "Histoire du club";
+    $page_title = "Histoire du club - CSM fight team";
+    $meta_description="Découvrez l'histoire du CSM Fight Team, club de judo-jujitsu marseillais fondé par des passionnés d'arts martiaux.";
     include_once 'includes/header.php';
     ?>
 <main>

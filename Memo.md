@@ -135,6 +135,28 @@ Et le chiffrement HTTPS c'est comme si toute la conversation entre le voyageur e
 
 - [ ] Ce sont des classes utilitaires — le même principe que Tailwind mais en vanilla CSS.
 - [ ] axe d'amelioration: Ce que je te conseille : note-le comme point d'amélioration pour la soutenance. Si le jury te demande "qu'est-ce que vous amélioreriez ?", tu peux dire "j'utiliserais rem plutôt que px pour les tailles de police afin d'améliorer l'accessibilité". Ça montre que tu connais la bonne pratique même si tu ne l'as pas appliquée partout.
+- [ ] Le bouton retour natif du navigateur suffit pour un site simple. Si la navigation de ton app est relativement simple, s'appuyer sur le bouton retour natif est tout à fait acceptable. Medium
+Un bouton retour custom devient utile dans des cas spécifiques comme les formulaires multi-étapes, les vues imbriquées ou les overlays plein écran — des situations où le bouton natif pourrait amener l'utilisateur au mauvais endroit. Une page article simple ne rentre pas dans ces cas. Smart-interface-design-patterns
+Ce que recommande le W3C (WAI) : toujours permettre à l'utilisateur de revenir en arrière, et le bouton natif du navigateur est la meilleure façon de le faire car il est familier — la plupart des utilisateurs l'essaieront en premier. W3C
+Conclusion pour ton site : ton utilisateur arrive sur article.php depuis le catalogue, il clique "retour" dans le navigateur et revient au catalogue — ça fonctionne parfaitement. Tu peux cocher cette tâche sans remords, ou ajouter un simple lien ← Retour aux actualités en haut si tu veux soigner le détail pour la soutenance.
+Sources : W3C WAI, Smashing Magazine, Nielsen Norman Group, Medium/Snowball.
+- [ ] Ce que fait le Singleton
+Il dit : "la première fois qu'on me demande une connexion, je la crée. Ensuite je la garde en mémoire et je la redonne à chaque fois qu'on me la demande."
+Étape par étape dans ton code :
+phpprivate static ?PDO $instance = null;
+Au départ, pas de connexion — $instance vaut null.
+phpif (self::$instance === null) {
+    self::$instance = new PDO(...); // connexion créée UNE SEULE FOIS
+}
+La première fois qu'une page appelle getInstance(), $instance est null donc on crée la connexion et on la stocke.
+phpreturn self::$instance;
+La deuxième fois, $instance n'est plus null — le if est ignoré et on retourne directement la connexion déjà existante.
+
+En image mentale
+C'est comme un robinet d'eau. Sans Singleton, tu ouvres et fermes le robinet à chaque verre. Avec le Singleton, tu ouvres le robinet une fois au début et tu laisses couler — tout le monde se sert depuis le même robinet ouvert.
+
+Le mot "static"
+C'est ce qui rend tout ça possible. Une variable static appartient à la classe et non à une instance — elle persiste en mémoire pendant toute la durée du script. C'est pour ça que $instance "se souvient" de la connexion entre les appels.
 - [ ] 
 
 

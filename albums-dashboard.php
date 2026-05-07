@@ -2,7 +2,8 @@
 include_once 'includes/dashboard_head.php';
 ?>
 <?php
-$page_title= "ajout album";
+$page_title= "Ajouter un album - CSM fight team";
+$meta_description="Gestion des albums photos dans l'espace d'administration du CSM Fight Team.";
 include_once 'includes/dashboard_header.php';
 ?>
 

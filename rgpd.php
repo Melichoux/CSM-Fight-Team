@@ -1,5 +1,6 @@
 <?php include_once 'includes/head.php';
-$page_title = "Mentions légales et Politique de confidentialité";
+$page_title = "Mentions légales et Politique de confidentialité - CSM fight team";
+$meta_description="Politique de confidentialité et mentions légales du CSM Fight Team. Vos données personnelles sont protégées conformément au RGPD.";
 include_once 'includes/header.php'; ?>
  
 <main>

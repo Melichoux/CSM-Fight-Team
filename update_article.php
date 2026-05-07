@@ -145,7 +145,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 <?php 
-$page_title = "update article";
+$page_title = "Update article - CSM fight team";
+$meta_description="Modification ou suppression d'un article existant dans l'espace d'administration du CSM Fight Team.";
 include_once 'includes/dashboard_header.php';
 ?>
 

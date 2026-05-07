@@ -12,6 +12,12 @@
 
     //verifier que le formulaire est bien envoyé en POST
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        // Honeypot anti-spam
+        if (!empty($_POST['honeypot'])) {
+            exit;
+        }
+
       // Vérifier si le paramètre existe et n'est pas vide + "nettoyage" cad mise en forme anti-XSS
 
       $last_name = strip_tags(trim($_POST['lastName'] ?? ""));
@@ -42,7 +48,7 @@
       }
 
       if (empty($password) || $password_lenght < 8) {
-        $errors['password'] = "Mot de passe de 8 caracteres obligatoire.";
+        $errors['password'] = "Mot de passe de minimum 8 caracteres obligatoire.";
       }
       if (empty($confirm_password) || $password != $confirm_password) { //On verifie directement les saisies utilisateurs et pas les saisies "traitées".
         $errors['confirm_password'] = "La saisie est différente du mot de passe.";
@@ -75,7 +81,8 @@
         // Pas besoin de else car les messages d'erreur s'affichent directement à coté des inputs concernés.
       }
     }
-    $page_title="inscription";
+    $page_title="Inscription - CSM fight team";
+    $meta_description="Inscrivez-vous au CSM Fight Team et rejoignez notre club de judo et jujitsu à Marseille pour tous les niveaux.";
     include_once 'includes/header.php';
     ?>
 
@@ -110,7 +117,7 @@
 
           <div class="mb-16">
             <label for="password">Mot de passe<span class="color-r">*</span></label><br>
-            <input id="password" type="password" name="password" placeholder="Abcdé1!" required />
+            <input id="password" type="password" name="password" placeholder="Abcdé1!" minlength="8" required />
             <?php if (isset($errors['password'])): ?>
               <p class="color-r"><?= $errors['password'] ?></p>
             <?php endif; ?>
@@ -118,11 +125,16 @@
 
           <div class="mb-16">
             <label for="confirm_password">Confirmation mot de passe<span class="color-r">*</span></label><br>
-            <input id="confirm_password" type="password" name="confirm_password" placeholder="Abcdé1!" required />
+            <input id="confirm_password" type="password" name="confirm_password" placeholder="Abcdé1!" minlength="8" required />
             <?php if (isset($errors['confirm_password'])): ?>
               <p class="color-r"><?= $errors['confirm_password'] ?></p>
             <?php endif; ?>
           </div>
+
+          <div> <!-- Honeypot anti-spam -->
+          <input type="text" name="honeypot" style="display:none" tabindex="-1" autocomplete="off">
+          </div>
+
 
           <div class="mb-32">
             <button type="submit">Envoyer</button>

@@ -7,17 +7,18 @@
     $stmt->execute();
     $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
 //  -------- fin carroussel ---------------
-    $page_title="Accueil";
+    $page_title="CSM Fight Team - Accueil";
+    $meta_description="Bienvenue sur le site du CSM FIGHT TEAM, club de judo-jujitsu marseillais.";
     include_once 'includes/header.php';
     ?>
     <main>
       <div class="bg-hero">
-        <h1 class="ta-c mb-24">Bienvenu au CSM Fight Team</h1>
+        <h1 class="ta-c mb-24 ">Bienvenu au CSM Fight Team</h1>
         <div class="hero-grid">
           <div>
             <h2>À la une</h2>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati tempore nisi ab accusantium dolor perferendis recusandae ea iusto placeat pariatur esse incidunt, fugit earum minima iste magni fugiat, cum temporibus.</p>
-            <a href="#">En savoir +</a>
+            <p class="italic">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati tempore nisi ab accusantium dolor perferendis recusandae ea iusto placeat pariatur esse incidunt, fugit earum minima iste magni fugiat, cum temporibus.</p>
+            <a href="#" class="underline">En savoir +</a>
           </div>
           <div>
             <img src="assets/images/illustration.png" alt="Photo judo" class="color-w">
@@ -28,6 +29,8 @@
 <h2 class="mb-16">Ce que vous avez raté...</h2>
 <div class="carrousel">
   <div class="carrousel__slides">
+
+   <?php if ($articles) : ?>
     <?php foreach ($articles as $index => $article): ?>
       <div class="carrousel__slide <?= $index === 0 ? 'active' : '' ?>">
         <img src="<?= htmlspecialchars($article['img_event']) ?>" alt="<?= htmlspecialchars($article['title']) ?>">
@@ -39,6 +42,10 @@
         </div>
       </div>
     <?php endforeach; ?>
+    <?php else : ?>
+      <p>Aucun article disponible pour le moment.</p>
+    <?php endif; ?>
+
   </div>
 
   <!-- Boutons navigation -->

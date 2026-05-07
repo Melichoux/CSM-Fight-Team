@@ -56,7 +56,8 @@
             }
         }
     }
-    $page_title="Contactez-nous";
+    $page_title="Contactez-nous - CSM fight team";
+    $meta_description="Contactez le CSM Fight Team pour toute question sur nos cours de judo et jujitsu à Marseille. Réponse rapide garantie.";
     include_once 'includes/header.php';
     ?>
     <main class="dflex jc-c ai-c ">  <!-- modale envoi mail avec succes -->

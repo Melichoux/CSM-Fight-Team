@@ -1,6 +1,7 @@
 <?php
     include_once 'includes/head.php';
-    $page_title="Galerie";
+    $page_title="Galerie - CSM fight team";
+    $meta_description="Galerie photos du CSM Fight Team : compétitions, entraînements et moments forts de la vie du club.";
     include_once 'includes/header.php';
     ?>
 <main>

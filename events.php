@@ -1,6 +1,7 @@
 <?php
     include_once 'includes/head.php';
-    $page_title="A venir";
+    $page_title="A venir - CSM fight team";
+    $meta_description="Agenda des événements et compétitions du CSM Fight Team. Ne manquez aucune date importante de la saison.";
     include_once 'includes/header.php';
     ?>
 <main>

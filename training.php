@@ -1,6 +1,7 @@
 <?php
     include_once 'includes/head.php';
-    $page_title="Entrainements";
+    $page_title="Entrainements - CSM fight team";
+    $meta_description ="Consultez les horaires et tarifs des cours de judo et jujitsu du CSM Fight Team à Marseille.";
     include_once 'includes/header.php';
     ?>
 <main>

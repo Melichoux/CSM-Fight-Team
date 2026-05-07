@@ -1,6 +1,7 @@
 <?php
     include_once 'includes/head.php';
-    $page_title="Résultats";
+    $page_title="Résultats - CSM fight team";
+    $meta_description="Résultats des compétitions des athlètes du CSM Fight Team. Suivez les performances de nos judokas et combattants.";
     include_once 'includes/header.php';
     ?>
 <main>

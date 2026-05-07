@@ -34,6 +34,48 @@
 }
 
 
+/* <!-- ==========  BUTTON LOGOUT (admin profil)  ========== --> */
+.btn-logout-container {
+    background-color: rgb(37, 54, 73);
+    border-radius: 8px;
+    border: 1px solid aliceblue;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+.btn-logout {
+    color: aliceblue;
+    font-weight: bold;
+}
+
+.btn-logout:hover {
+    color: rgb(37, 54, 73);
+}
+
+.btn-logout-container:hover {
+    background-color: rgb(61, 181, 236);
+    transition: color 300ms;
+}
+
+.btn-delete-container {
+    background-color: rgb(37, 54, 73);
+    border-radius: 8px;
+    border: 1px solid aliceblue;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+.btn-delete {
+    color: aliceblue;
+    font-weight: bold;
+}
+
+.btn-delete-container:hover {
+    background-color: red;
+    transition: color 300ms;
+}
+
+
 /*-------------------------- gestion card ------------------------------*/
 .dashboard-grid {
     display: grid;
