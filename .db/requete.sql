@@ -44,6 +44,22 @@ CREATE TABLE csm_article(
       ON UPDATE CASCADE
 );
 
+CREATE TABLE csm_article_hero_section(
+   id_article INT UNSIGNED AUTO_INCREMENT,
+   date_event DATE,
+   img_event VARCHAR(255),
+   title VARCHAR(250),
+   intro VARCHAR(255),
+   description TEXT,
+   created_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
+   id_user INT UNSIGNED NOT NULL DEFAULT 1,
+   PRIMARY KEY(id_article),
+   FOREIGN KEY(id_user) REFERENCES csm_user(id_user)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE
+);
+
+
 CREATE TABLE csm_tag(
    id_tag INT UNSIGNED AUTO_INCREMENT,
    tag VARCHAR(50) NOT NULL,

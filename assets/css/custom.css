@@ -71,6 +71,10 @@ a:hover{
   align-items: center;
 }
 
+.img-hero {
+  max-width: 1000px;
+  max-height: 500px;
+}
     
 /* <!-- ==========  FOOTER  ========== --> */
 footer {

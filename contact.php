@@ -62,10 +62,10 @@
     ?>
     <main class="dflex jc-c ai-c ">  <!-- modale envoi mail avec succes -->
       <?php if ($success): ?>
-        <div id="succes-modal" class="modale">
+        <div class="modale">
             <div class="modaleCard">
-                <h2>Message envoyé !</h2>
-                <p>Merci de nous avoir contacté, nous ferons tout pour vous répondre dans les plus brefs délais. <br>
+                <h2 class="color-bck">Message envoyé !</h2>
+                <p class="color-bck">Merci de nous avoir contacté, nous ferons tout pour vous répondre dans les plus brefs délais. <br>
                   Vous allez etre redirigé vers la page d'accueil.
                 </p>
             </div>
@@ -73,10 +73,10 @@
       <?php endif; ?>
 
       <?php if (isset($errors['mail'])): ?>  <!-- modale erreur d'envoi mail -->
-        <div id="error-modal" class="modale" >
+        <div class="modale" >
             <div class="modaleCard">
                 <h2 class="color-r">Erreur d'envoi</h2>
-                <p>Une erreur est survenue, veuillez réessayer.</p>
+                <p class="color-bck">Une erreur est survenue, veuillez réessayer.</p>
                 <button onclick="document.getElementById('error-modal').remove()">Fermer</button>
             </div>
         </div>
