@@ -40,7 +40,30 @@
 
                     <!-- <a href> est utilisé pour de la navigation en interne et en externe à un site => bonne pratique + meilleur referencement au level du SEO + meilleur ancres pour les navigateurs et pour le parsing -->
                 </ul>
-            </nav>
-        </div>
+    </nav>
+                <!-- Menu burger -->
+        <button id="burgerBtn" aria-label="Ouvrir le menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+                <div id="sidebarOverlay"></div>
+                <nav id="sidebar" aria-label="Menu mobile">
+                    <ul>
+                        <li><a href="index.php">Accueil</a></li>
+                        <li><a href="catalogue_article.php">Actualités</a></li>
+                        <li><a href="club_history.php">La vie du club</a></li>
+                        <li class="sidebar-sub"><a href="club_history.php">Histoire du Club</a></li>
+                        <li class="sidebar-sub"><a href="gallery.php">Galeries Photos</a></li>
+                        <li class="sidebar-sub"><a href="results.php">Résultats</a></li>
+                        <li class="sidebar-sub"><a href="events.php">Agenda</a></li>
+                        <li><a href="training.php">Les cours</a></li>
+                        <li><a href="contact.php">Contactez-nous</a></li>
+                        <li><a href="login.php">Se connecter</a></li>
+                    </ul>
+                    </nav>
+                </div>
+
 
     </header>

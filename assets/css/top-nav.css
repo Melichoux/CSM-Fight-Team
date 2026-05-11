@@ -1,4 +1,4 @@
-
+/*---------- NavBar desktop ----------*/
 .navElmt {
     position: relative; /* Cette propriete permet de servir de position de reference a tous les elements enfants.
     Sans ca, les enfants se placeraient en fonction de la page entiere (CaD du body) */
@@ -59,4 +59,112 @@
     position: relative;  /* reste dans le flux pour pousser les éléments, mais permet z-index */
     z-index: 100; 
   }
+}
+
+/*---------- SideBar mobile ----------*/
+
+/* Bouton burger */
+#burgerBtn {
+    display: none; /*caché par defaut en desktop*/ 
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+
+#burgerBtn span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: aliceblue;
+    border-radius: 2px;
+    transition: all 0.25s ease;
+}
+
+#sidebar {
+    display: none; /* Sidebar - cachée hors écran par défaut */
+
+}
+
+#sidebarOverlay {
+    display: none; /* Overlay - caché par défaut */
+
+}
+
+@media (max-width: 768px) {
+
+    .mainNav {
+        display: none;     /* On cache la navbar desktop */
+
+    }
+
+    #burgerBtn {
+        display: flex;     /* On affiche le bouton burger */
+
+    }
+
+    #sidebarOverlay {
+        display: none; /* géré par JS via classe .open */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 99;
+    }
+
+    #sidebarOverlay.open {
+        display: block;
+    }
+
+    #sidebar {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 75%;
+        max-width: 300px;
+        height: 100%;
+        background-color: rgb(37, 54, 73);
+        border-left: 4px solid rgb(61, 181, 236);
+        z-index: 100;
+        transform: translateX(100%);
+        transition: transform 0.28s ease;
+        padding-top: 64px;
+    }
+
+    #sidebar.open {
+        transform: translateX(0);
+    }
+
+    /* Liens dans la sidebar */
+    #sidebar ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 0;
+        margin: 0;
+    }
+
+    #sidebar li {
+        width: 100%;
+        border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
+    }
+
+    #sidebar a {
+        display: block;
+        padding: 14px 20px;
+        color: aliceblue;
+        font-size: 14px;
+    }
+
+    /* Sous-éléments "La vie du club" */
+    .sidebar-sub a {
+        padding-left: 36px;
+        font-size: 13px;
+        color: rgba(240, 248, 255, 0.7);
+    }
 }

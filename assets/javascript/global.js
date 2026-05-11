@@ -14,3 +14,25 @@ document.addEventListener("click", () => {
 });
 }
 
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------------
+//ANCHOR - gestion de la sidebar en mobile
+const burgerBtn = document.getElementById('burgerBtn');
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('sidebarOverlay');
+
+burgerBtn.addEventListener('click', function() {
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('open');
+    // Met à jour l'attribut accessibilité
+    const isOpen = sidebar.classList.contains('open');
+    burgerBtn.setAttribute('aria-expanded', isOpen);
+});
+
+// Permet de fermer la sidebar en cliquant sur l'overlay
+overlay.addEventListener('click', function() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('open');
+    burgerBtn.setAttribute('aria-expanded', false);
+});
+
