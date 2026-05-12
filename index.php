@@ -21,7 +21,7 @@
             <a href="#" class="underline">En savoir +</a>
           </div>
           <div>
-            <img src="assets/images/two-judo-wrestlers-showing-their-technical-skills-fight-club.jpg" alt="Photo judo" class="color-w img-hero">
+            <img src="assets/images/two-judo-wrestlers-showing-their-technical-skills-fight-club.webp" alt="Photo judo" class="color-w img-hero" fetchpriority="high">
           </div>
         </div>
       </div>
